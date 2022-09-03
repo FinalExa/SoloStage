@@ -13,8 +13,8 @@ public class PCIdle : PCState
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         GoToMovementState(inputs);
-        GoToAttackState(inputs);
-        GoToDodgeState(inputs);
+        //GoToAttackState(inputs);
+        //GoToDodgeState(inputs);
     }
     #region ToMovementState
     private void GoToMovementState(Inputs inputs)

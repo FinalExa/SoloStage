@@ -1,7 +1,7 @@
 using UnityEngine;
 public class PCMoving : PCState
 {
-    private Vector3 lastDirection;
+    private Vector2 lastDirection;
     public PCMoving(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }
@@ -21,24 +21,19 @@ public class PCMoving : PCState
     }
     private void Movement()
     {
-        Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rb;
+        Rigidbody2D rigidbody = _pcStateMachine.pcController.pcReferences.rb;
         PCController pcController = _pcStateMachine.pcController;
-        Vector3 movementWithDirection = MovementInitialization();
-        if (movementWithDirection != Vector3.zero) lastDirection = movementWithDirection;
+        Vector2 movementWithDirection = MovementCalculateDirection();
+        if (movementWithDirection != Vector2.zero) lastDirection = movementWithDirection;
         rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
     }
 
-    private Vector3 MovementInitialization()
+    private Vector3 MovementCalculateDirection()
     {
-        Camera camera = _pcStateMachine.pcController.pcReferences.cam;
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        Vector3 forward = -camera.transform.forward;
-        forward.y = 0f;
-        Vector3 right = camera.transform.right;
-        right.y = 0f;
-        forward.Normalize();
-        right.Normalize();
-        return (inputs.MovementInput.x * forward) + (inputs.MovementInput.z * right);
+        Vector2 movementDirection = new Vector2(inputs.MovementInput.z, inputs.MovementInput.x);
+        movementDirection = movementDirection.normalized;
+        return movementDirection;
     }
     #endregion
 
@@ -47,8 +42,8 @@ public class PCMoving : PCState
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         GoToIdleState(inputs);
-        GoToAttackState(inputs);
-        GoToDodgeState(inputs);
+        //GoToAttackState(inputs);
+        //GoToDodgeState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)

@@ -35,7 +35,7 @@ public class PCCombo : MonoBehaviour
         comboHitOver = false;
         delayAfterHit = false;
         currentComboProgress = 0;
-        comboHits[currentComboProgress].gameObject.SetActive(true);
+        comboHits[currentComboProgress].gameObject.SetActive(false);
 
     }
     public void StartComboHitCheck()
