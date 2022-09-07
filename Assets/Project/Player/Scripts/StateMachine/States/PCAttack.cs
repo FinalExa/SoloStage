@@ -5,6 +5,7 @@ using UnityEngine;
 public class PCAttack : PCState
 {
     private PCCombo combo;
+    private Weapon weapon;
     public PCAttack(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }
@@ -12,6 +13,8 @@ public class PCAttack : PCState
     public override void Start()
     {
         combo = _pcStateMachine.pcController.pcReferences.pcCombo;
+        weapon = _pcStateMachine.pcController.equippedWeapon;
+        if (combo.currentWeapon != weapon) combo.currentWeapon = weapon;
         combo.StartComboHitCheck();
     }
 

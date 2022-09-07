@@ -6,7 +6,10 @@ using UnityEngine.Playables;
 public class PCCombo : MonoBehaviour
 {
     private PCReferences pcReferences;
-    [SerializeField] private PlayableDirector[] comboHits;
+    [HideInInspector] public Weapon currentWeapon;
+    [HideInInspector] public bool isAttacking;
+    [HideInInspector] public float attackTimer;
+    [HideInInspector] public float attackCount;
     [HideInInspector] public bool comboHitOver;
     [HideInInspector] public int currentComboProgress;
     [HideInInspector] public float comboDelayTimer;
@@ -26,6 +29,7 @@ public class PCCombo : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isAttacking) Attacking();
         if (delayAfterHit) DelayAfterHit();
         if (comboCancelDelay) CountToCancelCombo();
     }
@@ -35,8 +39,7 @@ public class PCCombo : MonoBehaviour
         comboHitOver = false;
         delayAfterHit = false;
         currentComboProgress = 0;
-        comboHits[currentComboProgress].gameObject.SetActive(false);
-
+        currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(false);
     }
     public void StartComboHitCheck()
     {
@@ -53,7 +56,36 @@ public class PCCombo : MonoBehaviour
     {
         comboHitOver = false;
         if (comboCancelDelay) comboCancelDelay = false;
-        comboHits[currentComboProgress].Play();
+        attackTimer = currentWeapon.weaponAttacks[currentComboProgress].duration;
+        currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(true);
+        attackCount = 0;
+        isAttacking = true;
+    }
+
+    private void Attacking()
+    {
+        WeaponAttack currentAttack = currentWeapon.weaponAttacks[currentComboProgress];
+        if (attackTimer > 0)
+        {
+            attackTimer -= Time.fixedDeltaTime;
+            attackCount += Time.fixedDeltaTime;
+            CheckActivatingHitboxes(currentAttack);
+        }
+        else
+        {
+            isAttacking = false;
+            currentAttack.attackObject.SetActive(false);
+            EndComboHit();
+        }
+    }
+
+    private void CheckActivatingHitboxes(WeaponAttack currentAttack)
+    {
+        foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
+        {
+            if (attackCount > hitboxToCheck.activationDelayAfterStart) hitboxToCheck.hitbox.SetActive(true);
+            if (attackCount > hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.hitbox.SetActive(false);
+        }
     }
 
     private void CountToCancelCombo()
@@ -61,17 +93,16 @@ public class PCCombo : MonoBehaviour
         if (comboCancelTimer > 0) comboCancelTimer -= Time.fixedDeltaTime;
         else
         {
-            comboHits[currentComboProgress].gameObject.SetActive(false);
+            currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(false);
             currentComboProgress = 0;
-            comboHits[currentComboProgress].gameObject.SetActive(true);
+            currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(true);
             comboCancelDelay = false;
         }
     }
 
     public void EndComboHit()
     {
-        comboHits[currentComboProgress].gameObject.SetActive(false);
-        if (currentComboProgress + 1 == comboHits.Length)
+        if (currentComboProgress + 1 == currentWeapon.weaponAttacks.Length)
         {
             currentComboProgress = 0;
             comboDelayTimer = pcReferences.pcData.comboEndCooldown;
@@ -84,7 +115,6 @@ public class PCCombo : MonoBehaviour
             comboCancelDelay = true;
         }
         delayAfterHit = true;
-        comboHits[currentComboProgress].gameObject.SetActive(true);
         comboHitOver = true;
     }
 }

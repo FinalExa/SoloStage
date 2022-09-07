@@ -5,9 +5,12 @@ public class PCMoving : PCState
     public PCMoving(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
     }
-    public override void Update()
+    public override void FixedUpdate()
     {
         Movement();
+    }
+    public override void Update()
+    {
         Transitions();
         UpdateSpeedValue();
     }
