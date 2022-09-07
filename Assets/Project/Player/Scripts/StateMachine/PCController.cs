@@ -12,6 +12,7 @@ public class PCController : Controller
     private void Start()
     {
         actualHealth = pcReferences.pcData.maxHP;
+        equippedWeapon.damageTag = whoToDamage;
     }
 
     private void Awake()

@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [HideInInspector] public float damageToDeal;
-    [HideInInspector] public string whoToDamage;
-    private bool lockDamage;
-
-    private void OnEnable()
-    {
-        lockDamage = false;
-    }
+    public Weapon thisWeapon;
+    public string whoToDamage;
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag(whoToDamage) && !lockDamage)
+        Controller otherController = other.gameObject.GetComponent<Controller>();
+        if (otherController != null && other.CompareTag(whoToDamage) && !thisWeapon.hitTargets.Contains(otherController))
         {
-            Controller controller = other.GetComponent<Controller>();
-            controller.HealthAddValue(-damageToDeal);
-            lockDamage = true;
+            otherController.HealthAddValue(-thisWeapon.currentDamage);
+            print(otherController.actualHealth);
+            thisWeapon.hitTargets.Add(otherController);
         }
     }
 }

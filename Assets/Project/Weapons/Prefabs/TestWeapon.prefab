@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5428283937636656295}
   - component: {fileID: 6679048505732738663}
+  - component: {fileID: 6959683734803628781}
+  - component: {fileID: 5049368378318203749}
   m_Layer: 0
   m_Name: Part2
   m_TagString: Untagged
@@ -84,6 +86,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6959683734803628781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981331029921076981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f286fec20b69954b89f78f6f83f543f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeapon: {fileID: 0}
+  whoToDamage: 
+--- !u!65 &5049368378318203749
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981331029921076981}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2581830175004883705
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +157,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7495816631790797736}
   - component: {fileID: 8687819636880189066}
+  - component: {fileID: 372124832846424178}
+  - component: {fileID: 3800646444012169788}
   m_Layer: 0
   m_Name: Part1
   m_TagString: Untagged
@@ -202,6 +233,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &372124832846424178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723229893466338715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f286fec20b69954b89f78f6f83f543f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeapon: {fileID: 0}
+  whoToDamage: 
+--- !u!65 &3800646444012169788
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3723229893466338715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3973095257617674574
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +270,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4326905911526256270}
   - component: {fileID: 4911629822061201862}
+  - component: {fileID: 3619313220854645133}
+  - component: {fileID: 1831959185887303171}
   m_Layer: 0
   m_Name: Part3
   m_TagString: Untagged
@@ -286,6 +346,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3619313220854645133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3973095257617674574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f286fec20b69954b89f78f6f83f543f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeapon: {fileID: 0}
+  whoToDamage: 
+--- !u!65 &1831959185887303171
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3973095257617674574}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5082435894386236358
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +383,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4482121110888356055}
   - component: {fileID: 3156673535270233935}
+  - component: {fileID: 4045211645567984367}
+  - component: {fileID: 2759995854882832607}
   m_Layer: 0
   m_Name: Part2
   m_TagString: Untagged
@@ -370,6 +459,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4045211645567984367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082435894386236358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f286fec20b69954b89f78f6f83f543f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeapon: {fileID: 0}
+  whoToDamage: 
+--- !u!65 &2759995854882832607
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5082435894386236358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5191978976500559939
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +530,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5672046059647391705}
   - component: {fileID: 1454146408760699260}
+  - component: {fileID: 9193824446273382510}
+  - component: {fileID: 891861648495276857}
   m_Layer: 0
   m_Name: Part1
   m_TagString: Untagged
@@ -488,6 +606,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9193824446273382510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6963200688940723616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f286fec20b69954b89f78f6f83f543f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeapon: {fileID: 0}
+  whoToDamage: 
+--- !u!65 &891861648495276857
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6963200688940723616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7589628558657085295
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +643,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1439498235277937769}
   - component: {fileID: 6888268793781167683}
+  - component: {fileID: 8271332517394981130}
+  - component: {fileID: 2303336240023073363}
   m_Layer: 0
   m_Name: Part3
   m_TagString: Untagged
@@ -572,6 +719,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8271332517394981130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7589628558657085295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f286fec20b69954b89f78f6f83f543f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeapon: {fileID: 0}
+  whoToDamage: 
+--- !u!65 &2303336240023073363
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7589628558657085295}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9078274290800371161
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: TESTWEAPON
+  currentDamage: 0
   comboCancelTime: 0.5
   comboEndDelay: 0.3
   weaponAttacks:
@@ -652,3 +827,5 @@ MonoBehaviour:
       activationDelayAfterStart: 0.2
       deactivationDelayAfterStart: 0.29
     hasAnimation: 1
+  hitTargets: []
+  damageTag: 

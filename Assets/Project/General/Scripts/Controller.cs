@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    [HideInInspector] public float actualHealth;
+    public float actualHealth;
 
     public virtual void HealthAddValue(float value)
     {
-        return;
+        actualHealth += value;
+        if (actualHealth <= 0) this.gameObject.SetActive(false);
     }
 }

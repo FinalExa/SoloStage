@@ -39,7 +39,6 @@ public class PCCombo : MonoBehaviour
         comboHitOver = false;
         delayAfterHit = false;
         currentComboProgress = 0;
-        //currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(false);
     }
     public void StartComboHitCheck()
     {
@@ -58,6 +57,7 @@ public class PCCombo : MonoBehaviour
         if (comboCancelDelay) comboCancelDelay = false;
         attackTimer = currentWeapon.weaponAttacks[currentComboProgress].duration;
         currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(true);
+        currentWeapon.currentDamage = currentWeapon.weaponAttacks[currentComboProgress].damage;
         attackCount = 0;
         isAttacking = true;
     }
@@ -103,6 +103,7 @@ public class PCCombo : MonoBehaviour
 
     public void EndComboHit()
     {
+        currentWeapon.hitTargets.Clear();
         if (currentComboProgress + 1 == currentWeapon.weaponAttacks.Length)
         {
             currentComboProgress = 0;

@@ -24,7 +24,7 @@ public class PCMoving : PCState
     }
     private void Movement()
     {
-        Rigidbody2D rigidbody = _pcStateMachine.pcController.pcReferences.rb;
+        Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rb;
         PCController pcController = _pcStateMachine.pcController;
         Vector2 movementWithDirection = MovementCalculateDirection();
         if (movementWithDirection != Vector2.zero) lastDirection = movementWithDirection;

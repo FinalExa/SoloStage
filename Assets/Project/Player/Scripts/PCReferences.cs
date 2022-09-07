@@ -8,7 +8,7 @@ public class PCReferences : MonoBehaviour
     public PCData pcData;
     [HideInInspector] public Camera cam;
     [HideInInspector] public Inputs inputs;
-    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public Rigidbody rb;
     [HideInInspector] public PCCombo pcCombo;
     [HideInInspector] public PlayableDirector combos;
 
@@ -16,7 +16,7 @@ public class PCReferences : MonoBehaviour
     {
         cam = FindObjectOfType<Camera>();
         inputs = this.gameObject.GetComponent<Inputs>();
-        rb = this.gameObject.GetComponent<Rigidbody2D>();
+        rb = this.gameObject.GetComponent<Rigidbody>();
         pcCombo = this.gameObject.GetComponent<PCCombo>();
     }
 }
