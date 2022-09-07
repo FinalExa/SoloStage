@@ -8,6 +8,7 @@ public class PCController : Controller
     [HideInInspector] public PCReferences pcReferences;
     [HideInInspector] public float actualSpeed;
     [SerializeField] private string whoToDamage;
+    [SerializeField] private Weapon equippedWeapon;
     private void Start()
     {
         actualHealth = pcReferences.pcData.maxHP;
