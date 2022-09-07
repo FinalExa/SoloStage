@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public string weaponName;
-    public float weaponCancelComboTime;
+    public float comboCancelTime;
+    public float comboEndDelay;
     public WeaponAttack[] weaponAttacks;
 }

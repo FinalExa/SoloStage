@@ -6,7 +6,6 @@ using UnityEngine.Playables;
 public class PCReferences : MonoBehaviour
 {
     public PCData pcData;
-    public Attack[] attack;
     [HideInInspector] public Camera cam;
     [HideInInspector] public Inputs inputs;
     [HideInInspector] public Rigidbody2D rb;

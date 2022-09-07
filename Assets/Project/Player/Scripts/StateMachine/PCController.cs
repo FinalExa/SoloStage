@@ -12,7 +12,6 @@ public class PCController : Controller
     private void Start()
     {
         actualHealth = pcReferences.pcData.maxHP;
-        SetupAttacks();
     }
 
     private void Awake()
@@ -24,14 +23,5 @@ public class PCController : Controller
     {
         actualHealth += valueToAdd;
         actualHealth = Mathf.Clamp(actualHealth, 0, pcReferences.pcData.maxHP);
-    }
-
-    private void SetupAttacks()
-    {
-        foreach (Attack atk in pcReferences.attack)
-        {
-            atk.damageToDeal = pcReferences.pcData.comboDamage;
-            atk.whoToDamage = whoToDamage;
-        }
     }
 }

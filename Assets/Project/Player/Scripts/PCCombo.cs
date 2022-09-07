@@ -39,7 +39,7 @@ public class PCCombo : MonoBehaviour
         comboHitOver = false;
         delayAfterHit = false;
         currentComboProgress = 0;
-        currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(false);
+        //currentWeapon.weaponAttacks[currentComboProgress].attackObject.SetActive(false);
     }
     public void StartComboHitCheck()
     {
@@ -73,6 +73,7 @@ public class PCCombo : MonoBehaviour
         }
         else
         {
+            CheckActivatingHitboxes(currentAttack);
             isAttacking = false;
             currentAttack.attackObject.SetActive(false);
             EndComboHit();
@@ -83,8 +84,8 @@ public class PCCombo : MonoBehaviour
     {
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
         {
-            if (attackCount > hitboxToCheck.activationDelayAfterStart) hitboxToCheck.hitbox.SetActive(true);
-            if (attackCount > hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.hitbox.SetActive(false);
+            if (attackCount >= hitboxToCheck.activationDelayAfterStart) hitboxToCheck.hitbox.SetActive(true);
+            if (attackCount >= hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.hitbox.SetActive(false);
         }
     }
 
@@ -105,13 +106,13 @@ public class PCCombo : MonoBehaviour
         if (currentComboProgress + 1 == currentWeapon.weaponAttacks.Length)
         {
             currentComboProgress = 0;
-            comboDelayTimer = pcReferences.pcData.comboEndCooldown;
+            comboDelayTimer = currentWeapon.comboEndDelay;
         }
         else
         {
+            comboDelayTimer = currentWeapon.weaponAttacks[currentComboProgress].afterDelay;
             currentComboProgress++;
-            comboDelayTimer = pcReferences.pcData.comboDelayBetweenHits;
-            comboCancelTimer = pcReferences.pcData.comboResetCooldown;
+            comboCancelTimer = currentWeapon.comboCancelTime;
             comboCancelDelay = true;
         }
         delayAfterHit = true;
