@@ -6,7 +6,7 @@ public class PCHealth : Health
 {
     public override void HealthAddValue(float healthToAdd)
     {
-        currentHealth += healthToAdd;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHP);
+        currentHP += healthToAdd;
+        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
     }
 }
