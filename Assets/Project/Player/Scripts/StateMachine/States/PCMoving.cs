@@ -28,7 +28,17 @@ public class PCMoving : PCState
         PCController pcController = _pcStateMachine.pcController;
         Vector2 movementWithDirection = MovementCalculateDirection();
         if (movementWithDirection != Vector2.zero) lastDirection = movementWithDirection;
+        GetDirectionForRotation(movementWithDirection);
         rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
+    }
+
+    private void GetDirectionForRotation(Vector2 direction)
+    {
+        Transform rotator = _pcStateMachine.pcController.rotator.transform;
+        if (direction.x > 0) rotator.eulerAngles = new Vector3(0f, 0f, 270f);
+        else if (direction.x < 0) rotator.eulerAngles = new Vector3(0f, 0f, 90f);
+        if (direction.y > 0) rotator.eulerAngles = new Vector3(0f, 0f, 0f);
+        else if (direction.y < 0) rotator.eulerAngles = new Vector3(0f, 0f, 180f);
     }
 
     private Vector3 MovementCalculateDirection()
