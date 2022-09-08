@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20795483de68394f8d94f28b6ea752b, type: 3}
   m_Name: PCData
   m_EditorClassIdentifier: 
-  maxHP: 10
-  comboDelayBetweenHits: 0
-  comboResetCooldown: 0
-  comboEndCooldown: 0
-  comboDamage: 0
+  maxHP: 100
   defaultMovementSpeed: 10
   defaultDirection: {x: 0, y: 0, z: 0}
   invulnerabilityTag: 

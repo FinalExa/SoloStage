@@ -9,12 +9,11 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Controller otherController = other.gameObject.GetComponent<Controller>();
-        if (otherController != null && other.CompareTag(whoToDamage) && !thisWeapon.hitTargets.Contains(otherController))
+        Health otherHealth = other.gameObject.GetComponent<Health>();
+        if (otherHealth != null && other.CompareTag(whoToDamage) && !thisWeapon.hitTargets.Contains(otherHealth))
         {
-            otherController.HealthAddValue(-thisWeapon.currentDamage);
-            print(otherController.actualHealth);
-            thisWeapon.hitTargets.Add(otherController);
+            otherHealth.HealthAddValue(-thisWeapon.currentDamage);
+            thisWeapon.hitTargets.Add(otherHealth);
         }
     }
 }

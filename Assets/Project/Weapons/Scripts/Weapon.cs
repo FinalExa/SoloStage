@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public float comboCancelTime;
     public float comboEndDelay;
     public WeaponAttack[] weaponAttacks;
-    public List<Controller> hitTargets;
+    public List<Health> hitTargets;
     public string damageTag;
 
     private void Start()
