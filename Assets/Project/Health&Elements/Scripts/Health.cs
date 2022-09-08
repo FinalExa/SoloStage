@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public float maxHP;
     [SerializeField] private bool autoSet;
     [SerializeField] private HealthBar healthBar;
+    public Element appliedElement;
 
     private void Start()
     {

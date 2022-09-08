@@ -69,9 +69,12 @@ MonoBehaviour:
   curState: 
   pcReferences: {fileID: 0}
   actualSpeed: 0
+  isInfused: 0
   whoToDamage: Enemy
   rotator: {fileID: 3739289720929784608}
   equippedWeapon: {fileID: 6666081877978285661}
+  equippedElement:
+    element: 1
 --- !u!114 &8879392324441081948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc00825246b2298408e1ef29cc4b237a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
+  currentHP: 0
   maxHP: 0
+  autoSet: 0
+  healthBar: {fileID: 0}
+  appliedElement:
+    element: 0
 --- !u!54 &335035898832884709
 Rigidbody:
   m_ObjectHideFlags: 0

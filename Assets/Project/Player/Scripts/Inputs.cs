@@ -8,6 +8,7 @@ public class Inputs : MonoBehaviour
     public bool RightClickInput { get; private set; }
     public Vector3 MovementInput { get; private set; }
     public bool DodgeInput { get; private set; }
+    public bool InfuseInput { get; private set; }
     private void Update()
     {
         GetInputs();
@@ -18,6 +19,7 @@ public class Inputs : MonoBehaviour
         GetRightClickInput();
         GetMovementInput();
         GetDodgeInput();
+        GetInfuseInput();
     }
     void GetLeftClickInput()
     {
@@ -40,10 +42,16 @@ public class Inputs : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) == true) DodgeInput = true;
         else DodgeInput = false;
     }
+    void GetInfuseInput()
+    {
+        if (Input.GetKeyDown(KeyCode.E) == true) InfuseInput = true;
+        else InfuseInput = false;
+    }
     public void StopAllInputs()
     {
         LeftClickInput = false;
         RightClickInput = false;
+        InfuseInput = false;
         MovementInput = Vector3.zero.normalized;
     }
 }
