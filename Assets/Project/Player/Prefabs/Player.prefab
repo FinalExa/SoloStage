@@ -75,6 +75,9 @@ MonoBehaviour:
   equippedWeapon: {fileID: 6666081877978285661}
   equippedElement:
     element: 1
+  availableElements:
+  - element: 1
+  - element: 2
 --- !u!114 &8879392324441081948
 MonoBehaviour:
   m_ObjectHideFlags: 0
