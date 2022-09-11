@@ -12,8 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67fae24ad52f1154aa6cd30cbdf19f14, type: 3}
   m_Name: ReactionList
   m_EditorClassIdentifier: 
-  elementName: 
-  placedElement:
-    element: 0
-  triggerElement:
-    element: 0
+  list:
+  - reactionName: Boil
+    reactionCombination:
+    - placedElement:
+        element: 2
+      triggerElement:
+        element: 1
+    reactionDamage:
+      enabled: 1
+      baseValue: 50
+      multiplier: 1
+  - reactionName: Vaporize
+    reactionCombination:
+    - placedElement:
+        element: 1
+      triggerElement:
+        element: 2
+    reactionDamage:
+      enabled: 1
+      baseValue: 50
+      multiplier: 2

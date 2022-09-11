@@ -21,7 +21,7 @@ public class Attack : MonoBehaviour
             if (otherHealth.appliedElement.element == Element.Elements.NONE) otherHealth.appliedElement.element = infusedElement.element;
             else if (otherHealth.appliedElement.element != infusedElement.element)
             {
-                reaction.ActivateReaction(otherHealth);
+                reaction.ActivateReaction(otherHealth, otherHealth.appliedElement, infusedElement);
             }
         }
         if (otherHealth != null && other.CompareTag(whoToDamage) && !thisWeapon.hitTargets.Contains(otherHealth))
