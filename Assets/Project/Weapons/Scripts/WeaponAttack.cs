@@ -12,8 +12,10 @@ public class WeaponAttack
     public struct WeaponAttackHitboxSequence
     {
         public GameObject hitbox;
+        public Attack attackRef;
         public float activationDelayAfterStart;
         public float deactivationDelayAfterStart;
+        public bool appliesElement;
     }
     public WeaponAttackHitboxSequence[] weaponAttackHitboxSequence;
     public bool hasAnimation;

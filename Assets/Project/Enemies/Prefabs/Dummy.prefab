@@ -298,6 +298,8 @@ MonoBehaviour:
   maxHP: 100
   autoSet: 1
   healthBar: {fileID: 1877869472918455649}
+  appliedElement:
+    element: 2
 --- !u!1001 &5713115845665116605
 PrefabInstance:
   m_ObjectHideFlags: 0

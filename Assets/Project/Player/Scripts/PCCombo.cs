@@ -5,7 +5,6 @@ using UnityEngine.Playables;
 
 public class PCCombo : MonoBehaviour
 {
-    private PCReferences pcReferences;
     [HideInInspector] public Weapon currentWeapon;
     [HideInInspector] public bool isAttacking;
     [HideInInspector] public float attackTimer;
@@ -15,13 +14,12 @@ public class PCCombo : MonoBehaviour
     [HideInInspector] public float comboDelayTimer;
     [HideInInspector] public float comboCancelTimer;
     [HideInInspector] public bool delayAfterHit;
+    private PCController pcController;
     private bool comboCancelDelay;
-
     private void Awake()
     {
-        pcReferences = this.gameObject.GetComponent<PCReferences>();
+        pcController = this.gameObject.GetComponent<PCController>();
     }
-
     private void Start()
     {
         ComboSetup();
@@ -84,8 +82,20 @@ public class PCCombo : MonoBehaviour
     {
         foreach (WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck in currentAttack.weaponAttackHitboxSequence)
         {
-            if (attackCount >= hitboxToCheck.activationDelayAfterStart) hitboxToCheck.hitbox.SetActive(true);
-            if (attackCount >= hitboxToCheck.deactivationDelayAfterStart) hitboxToCheck.hitbox.SetActive(false);
+            if (attackCount >= hitboxToCheck.activationDelayAfterStart)
+            {
+                hitboxToCheck.hitbox.SetActive(true);
+                if (pcController.isInfused)
+                {
+                    hitboxToCheck.attackRef.infusedElement = pcController.equippedElement;
+                    hitboxToCheck.attackRef.canApplyElement = true;
+                }
+            }
+            if (attackCount >= hitboxToCheck.deactivationDelayAfterStart)
+            {
+                hitboxToCheck.hitbox.SetActive(false);
+                hitboxToCheck.attackRef.canApplyElement = false;
+            }
         }
     }
 
