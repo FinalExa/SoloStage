@@ -119,42 +119,48 @@ MonoBehaviour:
   comboCancelTime: 0.5
   comboEndDelay: 0.3
   weaponAttacks:
-  - damage: 10
-    duration: 0.3
-    afterDelay: 0
-    attackObject: {fileID: 2581830175004883705}
-    weaponAttackHitboxSequence:
-    - hitbox: {fileID: 9004076173302494851}
-      activationDelayAfterStart: 0
-      deactivationDelayAfterStart: 0.1
-      appliesElement: 1
-    - hitbox: {fileID: 4303368172786517342}
-      activationDelayAfterStart: 0.1
-      deactivationDelayAfterStart: 0.2
-      appliesElement: 1
-    - hitbox: {fileID: 191682835951223700}
-      activationDelayAfterStart: 0.2
-      deactivationDelayAfterStart: 0.29
-      appliesElement: 1
-    hasAnimation: 1
   - damage: 5
     duration: 0.25
     afterDelay: 0.1
     attackObject: {fileID: 5191978976500559939}
     weaponAttackHitboxSequence:
     - hitbox: {fileID: 6963200688940723616}
+      attackRef: {fileID: 0}
       activationDelayAfterStart: 0
       deactivationDelayAfterStart: 0.1
       appliesElement: 1
     - hitbox: {fileID: 8046194297014861804}
+      attackRef: {fileID: 0}
       activationDelayAfterStart: 0.1
       deactivationDelayAfterStart: 0.15
       appliesElement: 1
     - hitbox: {fileID: 6303138157076779997}
+      attackRef: {fileID: 0}
       activationDelayAfterStart: 0.15
       deactivationDelayAfterStart: 0.24
       appliesElement: 1
     hasAnimation: 0
+  - damage: 10
+    duration: 0.3
+    afterDelay: 0
+    attackObject: {fileID: 2581830175004883705}
+    weaponAttackHitboxSequence:
+    - hitbox: {fileID: 9004076173302494851}
+      attackRef: {fileID: 0}
+      activationDelayAfterStart: 0
+      deactivationDelayAfterStart: 0.1
+      appliesElement: 1
+    - hitbox: {fileID: 4303368172786517342}
+      attackRef: {fileID: 0}
+      activationDelayAfterStart: 0.1
+      deactivationDelayAfterStart: 0.2
+      appliesElement: 1
+    - hitbox: {fileID: 191682835951223700}
+      attackRef: {fileID: 0}
+      activationDelayAfterStart: 0.2
+      deactivationDelayAfterStart: 0.29
+      appliesElement: 1
+    hasAnimation: 1
   hitTargets: []
   damageTag: 
 --- !u!1001 &38737637398863712
