@@ -32,7 +32,7 @@ public abstract class Combo : MonoBehaviour
     }
     private void ComboSetup()
     {
-        comboHitOver = false;
+        comboHitOver = true;
         delayAfterHit = false;
         currentComboProgress = 0;
     }
