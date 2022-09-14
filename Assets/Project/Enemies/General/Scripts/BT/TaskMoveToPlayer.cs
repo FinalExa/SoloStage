@@ -6,19 +6,19 @@ using BehaviorTree;
 
 public class TaskMoveToPlayer : Node
 {
-    private NavMeshAgent thisAgent;
+    private NavMeshAgent nav;
     private GameObject target;
 
-    public TaskMoveToPlayer(NavMeshAgent _thisAgent, GameObject _target)
+    public TaskMoveToPlayer(NavMeshAgent _nav, GameObject _target)
     {
-        thisAgent = _thisAgent;
+        nav = _nav;
         target = _target;
     }
 
     public override NodeState Evaluate()
     {
-        if (thisAgent.isStopped) thisAgent.isStopped = false;
-        thisAgent.SetDestination(target.transform.position);
+        if (nav.isStopped) nav.isStopped = false;
+        nav.SetDestination(target.transform.position);
         state = NodeState.RUNNING;
         return state;
     }
