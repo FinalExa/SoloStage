@@ -30,7 +30,6 @@ public class TaskIsCloseToPlayer : Node
             state = NodeState.SUCCESS;
             return state;
         }
-        //enemyController.ResetAttackTimer();
         state = NodeState.FAILURE;
         return state;
     }

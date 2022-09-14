@@ -8,7 +8,8 @@ public abstract class Combo : MonoBehaviour
     [HideInInspector] public int currentComboProgress;
     [HideInInspector] public bool isAttacking;
     [HideInInspector] public bool comboHitOver;
-    [HideInInspector] public bool delayAfterHit;
+    [HideInInspector] public bool comboDelay;
+    [HideInInspector] public bool comboEndDelay;
     [HideInInspector] public float attackTimer;
     [HideInInspector] public float attackCount;
     [HideInInspector] public float comboDelayTimer;
@@ -19,10 +20,10 @@ public abstract class Combo : MonoBehaviour
     {
         ComboSetup();
     }
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         if (isAttacking) Attacking();
-        if (delayAfterHit) DelayAfterHit();
+        if (comboDelay) ComboDelay();
         if (comboCancelDelay) CountToCancelCombo();
     }
 
@@ -33,21 +34,29 @@ public abstract class Combo : MonoBehaviour
     private void ComboSetup()
     {
         comboHitOver = true;
-        delayAfterHit = false;
+        comboDelay = false;
         currentComboProgress = 0;
     }
     public void StartComboHitCheck()
     {
-        if (!delayAfterHit) StartComboHit();
+        if (!comboDelay) StartComboHit();
     }
 
-    private void DelayAfterHit()
+    private void ComboDelay()
     {
         if (comboDelayTimer > 0) comboDelayTimer -= Time.fixedDeltaTime;
-        else delayAfterHit = false;
+        else
+        {
+            comboDelay = false;
+            if (comboEndDelay)
+            {
+                comboEndDelay = false;
+                OnComboEnd();
+            }
+        }
     }
 
-    private void StartComboHit()
+    protected void StartComboHit()
     {
         comboHitOver = false;
         comboCancelDelay = false;
@@ -110,13 +119,14 @@ public abstract class Combo : MonoBehaviour
         }
     }
 
-    public void EndComboHit()
+    private void EndComboHit()
     {
         currentWeapon.hitTargets.Clear();
         if (currentComboProgress + 1 == currentWeapon.weaponAttacks.Length)
         {
             currentComboProgress = 0;
             comboDelayTimer = currentWeapon.comboEndDelay;
+            comboEndDelay = true;
         }
         else
         {
@@ -125,7 +135,11 @@ public abstract class Combo : MonoBehaviour
             comboCancelTimer = currentWeapon.comboCancelTime;
             comboCancelDelay = true;
         }
-        delayAfterHit = true;
+        comboDelay = true;
         comboHitOver = true;
+    }
+    protected virtual void OnComboEnd()
+    {
+        return;
     }
 }
