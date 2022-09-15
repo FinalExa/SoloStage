@@ -9,6 +9,7 @@ public class PCController : MonoBehaviour
     [HideInInspector] public float actualSpeed;
     [HideInInspector] public bool isInfused;
     [SerializeField] private string whoToDamage;
+    public Rotation rotation;
     public GameObject rotator;
     public Weapon equippedWeapon;
     public Element equippedElement;

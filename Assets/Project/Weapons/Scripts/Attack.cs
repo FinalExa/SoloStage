@@ -13,10 +13,10 @@ public class Attack : MonoBehaviour
     {
         reaction = FindObjectOfType<Reaction>();
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Health otherHealth = other.gameObject.GetComponent<Health>();
-        if (otherHealth != null && canApplyElement)
+        if (otherHealth != null && canApplyElement && other.CompareTag(whoToDamage))
         {
             if (otherHealth.appliedElement.element == Element.Elements.NONE) otherHealth.appliedElement.element = infusedElement.element;
             else if (otherHealth.appliedElement.element != infusedElement.element)

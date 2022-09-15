@@ -1,9 +1,11 @@
 using UnityEngine;
 public class PCMoving : PCState
 {
-    private Vector2 lastDirection;
+    private Vector3 lastDirection;
+    private Rotation rotation;
     public PCMoving(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
+        SetRotation();
     }
     public override void FixedUpdate()
     {
@@ -13,6 +15,11 @@ public class PCMoving : PCState
     {
         Transitions();
         UpdateSpeedValue();
+    }
+
+    private void SetRotation()
+    {
+        rotation = _pcStateMachine.pcController.rotation;
     }
 
     #region Movement
@@ -26,25 +33,25 @@ public class PCMoving : PCState
     {
         Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rb;
         PCController pcController = _pcStateMachine.pcController;
-        Vector2 movementWithDirection = MovementCalculateDirection();
-        if (movementWithDirection != Vector2.zero) lastDirection = movementWithDirection;
+        Vector3 movementWithDirection = MovementCalculateDirection();
+        if (movementWithDirection != Vector3.zero) lastDirection = movementWithDirection;
         GetDirectionForRotation(movementWithDirection);
         rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
     }
 
-    private void GetDirectionForRotation(Vector2 direction)
+    private void GetDirectionForRotation(Vector3 direction)
     {
         Transform rotator = _pcStateMachine.pcController.rotator.transform;
-        if (direction.x > 0) rotator.eulerAngles = new Vector3(0f, 0f, 270f);
-        else if (direction.x < 0) rotator.eulerAngles = new Vector3(0f, 0f, 90f);
-        if (direction.y > 0) rotator.eulerAngles = new Vector3(0f, 0f, 0f);
-        else if (direction.y < 0) rotator.eulerAngles = new Vector3(0f, 0f, 180f);
+        if (direction.x > 0 && rotator.eulerAngles != rotation.right) rotator.eulerAngles = rotation.right;
+        else if (direction.x < 0 && rotator.eulerAngles != rotation.left) rotator.eulerAngles = rotation.left;
+        if (direction.z > 0 && rotator.eulerAngles != rotation.forward) rotator.eulerAngles = rotation.forward;
+        else if (direction.z < 0 && rotator.eulerAngles != rotation.back) rotator.eulerAngles = rotation.back;
     }
 
     private Vector3 MovementCalculateDirection()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        Vector2 movementDirection = new Vector2(inputs.MovementInput.z, inputs.MovementInput.x);
+        Vector3 movementDirection = new Vector3(inputs.MovementInput.z, 0f, inputs.MovementInput.x);
         movementDirection = movementDirection.normalized;
         return movementDirection;
     }
@@ -71,7 +78,7 @@ public class PCMoving : PCState
     #region ToAttackState
     private void GoToAttackState(Inputs inputs)
     {
-        if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.delayAfterHit)
+        if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.comboDelay)
         {
             _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
             _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
