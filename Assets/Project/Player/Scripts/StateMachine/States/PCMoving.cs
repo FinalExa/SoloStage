@@ -2,13 +2,10 @@ using UnityEngine;
 public class PCMoving : PCState
 {
     private Vector3 lastDirection;
-    private Vector3 forward;
-    private Vector3 back;
-    private Vector3 left;
-    private Vector3 right;
+    private Rotation rotation;
     public PCMoving(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
-        SetUpDirectionVectors();
+        SetRotation();
     }
     public override void FixedUpdate()
     {
@@ -20,12 +17,9 @@ public class PCMoving : PCState
         UpdateSpeedValue();
     }
 
-    private void SetUpDirectionVectors()
+    private void SetRotation()
     {
-        forward = new Vector3(90f, 0f, 0f);
-        back = new Vector3(90f, 180f, 0f);
-        left = new Vector3(90f, 270f, 0f);
-        right = new Vector3(90f, 90f, 0f);
+        rotation = _pcStateMachine.pcController.rotation;
     }
 
     #region Movement
@@ -48,10 +42,10 @@ public class PCMoving : PCState
     private void GetDirectionForRotation(Vector3 direction)
     {
         Transform rotator = _pcStateMachine.pcController.rotator.transform;
-        if (direction.x > 0 && rotator.eulerAngles != right) rotator.eulerAngles = right;
-        else if (direction.x < 0 && rotator.eulerAngles != left) rotator.eulerAngles = left;
-        if (direction.z > 0 && rotator.eulerAngles != forward) rotator.eulerAngles = forward;
-        else if (direction.z < 0 && rotator.eulerAngles != back) rotator.eulerAngles = back;
+        if (direction.x > 0 && rotator.eulerAngles != rotation.right) rotator.eulerAngles = rotation.right;
+        else if (direction.x < 0 && rotator.eulerAngles != rotation.left) rotator.eulerAngles = rotation.left;
+        if (direction.z > 0 && rotator.eulerAngles != rotation.forward) rotator.eulerAngles = rotation.forward;
+        else if (direction.z < 0 && rotator.eulerAngles != rotation.back) rotator.eulerAngles = rotation.back;
     }
 
     private Vector3 MovementCalculateDirection()

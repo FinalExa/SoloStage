@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: -6888960811879513065}
   - component: {fileID: 1013810345691996925}
   - component: {fileID: 4411711146796097810}
+  - component: {fileID: 2998667733631386080}
   - component: {fileID: 104195390220691059}
   m_Layer: 0
   m_Name: Dummy
@@ -333,6 +334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whoToDamage: Player
   enemyWeapon: {fileID: 5678930919128014703}
+  rotation: {fileID: 11400000, guid: 15548c58be5d52345b7c7ab7258da80f, type: 2}
+  isAlerted: 0
   attackDistance: 3
   playerTarget: {fileID: 0}
   enemyCombo: {fileID: 0}
@@ -373,6 +376,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyController: {fileID: 0}
+--- !u!114 &2998667733631386080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4453284662084435118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 689f98f12f08d384690f8d95e589fd24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotator: {fileID: 5980605139327975846}
 --- !u!195 &104195390220691059
 NavMeshAgent:
   m_ObjectHideFlags: 0

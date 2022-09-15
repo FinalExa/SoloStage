@@ -20,6 +20,7 @@ public class EnemyCombo : Combo
     public void ActivateEnemyCombo()
     {
         isInCombo = true;
+        enemyController.enemyRotator.Rotate();
     }
 
     private void EnemyAutoCombo()
