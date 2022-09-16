@@ -22,6 +22,5 @@ public class PCController : MonoBehaviour
     {
         pcReferences.health.SetHPStartup(pcReferences.pcData.maxHP);
         equippedWeapon.damageTag = whoToDamage;
-
     }
 }

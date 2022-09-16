@@ -6,13 +6,10 @@ public class PCElementEquip : MonoBehaviour
 {
     [SerializeField] private Element[] availableElements;
     private int elementIndex;
-    private PCController pcController;
     private PCReferences pcReferences;
-    [HideInInspector] public bool isInfused;
     [HideInInspector] public Element equippedElement;
     private void Awake()
     {
-        pcController = this.gameObject.GetComponent<PCController>();
         pcReferences = this.gameObject.GetComponent<PCReferences>();
     }
 
@@ -23,7 +20,6 @@ public class PCElementEquip : MonoBehaviour
 
     private void Update()
     {
-        Infusion();
         SwitchElement();
     }
     private void ElementsStartup()
@@ -34,7 +30,6 @@ public class PCElementEquip : MonoBehaviour
     private void SetElement()
     {
         equippedElement.element = availableElements[elementIndex].element;
-        print(equippedElement.element);
     }
     private void SwitchElement()
     {
@@ -43,14 +38,6 @@ public class PCElementEquip : MonoBehaviour
             elementIndex++;
             if (elementIndex >= availableElements.Length) elementIndex = 0;
             SetElement();
-        }
-    }
-    private void Infusion()
-    {
-        if (pcReferences.inputs.InfuseInput)
-        {
-            isInfused = !isInfused;
-            print(isInfused);
         }
     }
 }

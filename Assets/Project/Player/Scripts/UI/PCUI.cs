@@ -9,13 +9,14 @@ public class PCUI : MonoBehaviour
     [SerializeField] private Slider playerHealth;
     [SerializeField] private Slider playerNectar;
     [SerializeField] private TMP_Text equippedElementText;
-    private Health playerHealthRef;
+    [SerializeField] private TMP_Text infusedText;
+    private PCHealth playerHealthRef;
     private PCNectar playerNectarRef;
     private PCElementEquip playerElementEquip;
     private bool canUpdate;
     private void Awake()
     {
-        playerHealthRef = this.gameObject.GetComponentInParent<Health>();
+        playerHealthRef = this.gameObject.GetComponentInParent<PCHealth>();
         playerNectarRef = this.gameObject.GetComponentInParent<PCNectar>();
         playerElementEquip = this.gameObject.GetComponentInParent<PCElementEquip>();
     }
@@ -32,9 +33,10 @@ public class PCUI : MonoBehaviour
 
     private void PlayerUISetup()
     {
-        if (playerHealthRef != null && playerElementEquip != null)
+        if (playerHealthRef != null && playerElementEquip != null && playerNectar != null)
         {
             canUpdate = true;
+            equippedElementText.text = string.Empty;
             playerHealth.minValue = 0;
             playerHealth.maxValue = playerHealthRef.maxHP;
             playerHealth.value = playerHealth.maxValue;
@@ -48,6 +50,7 @@ public class PCUI : MonoBehaviour
         if (canUpdate)
         {
             equippedElementText.text = playerElementEquip.equippedElement.element.ToString();
+            infusedText.gameObject.SetActive(playerNectarRef.isInfused);
             playerHealth.value = playerHealthRef.currentHP;
             playerNectar.value = playerNectarRef.currentNectar;
         }

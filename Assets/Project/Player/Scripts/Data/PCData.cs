@@ -12,7 +12,7 @@ public class PCData : ScriptableObject
     public float maxNectar;
     public float nectarStopRegenCooldown;
     public float nectarRegenPerSecond;
-    public float nectarInfusionPerSecondComsuption;
+    public float nectarDrainPerSecond;
     [Header("Dodge Section")]
     public Vector3 defaultDirection;
     public string invulnerabilityTag;
