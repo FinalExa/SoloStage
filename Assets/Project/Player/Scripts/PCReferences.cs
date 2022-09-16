@@ -12,6 +12,8 @@ public class PCReferences : MonoBehaviour
     [HideInInspector] public PCCombo pcCombo;
     [HideInInspector] public PlayableDirector combos;
     [HideInInspector] public Health health;
+    [HideInInspector] public PCElementEquip pcElementEquip;
+    [HideInInspector] public PCNectar pcNectar;
 
     private void Awake()
     {
@@ -20,5 +22,7 @@ public class PCReferences : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody>();
         pcCombo = this.gameObject.GetComponent<PCCombo>();
         health = this.gameObject.GetComponent<Health>();
+        pcElementEquip = this.gameObject.GetComponent<PCElementEquip>();
+        pcNectar = this.gameObject.GetComponent<PCNectar>();
     }
 }
