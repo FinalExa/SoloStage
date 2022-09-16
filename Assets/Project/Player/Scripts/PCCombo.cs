@@ -13,9 +13,9 @@ public class PCCombo : Combo
 
     public override void Infusion(WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck)
     {
-        if (pcController.isInfused)
+        if (pcController.pcReferences.playerElementEquip.isInfused)
         {
-            hitboxToCheck.attackRef.infusedElement = pcController.equippedElement;
+            hitboxToCheck.attackRef.infusedElement = pcController.pcReferences.playerElementEquip.equippedElement;
             hitboxToCheck.attackRef.canApplyElement = true;
         }
     }
