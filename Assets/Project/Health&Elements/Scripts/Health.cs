@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     public float currentHP;
     public float maxHP;
-    public Element appliedElement;
+
 
     public virtual void SetHPStartup(float givenMaxHP)
     {
