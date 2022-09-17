@@ -17,7 +17,7 @@ public class Attack : MonoBehaviour
     {
         Health otherHealth = other.gameObject.GetComponent<Health>();
         ReactionAgent otherReactionAgent = other.gameObject.GetComponent<ReactionAgent>();
-        if (otherHealth != null && otherReactionAgent != null && canApplyElement && other.CompareTag(whoToDamage))
+        if (otherHealth != null && otherReactionAgent != null && canApplyElement && other.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
         {
             if (otherReactionAgent.appliedElement.element == Element.Elements.NONE) otherReactionAgent.appliedElement.element = infusedElement.element;
             else if (otherReactionAgent.appliedElement.element != infusedElement.element)
