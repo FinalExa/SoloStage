@@ -5,13 +5,13 @@ using UnityEngine;
 public class Reaction : MonoBehaviour
 {
     [SerializeField] private ReactionList reactionList;
+    [SerializeField] private ReactionText reactionText;
     private ReactionList.PossibleReaction currentReaction;
 
     public void ActivateReaction(Health targetHealth, ReactionAgent targetReactionAgent, Element _triggerElement)
     {
         Element _placedElement = targetReactionAgent.appliedElement;
         FindReaction(_placedElement, _triggerElement);
-        print(currentReaction.reactionName);
         if (currentReaction.reactionDamage.enabled)
         {
             float damage = currentReaction.reactionDamage.baseValue + (currentReaction.reactionDamage.multiplier * 0f);
@@ -19,6 +19,8 @@ public class Reaction : MonoBehaviour
         }
         targetReactionAgent.appliedElement.element = Element.Elements.NONE;
         targetReactionAgent.StartReactionICD(currentReaction.reactionICD);
+        ReactionText rt = Instantiate(reactionText, targetHealth.gameObject.transform.position, Quaternion.identity);
+        rt.SetReactionText(currentReaction.reactionName);
     }
 
     private void FindReaction(Element _placedElement, Element _triggerElement)

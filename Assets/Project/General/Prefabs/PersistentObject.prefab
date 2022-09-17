@@ -58,3 +58,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reactionList: {fileID: 11400000, guid: 5169db1b5371e7443ad8e413ce279aff, type: 2}
+  reactionText: {fileID: 2179290824085054652, guid: 3d53241005393df48b487c30e7dcdbc9, type: 3}
