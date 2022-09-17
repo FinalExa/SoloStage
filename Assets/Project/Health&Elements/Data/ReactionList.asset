@@ -13,16 +13,6 @@ MonoBehaviour:
   m_Name: ReactionList
   m_EditorClassIdentifier: 
   list:
-  - reactionName: Boil
-    reactionCombination:
-    - placedElement:
-        element: 2
-      triggerElement:
-        element: 1
-    reactionDamage:
-      enabled: 1
-      baseValue: 50
-      multiplier: 1
   - reactionName: Vaporize
     reactionCombination:
     - placedElement:
@@ -33,3 +23,15 @@ MonoBehaviour:
       enabled: 1
       baseValue: 50
       multiplier: 2
+    reactionICD: 3
+  - reactionName: Boil
+    reactionCombination:
+    - placedElement:
+        element: 2
+      triggerElement:
+        element: 1
+    reactionDamage:
+      enabled: 1
+      baseValue: 50
+      multiplier: 1
+    reactionICD: 2

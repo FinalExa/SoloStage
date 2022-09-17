@@ -24,6 +24,7 @@ public class ReactionList : ScriptableObject
         public string reactionName;
         public ReactionCombination[] reactionCombination;
         public ReactionDamage reactionDamage;
+        public float reactionICD;
     }
     public PossibleReaction[] list;
 }

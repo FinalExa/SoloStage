@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 1013810345691996925}
   - component: {fileID: 4411711146796097810}
   - component: {fileID: 2998667733631386080}
+  - component: {fileID: 4752441347703833950}
   - component: {fileID: 104195390220691059}
   m_Layer: 0
   m_Name: Dummy
@@ -183,8 +184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHP: 100
   maxHP: 100
-  appliedElement:
-    element: 2
 --- !u!114 &-6888960811879513065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +254,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotator: {fileID: 5980605139327975846}
+--- !u!114 &4752441347703833950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4453284662084435118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc5e2a3cfa2a274488908c2458db3b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appliedElement:
+    element: 2
 --- !u!195 &104195390220691059
 NavMeshAgent:
   m_ObjectHideFlags: 0

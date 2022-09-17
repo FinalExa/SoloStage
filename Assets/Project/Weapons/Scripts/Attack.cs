@@ -16,12 +16,13 @@ public class Attack : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Health otherHealth = other.gameObject.GetComponent<Health>();
-        if (otherHealth != null && canApplyElement && other.CompareTag(whoToDamage))
+        ReactionAgent otherReactionAgent = other.gameObject.GetComponent<ReactionAgent>();
+        if (otherHealth != null && otherReactionAgent != null && canApplyElement && other.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
         {
-            if (otherHealth.appliedElement.element == Element.Elements.NONE) otherHealth.appliedElement.element = infusedElement.element;
-            else if (otherHealth.appliedElement.element != infusedElement.element)
+            if (otherReactionAgent.appliedElement.element == Element.Elements.NONE) otherReactionAgent.appliedElement.element = infusedElement.element;
+            else if (otherReactionAgent.appliedElement.element != infusedElement.element)
             {
-                reaction.ActivateReaction(otherHealth, otherHealth.appliedElement, infusedElement);
+                reaction.ActivateReaction(otherHealth, otherReactionAgent, infusedElement);
             }
         }
         if (otherHealth != null && other.CompareTag(whoToDamage) && !thisWeapon.hitTargets.Contains(otherHealth))
