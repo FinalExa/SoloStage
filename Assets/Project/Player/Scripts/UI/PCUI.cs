@@ -37,13 +37,21 @@ public class PCUI : MonoBehaviour
         {
             canUpdate = true;
             equippedElementText.text = string.Empty;
-            playerHealth.minValue = 0;
-            playerHealth.maxValue = playerHealthRef.maxHP;
-            playerHealth.value = playerHealth.maxValue;
-            playerNectar.minValue = 0;
-            playerNectar.maxValue = playerNectarRef.maxNectar;
-            playerNectar.value = playerNectar.maxValue;
+            SetHealthBarStartup();
+            SetNectarBarStartup();
         }
+    }
+    private void SetHealthBarStartup()
+    {
+        playerHealth.minValue = 0;
+        playerHealth.maxValue = playerHealthRef.maxHP;
+        playerHealth.value = playerHealth.maxValue;
+    }
+    private void SetNectarBarStartup()
+    {
+        playerNectar.minValue = 0;
+        playerNectar.maxValue = playerNectarRef.maxNectar;
+        playerNectar.value = playerNectar.maxValue;
     }
     private void PlayerUIUpdate()
     {
@@ -51,8 +59,8 @@ public class PCUI : MonoBehaviour
         {
             equippedElementText.text = playerElementEquip.equippedElement.element.ToString();
             infusedText.gameObject.SetActive(playerNectarRef.isInfused);
-            playerHealth.value = playerHealthRef.currentHP;
-            playerNectar.value = playerNectarRef.currentNectar;
+            if (playerHealthRef.currentHP != playerHealth.value) playerHealth.value = playerHealthRef.currentHP;
+            if (playerNectarRef.currentNectar != playerNectar.value) playerNectar.value = playerNectarRef.currentNectar;
         }
     }
 }
