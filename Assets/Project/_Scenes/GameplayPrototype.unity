@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 135105829}
   - component: {fileID: 135105828}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -175,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 218026d1ad356ae4d817c1f1999a455d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,7 +213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135105827}
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0, y: -8.5, z: -8}
+  m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -299,7 +299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311959434}
   m_LocalRotation: {x: 0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 0, y: 2.0000005, z: -8}
+  m_LocalPosition: {x: 0, y: 10, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -432,7 +432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 757650267075575231, guid: 8b4598670bae41e4d98bdf2f891876ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 757650267075575231, guid: 8b4598670bae41e4d98bdf2f891876ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -513,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4453284662084435119, guid: dc438e467cc2d5f41b5fcea3756916a6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4453284662084435119, guid: dc438e467cc2d5f41b5fcea3756916a6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -570,6 +570,22 @@ PrefabInstance:
     - target: {fileID: 5284237330729669780, guid: dc438e467cc2d5f41b5fcea3756916a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487318341889902935, guid: dc438e467cc2d5f41b5fcea3756916a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5731642989158368262, guid: dc438e467cc2d5f41b5fcea3756916a6, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8202315248060624959, guid: dc438e467cc2d5f41b5fcea3756916a6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8587317299802816291, guid: dc438e467cc2d5f41b5fcea3756916a6, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc438e467cc2d5f41b5fcea3756916a6, type: 3}
