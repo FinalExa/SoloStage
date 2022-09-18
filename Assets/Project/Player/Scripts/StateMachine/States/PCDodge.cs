@@ -46,7 +46,7 @@ public class PCDodge : PCState
             _pcStateMachine.pcController.pcReferences.rb.velocity = direction * dodgeSpeed;
             if (_pcStateMachine.pcController.receivedDamage > 0)
             {
-                Debug.Log("Interrupted!");
+                _pcStateMachine.pcController.DodgeInterruptedFeedbackSet();
                 DodgeEnd();
             }
         }

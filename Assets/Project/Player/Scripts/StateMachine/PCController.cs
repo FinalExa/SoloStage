@@ -14,6 +14,10 @@ public class PCController : MonoBehaviour
     [HideInInspector] public bool dodgeInCooldown;
     private float dodgeCooldownTimer;
     [HideInInspector] public float receivedDamage;
+    [SerializeField] private GameObject tempDodgeInterrupted;
+    [SerializeField] private float tempDodgeInterruptedDuration;
+    private bool tempDodgeInterruptedActive;
+    private float tempDodgeInterruptedTimer;
 
 
     private void Awake()
@@ -23,12 +27,14 @@ public class PCController : MonoBehaviour
 
     private void Start()
     {
+        tempDodgeInterrupted.SetActive(false);
         pcReferences.health.SetHPStartup(pcReferences.pcData.maxHP);
         equippedWeapon.damageTag = whoToDamage;
     }
     private void Update()
     {
         DodgeCooldown();
+        DodgeInterruptedFeedback();
         if (receivedDamage > 0) receivedDamage--;
     }
 
@@ -44,6 +50,26 @@ public class PCController : MonoBehaviour
         {
             if (dodgeCooldownTimer > 0) dodgeCooldownTimer -= Time.deltaTime;
             else dodgeInCooldown = false;
+        }
+    }
+
+    public void DodgeInterruptedFeedbackSet()
+    {
+        tempDodgeInterrupted.SetActive(true);
+        tempDodgeInterruptedTimer = tempDodgeInterruptedDuration;
+        tempDodgeInterruptedActive = true;
+    }
+
+    private void DodgeInterruptedFeedback()
+    {
+        if (tempDodgeInterruptedActive)
+        {
+            if (tempDodgeInterruptedTimer > 0) tempDodgeInterruptedTimer -= Time.deltaTime;
+            else
+            {
+                tempDodgeInterrupted.SetActive(false);
+                tempDodgeInterruptedActive = false;
+            }
         }
     }
 }
