@@ -33,7 +33,7 @@ public class PCElementEquip : MonoBehaviour
     }
     private void SwitchElement()
     {
-        if (pcReferences.inputs.DodgeInput)
+        if (pcReferences.inputs.ElementSwitchInput)
         {
             elementIndex++;
             if (elementIndex >= availableElements.Length) elementIndex = 0;

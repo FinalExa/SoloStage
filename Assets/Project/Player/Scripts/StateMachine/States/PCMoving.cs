@@ -63,7 +63,7 @@ public class PCMoving : PCState
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         GoToIdleState(inputs);
         GoToAttackState(inputs);
-        //GoToDodgeState(inputs);
+        GoToDodgeState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)

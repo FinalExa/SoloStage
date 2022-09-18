@@ -11,6 +11,9 @@ public class PCController : MonoBehaviour
     public Rotation rotation;
     public GameObject rotator;
     public Weapon equippedWeapon;
+    [HideInInspector] public bool dodgeInCooldown;
+    private float dodgeCooldownTimer;
+    [HideInInspector] public float receivedDamage;
 
 
     private void Awake()
@@ -22,5 +25,25 @@ public class PCController : MonoBehaviour
     {
         pcReferences.health.SetHPStartup(pcReferences.pcData.maxHP);
         equippedWeapon.damageTag = whoToDamage;
+    }
+    private void Update()
+    {
+        DodgeCooldown();
+        if (receivedDamage > 0) receivedDamage--;
+    }
+
+    public void SetDodgeEndCooldown(float endCooldown)
+    {
+        dodgeCooldownTimer = endCooldown;
+        dodgeInCooldown = true;
+    }
+
+    public void DodgeCooldown()
+    {
+        if (dodgeInCooldown)
+        {
+            if (dodgeCooldownTimer > 0) dodgeCooldownTimer -= Time.deltaTime;
+            else dodgeInCooldown = false;
+        }
     }
 }

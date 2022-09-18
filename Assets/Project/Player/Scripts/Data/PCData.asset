@@ -18,8 +18,10 @@ MonoBehaviour:
   nectarStopRegenCooldown: 1
   nectarRegenPerSecond: 25
   nectarDrainPerSecond: 33
-  defaultDirection: {x: 0, y: 0, z: 0}
-  invulnerabilityTag: 
-  dodgeDuration: 0
-  dodgeDistance: 0
-  dodgeStopTime: 0
+  defaultDirection: {x: 0, y: 0, z: 1}
+  invulnerabilityTag: Invulnerable
+  dodgeInvulnerabilityStart: 0.1
+  dodgeInvulnerabilityEnd: 0.2
+  dodgeDuration: 0.3
+  dodgeDistance: 5
+  dodgeEndCooldown: 0.3

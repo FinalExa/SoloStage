@@ -16,7 +16,9 @@ public class PCData : ScriptableObject
     [Header("Dodge Section")]
     public Vector3 defaultDirection;
     public string invulnerabilityTag;
+    public float dodgeInvulnerabilityStart;
+    public float dodgeInvulnerabilityEnd;
     public float dodgeDuration;
     public float dodgeDistance;
-    public float dodgeStopTime;
+    public float dodgeEndCooldown;
 }
