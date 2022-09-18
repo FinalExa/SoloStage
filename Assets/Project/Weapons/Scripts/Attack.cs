@@ -25,9 +25,9 @@ public class Attack : MonoBehaviour
                 reaction.ActivateReaction(otherHealth, otherReactionAgent, infusedElement);
             }
         }
-        if (otherHealth != null && other.CompareTag(whoToDamage) && !thisWeapon.hitTargets.Contains(otherHealth))
+        if (otherHealth != null && (other.CompareTag(whoToDamage) || other.CompareTag("Invulnerable")) && !thisWeapon.hitTargets.Contains(otherHealth))
         {
-            otherHealth.HealthAddValue(-thisWeapon.currentDamage);
+            if (other.CompareTag(whoToDamage)) otherHealth.HealthAddValue(-thisWeapon.currentDamage);
             thisWeapon.hitTargets.Add(otherHealth);
         }
     }

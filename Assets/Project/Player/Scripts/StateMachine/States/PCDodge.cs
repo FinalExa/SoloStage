@@ -8,8 +8,7 @@ public class PCDodge : PCState
     private string playerTag;
     private float dodgeTimer;
     private float dodgeSpeed;
-    private bool startDodge;
-    private bool wait;
+    private float timeCount;
     public PCDodge(PCStateMachine pcStateMachine, Vector3 receivedDirection) : base(pcStateMachine)
     {
         direction = receivedDirection;
@@ -17,23 +16,22 @@ public class PCDodge : PCState
 
     public override void Start()
     {
-        DodgeSetup();
+        if (!_pcStateMachine.pcController.dodgeInCooldown) DodgeSetup();
+        else Transitions();
     }
 
     public override void FixedUpdate()
     {
-        if (startDodge) Dodge();
-        if (wait) DodgeEndWait();
+        Dodge();
     }
 
     private void DodgeSetup()
     {
         PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
         playerTag = _pcStateMachine.gameObject.tag;
-        _pcStateMachine.gameObject.tag = pcData.invulnerabilityTag;
         dodgeTimer = pcData.dodgeDuration;
         dodgeSpeed = pcData.dodgeDistance / pcData.dodgeDuration;
-        startDodge = true;
+        timeCount = 0f;
     }
 
     private void Dodge()
@@ -41,31 +39,25 @@ public class PCDodge : PCState
         if (dodgeTimer > 0)
         {
             dodgeTimer -= Time.fixedDeltaTime;
+            timeCount += Time.fixedDeltaTime;
+            PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
+            if (timeCount >= pcData.dodgeInvulnerabilityStart && timeCount < pcData.dodgeInvulnerabilityEnd) _pcStateMachine.gameObject.tag = pcData.invulnerabilityTag;
+            else if (timeCount >= pcData.dodgeInvulnerabilityEnd) _pcStateMachine.gameObject.tag = playerTag;
             _pcStateMachine.pcController.pcReferences.rb.velocity = direction * dodgeSpeed;
+            if (_pcStateMachine.pcController.receivedDamage > 0)
+            {
+                _pcStateMachine.pcController.DodgeInterruptedFeedbackSet();
+                DodgeEnd();
+            }
         }
-        else
-        {
-            startDodge = false;
-            DodgeEndSetup();
-        }
+        else DodgeEnd();
     }
 
-    private void DodgeEndSetup()
+    private void DodgeEnd()
     {
         _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
-        _pcStateMachine.gameObject.tag = playerTag;
-        dodgeTimer = _pcStateMachine.pcController.pcReferences.pcData.dodgeStopTime;
-        wait = true;
-    }
-
-    private void DodgeEndWait()
-    {
-        if (dodgeTimer > 0) dodgeTimer -= Time.fixedDeltaTime;
-        else
-        {
-            wait = false;
-            Transitions();
-        }
+        _pcStateMachine.pcController.SetDodgeEndCooldown(_pcStateMachine.pcController.pcReferences.pcData.dodgeEndCooldown);
+        Transitions();
     }
     #region Transitions
     private void Transitions()

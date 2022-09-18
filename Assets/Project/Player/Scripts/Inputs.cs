@@ -8,6 +8,7 @@ public class Inputs : MonoBehaviour
     public bool RightClickInput { get; private set; }
     public Vector3 MovementInput { get; private set; }
     public bool DodgeInput { get; private set; }
+    public bool ElementSwitchInput { get; private set; }
     public bool InfuseInput { get; private set; }
     private void Update()
     {
@@ -19,6 +20,7 @@ public class Inputs : MonoBehaviour
         GetRightClickInput();
         GetMovementInput();
         GetDodgeInput();
+        GetElementSwitchInput();
         GetInfuseInput();
     }
     void GetLeftClickInput()
@@ -41,6 +43,11 @@ public class Inputs : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) == true) DodgeInput = true;
         else DodgeInput = false;
+    }
+    void GetElementSwitchInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) == true) ElementSwitchInput = true;
+        else ElementSwitchInput = false;
     }
     void GetInfuseInput()
     {

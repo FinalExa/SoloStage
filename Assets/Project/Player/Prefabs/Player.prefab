@@ -76,6 +76,11 @@ MonoBehaviour:
   rotation: {fileID: 11400000, guid: 15548c58be5d52345b7c7ab7258da80f, type: 2}
   rotator: {fileID: 3739289720929784608}
   equippedWeapon: {fileID: 6666081877978285661}
+  dodgeInCooldown: 0
+  receivedDamage: 0
+  tempDodgeInterrupted: {fileID: 7529439107801202960}
+  tempDodgeInterruptedDuration: 0.5
+  tempDodgeInterruptedActive: 0
 --- !u!114 &5359775987464863424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +166,7 @@ MonoBehaviour:
   pcCombo: {fileID: 0}
   combos: {fileID: 0}
   health: {fileID: 0}
+  reactionAgent: {fileID: 0}
   pcElementEquip: {fileID: 0}
   pcNectar: {fileID: 0}
 --- !u!114 &9201347762945471319
@@ -381,6 +387,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2349690956855991883, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5108540240053452791, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -486,6 +496,11 @@ PrefabInstance:
 --- !u!224 &1822663062516213580 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5885450336590936087, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
+  m_PrefabInstance: {fileID: 5252947038491221851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7529439107801202960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2349690956855991883, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
   m_PrefabInstance: {fileID: 5252947038491221851}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6741433220025330077
