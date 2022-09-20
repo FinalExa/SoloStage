@@ -15,6 +15,7 @@ public class PCIdle : PCState
         GoToMovementState(inputs);
         GoToAttackState(inputs);
         GoToDodgeState(inputs);
+        GoToSkillState(inputs);
     }
     #region ToMovementState
     private void GoToMovementState(Inputs inputs)
@@ -35,6 +36,12 @@ public class PCIdle : PCState
         {
             _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.pcReferences.pcData.defaultDirection));
         }
+    }
+    #endregion
+    #region ToSkillState
+    private void GoToSkillState(Inputs inputs)
+    {
+        if (inputs.RightClickInput) _pcStateMachine.SetState(new PCSkill(_pcStateMachine));
     }
     #endregion
     #endregion

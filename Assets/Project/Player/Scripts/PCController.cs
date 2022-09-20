@@ -18,6 +18,8 @@ public class PCController : MonoBehaviour
     [SerializeField] private float tempDodgeInterruptedDuration;
     private bool tempDodgeInterruptedActive;
     private float tempDodgeInterruptedTimer;
+    public Skill skill;
+    [HideInInspector] public bool skillActive;
 
 
     private void Awake()
@@ -30,6 +32,8 @@ public class PCController : MonoBehaviour
         tempDodgeInterrupted.SetActive(false);
         pcReferences.health.SetHPStartup(pcReferences.pcData.maxHP);
         equippedWeapon.damageTag = whoToDamage;
+        skill.SkillSetup(whoToDamage);
+        skill.gameObject.SetActive(false);
     }
     private void Update()
     {
@@ -71,5 +75,11 @@ public class PCController : MonoBehaviour
                 tempDodgeInterruptedActive = false;
             }
         }
+    }
+
+    public void LaunchSkill()
+    {
+        skill.gameObject.SetActive(true);
+        skill.SkillLaunch();
     }
 }

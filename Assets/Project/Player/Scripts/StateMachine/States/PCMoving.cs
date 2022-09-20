@@ -64,6 +64,7 @@ public class PCMoving : PCState
         GoToIdleState(inputs);
         GoToAttackState(inputs);
         GoToDodgeState(inputs);
+        GoToSkillState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
@@ -92,6 +93,12 @@ public class PCMoving : PCState
         {
             _pcStateMachine.SetState(new PCDodge(_pcStateMachine, lastDirection));
         }
+    }
+    #endregion
+    #region ToSkillState
+    private void GoToSkillState(Inputs inputs)
+    {
+        if (inputs.RightClickInput) _pcStateMachine.SetState(new PCSkill(_pcStateMachine));
     }
     #endregion
     #endregion
