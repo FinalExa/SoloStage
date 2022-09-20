@@ -56,7 +56,7 @@ public class Skill : MonoBehaviour
             {
                 skillTravelTime -= Time.deltaTime;
                 this.transform.forward = startForward;
-                Vector3 velocity = this.transform.forward * skillSpeed * Time.deltaTime;
+                Vector3 velocity = this.transform.forward * skillSpeed;
                 print(velocity);
                 skillRb.velocity = velocity;
             }
