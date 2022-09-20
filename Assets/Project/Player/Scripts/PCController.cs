@@ -18,7 +18,7 @@ public class PCController : MonoBehaviour
     [SerializeField] private float tempDodgeInterruptedDuration;
     private bool tempDodgeInterruptedActive;
     private float tempDodgeInterruptedTimer;
-    [SerializeField] private Skill skill;
+    public Skill skill;
     [HideInInspector] public bool skillActive;
 
 

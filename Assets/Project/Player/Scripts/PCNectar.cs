@@ -9,6 +9,7 @@ public class PCNectar : MonoBehaviour
     [HideInInspector] public bool isInfused;
     private bool nectarRegenCooldown;
     private bool nectarRegen;
+    private bool nectarSubtracted;
     private float nectarCooldownTimer;
     private PCReferences pcReferences;
 
@@ -29,6 +30,16 @@ public class PCNectar : MonoBehaviour
         NectarRegen();
         NectarRegenCooldown();
     }
+    public bool NectarSubtract(float amount)
+    {
+        if (currentNectar - amount >= 0)
+        {
+            currentNectar -= amount;
+            nectarSubtracted = true;
+            return true;
+        }
+        else return false;
+    }
     private void Infusion()
     {
         if (pcReferences.inputs.InfuseInput)
@@ -39,7 +50,6 @@ public class PCNectar : MonoBehaviour
                 nectarRegen = false;
                 nectarRegenCooldown = false;
             }
-            if (!isInfused && currentNectar < maxNectar) SetupNectarRegenCooldown();
         }
     }
     private void DrainNectar()
@@ -51,7 +61,6 @@ public class PCNectar : MonoBehaviour
             if (currentNectar <= 0f)
             {
                 isInfused = false;
-                SetupNectarRegenCooldown();
             }
         }
     }
@@ -66,18 +75,20 @@ public class PCNectar : MonoBehaviour
                 nectarRegen = true;
             }
         }
+        else if (currentNectar < maxNectar && !isInfused && !nectarRegen) SetupNectarRegenCooldown();
     }
     private void NectarRegen()
     {
-        if (nectarRegen && currentNectar < maxNectar)
+        if (nectarRegen && currentNectar < maxNectar && !nectarSubtracted)
         {
             currentNectar = Mathf.Clamp(currentNectar + (pcReferences.pcData.nectarRegenPerSecond * Time.deltaTime), 0f, pcReferences.pcData.maxNectar);
         }
-        else if (currentNectar == maxNectar) nectarRegen = false;
+        else if (currentNectar == maxNectar || nectarSubtracted) nectarRegen = false;
     }
     private void SetupNectarRegenCooldown()
     {
         nectarRegen = false;
+        nectarSubtracted = false;
         nectarRegenCooldown = true;
         nectarCooldownTimer = pcReferences.pcData.nectarStopRegenCooldown;
     }

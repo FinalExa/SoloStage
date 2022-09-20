@@ -10,7 +10,10 @@ public class PCSkill : PCState
 
     public override void Start()
     {
-        if (!_pcStateMachine.pcController.skillActive) _pcStateMachine.pcController.LaunchSkill();
+        if (!_pcStateMachine.pcController.skillActive)
+        {
+            if (_pcStateMachine.pcController.pcReferences.pcNectar.NectarSubtract(_pcStateMachine.pcController.skill.skillNectarCost)) _pcStateMachine.pcController.LaunchSkill();
+        }
         Transitions();
     }
     #region Transitions
