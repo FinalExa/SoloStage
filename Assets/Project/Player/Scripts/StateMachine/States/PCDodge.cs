@@ -66,6 +66,7 @@ public class PCDodge : PCState
         GoToIdleState(inputs);
         GoToMovementState(inputs);
         GoToAttackState(inputs);
+        GoToSkillState(inputs);
     }
     #region ToIdleState
     private void GoToIdleState(Inputs inputs)
@@ -87,6 +88,12 @@ public class PCDodge : PCState
     private void GoToAttackState(Inputs inputs)
     {
         if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.comboDelay) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+    }
+    #endregion
+    #region ToSkillState
+    private void GoToSkillState(Inputs inputs)
+    {
+        if (inputs.RightClickInput) _pcStateMachine.SetState(new PCSkill(_pcStateMachine));
     }
     #endregion
     #endregion

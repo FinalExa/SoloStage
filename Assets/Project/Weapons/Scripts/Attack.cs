@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    private Reaction reaction;
-    public Weapon thisWeapon;
-    public string whoToDamage;
-    public Element infusedElement;
-    public bool canApplyElement;
-    private void Awake()
+    protected Reaction reaction;
+    [HideInInspector] public Weapon thisWeapon;
+    [HideInInspector] public string whoToDamage;
+    [HideInInspector] public Element infusedElement;
+    [HideInInspector] public bool canApplyElement;
+    protected Collider otherCollider;
+    protected Health otherHealth;
+    protected ReactionAgent otherReactionAgent;
+    protected virtual void Awake()
     {
         reaction = FindObjectOfType<Reaction>();
     }
     private void OnTriggerEnter(Collider other)
     {
-        Health otherHealth = other.gameObject.GetComponent<Health>();
-        ReactionAgent otherReactionAgent = other.gameObject.GetComponent<ReactionAgent>();
-        if (otherHealth != null && otherReactionAgent != null && canApplyElement && other.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
+        GetOtherReferences(other);
+        ElementAndReaction();
+        Damage();
+    }
+
+    protected virtual void GetOtherReferences(Collider other)
+    {
+        otherCollider = other;
+        otherHealth = other.gameObject.GetComponent<Health>();
+        otherReactionAgent = other.gameObject.GetComponent<ReactionAgent>();
+    }
+    protected virtual void ElementAndReaction()
+    {
+        if (otherHealth != null && otherReactionAgent != null && canApplyElement && otherCollider.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
         {
             if (otherReactionAgent.appliedElement.element == Element.Elements.NONE) otherReactionAgent.appliedElement.element = infusedElement.element;
             else if (otherReactionAgent.appliedElement.element != infusedElement.element)
@@ -25,9 +39,12 @@ public class Attack : MonoBehaviour
                 reaction.ActivateReaction(otherHealth, otherReactionAgent, infusedElement);
             }
         }
-        if (otherHealth != null && (other.CompareTag(whoToDamage) || other.CompareTag("Invulnerable")) && !thisWeapon.hitTargets.Contains(otherHealth))
+    }
+    protected virtual void Damage()
+    {
+        if (otherHealth != null && (otherCollider.CompareTag(whoToDamage) || otherCollider.CompareTag("Invulnerable")) && !thisWeapon.hitTargets.Contains(otherHealth))
         {
-            if (other.CompareTag(whoToDamage)) otherHealth.HealthAddValue(-thisWeapon.currentDamage);
+            if (otherCollider.CompareTag(whoToDamage)) otherHealth.HealthAddValue(-thisWeapon.currentDamage);
             thisWeapon.hitTargets.Add(otherHealth);
         }
     }
