@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    [SerializeField] private float skillDamage;
+    public float skillDamage;
     [SerializeField] private Element skillAppliedElement;
     [SerializeField] private float skillTravelTime;
     [SerializeField] private float skillTravelDistance;
@@ -12,9 +12,9 @@ public class Skill : MonoBehaviour
     [SerializeField] private SkillAttack thisSkillAttack;
     [HideInInspector] public string whoToDamage;
     private Transform originParent;
-    private float skillTravelTimer;
+    private Vector3 directionToLaunch;
     private Vector3 startPosition;
-    private Vector3 startForward;
+    private float skillTravelTimer;
     private float skillSpeed;
 
     private Rigidbody skillRb;
@@ -35,7 +35,7 @@ public class Skill : MonoBehaviour
         whoToDamage = _whoToDamage;
         thisSkillAttack.whoToDamage = whoToDamage;
         thisSkillAttack.originSkill = this;
-        startPosition = this.gameObject.transform.position;
+        startPosition = this.transform.localPosition;
         originParent = this.gameObject.transform.parent;
         skillSpeed = (skillTravelDistance / skillTravelTime);
     }
@@ -43,8 +43,8 @@ public class Skill : MonoBehaviour
     public void SkillLaunch()
     {
         pcController.skillActive = true;
+        directionToLaunch = new Vector3(-originParent.right.z, 0, originParent.right.x);
         skillTravelTimer = skillTravelTime;
-        startForward = this.transform.forward;
         this.transform.parent = null;
     }
 
@@ -52,12 +52,10 @@ public class Skill : MonoBehaviour
     {
         if (pcController.skillActive)
         {
-            if (skillTravelTime > 0)
+            if (skillTravelTimer > 0)
             {
-                skillTravelTime -= Time.deltaTime;
-                this.transform.forward = startForward;
-                Vector3 velocity = this.transform.forward * skillSpeed;
-                print(velocity);
+                skillTravelTimer -= Time.deltaTime;
+                Vector3 velocity = directionToLaunch * skillSpeed;
                 skillRb.velocity = velocity;
             }
             else SkillEnd();
@@ -67,6 +65,7 @@ public class Skill : MonoBehaviour
     {
         pcController.skillActive = false;
         this.gameObject.transform.parent = originParent;
+        this.gameObject.transform.localPosition = startPosition;
         this.gameObject.SetActive(false);
     }
 }

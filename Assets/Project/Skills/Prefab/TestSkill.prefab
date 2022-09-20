@@ -49,8 +49,8 @@ MonoBehaviour:
   skillDamage: 20
   skillAppliedElement:
     element: 2
-  skillTravelTime: 3
-  skillTravelDistance: 10
+  skillTravelTime: 1
+  skillTravelDistance: 7
   skillNectarCost: 60
   thisSkillAttack: {fileID: 1170543350008821251}
   whoToDamage: 

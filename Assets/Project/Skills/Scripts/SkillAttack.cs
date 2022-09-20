@@ -16,7 +16,7 @@ public class SkillAttack : Attack
     {
         if (otherHealth != null && (otherCollider.CompareTag(whoToDamage) || otherCollider.CompareTag("Invulnerable")))
         {
-            if (otherCollider.CompareTag(whoToDamage)) otherHealth.HealthAddValue(-thisWeapon.currentDamage);
+            if (otherCollider.CompareTag(whoToDamage)) otherHealth.HealthAddValue(-originSkill.skillDamage);
             originSkill.SkillEnd();
         }
     }
