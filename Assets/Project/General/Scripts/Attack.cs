@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    protected Reaction reaction;
-    [HideInInspector] public Weapon thisWeapon;
     [HideInInspector] public string whoToDamage;
     [HideInInspector] public Element infusedElement;
     [HideInInspector] public bool canApplyElement;
+
+    protected Reaction reaction;
     protected Collider otherCollider;
     protected Health otherHealth;
     protected ReactionAgent otherReactionAgent;
+
     protected virtual void Awake()
     {
         reaction = FindObjectOfType<Reaction>();
@@ -42,10 +43,6 @@ public class Attack : MonoBehaviour
     }
     protected virtual void Damage()
     {
-        if (otherHealth != null && (otherCollider.CompareTag(whoToDamage) || otherCollider.CompareTag("Invulnerable")) && !thisWeapon.hitTargets.Contains(otherHealth))
-        {
-            if (otherCollider.CompareTag(whoToDamage)) otherHealth.HealthAddValue(-thisWeapon.currentDamage);
-            thisWeapon.hitTargets.Add(otherHealth);
-        }
+        return;
     }
 }

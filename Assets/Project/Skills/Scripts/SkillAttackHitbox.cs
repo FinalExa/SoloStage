@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillAttack : Attack
+public class SkillAttackHitbox : Attack
 {
     [HideInInspector] public Skill originSkill;
 

@@ -9,7 +9,7 @@ public class Skill : MonoBehaviour
     [SerializeField] private float skillTravelTime;
     [SerializeField] private float skillTravelDistance;
     public float skillNectarCost;
-    [SerializeField] private SkillAttack thisSkillAttack;
+    [SerializeField] private SkillAttackHitbox thisSkillAttack;
     [HideInInspector] public string whoToDamage;
     private Transform originParent;
     private Vector3 directionToLaunch;

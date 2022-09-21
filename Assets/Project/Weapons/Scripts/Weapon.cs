@@ -23,7 +23,7 @@ public class Weapon : MonoBehaviour
         {
             for (int i = 0; i < weaponAttack.weaponAttackHitboxSequence.Length; i++)
             {
-                Attack attackToSet = weaponAttack.weaponAttackHitboxSequence[i].hitbox.GetComponent<Attack>();
+                WeaponAttackHitbox attackToSet = weaponAttack.weaponAttackHitboxSequence[i].hitbox.GetComponent<WeaponAttackHitbox>();
                 weaponAttack.weaponAttackHitboxSequence[i].attackRef = attackToSet;
                 if (attackToSet != null)
                 {
