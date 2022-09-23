@@ -19,7 +19,6 @@ public class Reaction : MonoBehaviour
         }
         targetReactionAgent.appliedElement.element = Element.Elements.NONE;
         targetReactionAgent.StartReactionICD(currentReaction.reactionICD);
-        print(currentReaction.reactionName);
         ReactionText rt = Instantiate(reactionText, targetHealth.gameObject.transform.position, Quaternion.identity);
         rt.SetReactionText(currentReaction.reactionName);
     }

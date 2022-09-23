@@ -21,4 +21,5 @@ public class PCData : ScriptableObject
     public float dodgeDuration;
     public float dodgeDistance;
     public float dodgeEndCooldown;
+    public float dodgeApplicationNectarCost;
 }

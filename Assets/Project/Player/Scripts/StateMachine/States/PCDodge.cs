@@ -57,15 +57,19 @@ public class PCDodge : PCState
         if (timeCount >= pcData.dodgeInvulnerabilityStart && timeCount < pcData.dodgeInvulnerabilityEnd)
         {
             _pcStateMachine.gameObject.tag = pcData.invulnerabilityTag;
-            _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(true);
+            ActivateElementalHitbox(pcData);
         }
         else if (timeCount >= pcData.dodgeInvulnerabilityEnd)
         {
             _pcStateMachine.gameObject.tag = playerTag;
-            _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(false);
+            if (_pcStateMachine.pcController.dodgeHitbox.gameObject.activeSelf) _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(false);
         }
     }
-
+    private void ActivateElementalHitbox(PCData pcData)
+    {
+        PCNectar pcNectar = _pcStateMachine.pcController.pcReferences.pcNectar;
+        if (!_pcStateMachine.pcController.dodgeHitbox.gameObject.activeSelf && pcNectar.NectarSubtract(pcData.dodgeApplicationNectarCost)) _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(true);
+    }
 
     private void DodgeEnd()
     {

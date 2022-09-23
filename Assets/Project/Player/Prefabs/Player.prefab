@@ -79,7 +79,7 @@ MonoBehaviour:
   dodgeInCooldown: 0
   dodgeHitbox: {fileID: 8420428946006030512}
   dodgeElement:
-    element: 0
+    element: 3
   receivedDamage: 0
   tempDodgeInterrupted: {fileID: 7529439107801202960}
   tempDodgeInterruptedDuration: 0.5

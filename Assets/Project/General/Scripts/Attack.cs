@@ -32,7 +32,7 @@ public class Attack : MonoBehaviour
     }
     protected virtual void ElementAndReaction()
     {
-        if (otherHealth != null && otherReactionAgent != null && canApplyElement && otherCollider.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
+        if (otherHealth != null && otherReactionAgent != null && canApplyElement && infusedElement.element != Element.Elements.NONE && otherCollider.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
         {
             if (otherReactionAgent.appliedElement.element == Element.Elements.NONE) otherReactionAgent.appliedElement.element = infusedElement.element;
             else if (otherReactionAgent.appliedElement.element != infusedElement.element)
