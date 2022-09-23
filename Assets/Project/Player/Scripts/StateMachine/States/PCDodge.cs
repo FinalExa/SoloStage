@@ -40,10 +40,8 @@ public class PCDodge : PCState
         {
             dodgeTimer -= Time.fixedDeltaTime;
             timeCount += Time.fixedDeltaTime;
-            PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
-            if (timeCount >= pcData.dodgeInvulnerabilityStart && timeCount < pcData.dodgeInvulnerabilityEnd) _pcStateMachine.gameObject.tag = pcData.invulnerabilityTag;
-            else if (timeCount >= pcData.dodgeInvulnerabilityEnd) _pcStateMachine.gameObject.tag = playerTag;
             _pcStateMachine.pcController.pcReferences.rb.velocity = direction * dodgeSpeed;
+            SetVulnerability();
             if (_pcStateMachine.pcController.receivedDamage > 0)
             {
                 _pcStateMachine.pcController.DodgeInterruptedFeedbackSet();
@@ -52,6 +50,22 @@ public class PCDodge : PCState
         }
         else DodgeEnd();
     }
+
+    private void SetVulnerability()
+    {
+        PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
+        if (timeCount >= pcData.dodgeInvulnerabilityStart && timeCount < pcData.dodgeInvulnerabilityEnd)
+        {
+            _pcStateMachine.gameObject.tag = pcData.invulnerabilityTag;
+            _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(true);
+        }
+        else if (timeCount >= pcData.dodgeInvulnerabilityEnd)
+        {
+            _pcStateMachine.gameObject.tag = playerTag;
+            _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(false);
+        }
+    }
+
 
     private void DodgeEnd()
     {

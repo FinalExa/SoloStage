@@ -35,3 +35,47 @@ MonoBehaviour:
       baseValue: 50
       multiplier: 1
     reactionICD: 2
+  - reactionName: Scorch
+    reactionCombination:
+    - placedElement:
+        element: 1
+      triggerElement:
+        element: 3
+    reactionDamage:
+      enabled: 1
+      baseValue: 50
+      multiplier: 1
+    reactionICD: 2
+  - reactionName: Burn
+    reactionCombination:
+    - placedElement:
+        element: 3
+      triggerElement:
+        element: 1
+    reactionDamage:
+      enabled: 1
+      baseValue: 50
+      multiplier: 1
+    reactionICD: 2
+  - reactionName: Duplicate
+    reactionCombination:
+    - placedElement:
+        element: 2
+      triggerElement:
+        element: 3
+    reactionDamage:
+      enabled: 1
+      baseValue: 50
+      multiplier: 1
+    reactionICD: 2
+  - reactionName: Grow
+    reactionCombination:
+    - placedElement:
+        element: 3
+      triggerElement:
+        element: 2
+    reactionDamage:
+      enabled: 1
+      baseValue: 50
+      multiplier: 1
+    reactionICD: 2

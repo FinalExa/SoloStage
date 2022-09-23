@@ -13,6 +13,8 @@ public class PCController : MonoBehaviour
     public Weapon equippedWeapon;
     [HideInInspector] public bool dodgeInCooldown;
     private float dodgeCooldownTimer;
+    public Attack dodgeHitbox;
+    [SerializeField] private Element dodgeElement;
     [HideInInspector] public float receivedDamage;
     [SerializeField] private GameObject tempDodgeInterrupted;
     [SerializeField] private float tempDodgeInterruptedDuration;
@@ -34,6 +36,10 @@ public class PCController : MonoBehaviour
         equippedWeapon.damageTag = whoToDamage;
         skill.SkillSetup(whoToDamage);
         skill.gameObject.SetActive(false);
+        dodgeHitbox.canApplyElement = true;
+        dodgeHitbox.infusedElement.element = dodgeElement.element;
+        dodgeHitbox.whoToDamage = whoToDamage;
+        dodgeHitbox.gameObject.SetActive(false);
     }
     private void Update()
     {
