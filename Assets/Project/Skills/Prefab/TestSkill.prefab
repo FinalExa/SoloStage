@@ -77,6 +77,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1652918640729115806}
     m_Modifications:
+    - target: {fileID: 930302134015110233, guid: c42fef2924cef8249a368e1e2c4bbc9d, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1488358147043079708, guid: c42fef2924cef8249a368e1e2c4bbc9d, type: 3}
       propertyPath: m_Sprite
       value: 

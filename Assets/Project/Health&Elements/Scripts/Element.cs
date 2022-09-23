@@ -5,6 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Element
 {
-    public enum Elements { NONE, FIRE, WATER }
+    public enum Elements { NONE, FIRE, WATER, GRASS }
     public Elements element;
 }
