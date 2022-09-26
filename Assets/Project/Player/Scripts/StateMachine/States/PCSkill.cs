@@ -46,10 +46,7 @@ public class PCSkill : PCState
     #region ToDodgeState
     private void GoToDodgeState(Inputs inputs)
     {
-        if (inputs.DodgeInput)
-        {
-            _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.pcReferences.pcData.defaultDirection));
-        }
+        if (inputs.DodgeInput) _pcStateMachine.SetState(new PCDodge(_pcStateMachine));
     }
     #endregion
     #endregion

@@ -1,7 +1,6 @@
 using UnityEngine;
 public class PCMoving : PCState
 {
-    private Vector3 lastDirection;
     private Rotation rotation;
     public PCMoving(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
@@ -34,7 +33,7 @@ public class PCMoving : PCState
         Rigidbody rigidbody = _pcStateMachine.pcController.pcReferences.rb;
         PCController pcController = _pcStateMachine.pcController;
         Vector3 movementWithDirection = MovementCalculateDirection();
-        if (movementWithDirection != Vector3.zero) lastDirection = movementWithDirection;
+        pcController.lastDirection = movementWithDirection;
         GetDirectionForRotation(movementWithDirection);
         rigidbody.velocity = movementWithDirection * pcController.actualSpeed;
     }
@@ -51,8 +50,7 @@ public class PCMoving : PCState
     private Vector3 MovementCalculateDirection()
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        Vector3 movementDirection = new Vector3(inputs.MovementInput.z, 0f, inputs.MovementInput.x);
-        movementDirection = movementDirection.normalized;
+        Vector3 movementDirection = new Vector3(inputs.MovementInput.z, 0f, inputs.MovementInput.x).normalized;
         return movementDirection;
     }
     #endregion
@@ -89,10 +87,7 @@ public class PCMoving : PCState
     #region ToDodgeState
     private void GoToDodgeState(Inputs inputs)
     {
-        if (inputs.DodgeInput)
-        {
-            _pcStateMachine.SetState(new PCDodge(_pcStateMachine, lastDirection));
-        }
+        if (inputs.DodgeInput) _pcStateMachine.SetState(new PCDodge(_pcStateMachine));
     }
     #endregion
     #region ToSkillState

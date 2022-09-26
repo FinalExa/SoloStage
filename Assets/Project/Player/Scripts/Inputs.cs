@@ -41,7 +41,7 @@ public class Inputs : MonoBehaviour
     }
     void GetDodgeInput()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) == true) DodgeInput = true;
+        if (Input.GetKey(KeyCode.LeftShift) == true) DodgeInput = true;
         else DodgeInput = false;
     }
     void GetElementSwitchInput()

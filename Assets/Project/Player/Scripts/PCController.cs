@@ -10,6 +10,7 @@ public class PCController : MonoBehaviour
     [SerializeField] private string whoToDamage;
     public Rotation rotation;
     public GameObject rotator;
+    [HideInInspector] public Vector3 lastDirection;
     public Weapon equippedWeapon;
     [HideInInspector] public bool dodgeInCooldown;
     private float dodgeCooldownTimer;
@@ -40,6 +41,7 @@ public class PCController : MonoBehaviour
         dodgeHitbox.infusedElement.element = dodgeElement.element;
         dodgeHitbox.whoToDamage = whoToDamage;
         dodgeHitbox.gameObject.SetActive(false);
+        lastDirection = new Vector3(0f, 0f, 1f).normalized;
     }
     private void Update()
     {

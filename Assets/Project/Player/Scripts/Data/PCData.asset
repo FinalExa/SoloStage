@@ -20,9 +20,9 @@ MonoBehaviour:
   nectarDrainPerSecond: 33
   defaultDirection: {x: 0, y: 0, z: 1}
   invulnerabilityTag: Invulnerable
-  dodgeInvulnerabilityStart: 0.12
-  dodgeInvulnerabilityEnd: 0.2
-  dodgeDuration: 0.3
-  dodgeDistance: 4
+  dodgeInvulnerabilityStart: 0.15
+  dodgeInvulnerabilityEnd: 0.27
+  dodgeDuration: 0.4
+  dodgeDistance: 8
   dodgeEndCooldown: 0.3
   dodgeApplicationNectarCost: 30
