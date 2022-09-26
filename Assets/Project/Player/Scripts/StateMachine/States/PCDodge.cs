@@ -26,7 +26,6 @@ public class PCDodge : PCState
 
     public override void FixedUpdate()
     {
-        SetHitbox();
         Dodge();
     }
     private void DodgeDirection()
@@ -45,11 +44,7 @@ public class PCDodge : PCState
     }
     private void SetHitbox()
     {
-        if (inputs.DodgeInput && !activateHitbox)
-        {
-            activateHitbox = true;
-            Debug.Log("activate!");
-        }
+        if (inputs.DodgeInput && !activateHitbox) activateHitbox = true;
     }
 
     private void Dodge()
@@ -74,13 +69,14 @@ public class PCDodge : PCState
         PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
         if (timeCount >= pcData.dodgeInvulnerabilityStart && timeCount < pcData.dodgeInvulnerabilityEnd)
         {
+            SetHitbox();
             _pcStateMachine.gameObject.tag = pcData.invulnerabilityTag;
             if (activateHitbox) ActivateElementalHitbox(pcData);
         }
         else if (timeCount >= pcData.dodgeInvulnerabilityEnd)
         {
             _pcStateMachine.gameObject.tag = playerTag;
-            if (_pcStateMachine.pcController.dodgeHitbox.gameObject.activeSelf) _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(false);
+            _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(false);
         }
     }
     private void ActivateElementalHitbox(PCData pcData)
@@ -93,6 +89,7 @@ public class PCDodge : PCState
     {
         _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
         _pcStateMachine.pcController.SetDodgeEndCooldown(_pcStateMachine.pcController.pcReferences.pcData.dodgeEndCooldown);
+        _pcStateMachine.pcController.lockDodgeSpam = true;
         Transitions();
     }
 

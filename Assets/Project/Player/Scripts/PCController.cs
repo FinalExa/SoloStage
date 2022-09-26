@@ -20,6 +20,7 @@ public class PCController : MonoBehaviour
     [SerializeField] private GameObject tempDodgeInterrupted;
     [SerializeField] private float tempDodgeInterruptedDuration;
     private bool tempDodgeInterruptedActive;
+    [HideInInspector] public bool lockDodgeSpam;
     private float tempDodgeInterruptedTimer;
     public Skill skill;
     [HideInInspector] public bool skillActive;
@@ -47,6 +48,7 @@ public class PCController : MonoBehaviour
     {
         DodgeCooldown();
         DodgeInterruptedFeedback();
+        DodgeSpam();
         if (receivedDamage > 0) receivedDamage--;
     }
 
@@ -70,6 +72,10 @@ public class PCController : MonoBehaviour
         tempDodgeInterrupted.SetActive(true);
         tempDodgeInterruptedTimer = tempDodgeInterruptedDuration;
         tempDodgeInterruptedActive = true;
+    }
+    private void DodgeSpam()
+    {
+        if (lockDodgeSpam && !pcReferences.inputs.DodgeInput) lockDodgeSpam = false;
     }
 
     private void DodgeInterruptedFeedback()

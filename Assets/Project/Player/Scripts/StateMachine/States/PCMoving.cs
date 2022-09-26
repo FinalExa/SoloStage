@@ -87,7 +87,7 @@ public class PCMoving : PCState
     #region ToDodgeState
     private void GoToDodgeState(Inputs inputs)
     {
-        if (inputs.DodgeInput) _pcStateMachine.SetState(new PCDodge(_pcStateMachine));
+        if (inputs.DodgeInput && !_pcStateMachine.pcController.lockDodgeSpam) _pcStateMachine.SetState(new PCDodge(_pcStateMachine));
     }
     #endregion
     #region ToSkillState
