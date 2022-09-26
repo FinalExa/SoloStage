@@ -10,6 +10,7 @@ public class PCController : MonoBehaviour
     [SerializeField] private string whoToDamage;
     public Rotation rotation;
     public GameObject rotator;
+    [HideInInspector] public Vector3 lastDirection;
     public Weapon equippedWeapon;
     [HideInInspector] public bool dodgeInCooldown;
     private float dodgeCooldownTimer;
@@ -19,6 +20,7 @@ public class PCController : MonoBehaviour
     [SerializeField] private GameObject tempDodgeInterrupted;
     [SerializeField] private float tempDodgeInterruptedDuration;
     private bool tempDodgeInterruptedActive;
+    [HideInInspector] public bool lockDodgeSpam;
     private float tempDodgeInterruptedTimer;
     public Skill skill;
     [HideInInspector] public bool skillActive;
@@ -40,11 +42,13 @@ public class PCController : MonoBehaviour
         dodgeHitbox.infusedElement.element = dodgeElement.element;
         dodgeHitbox.whoToDamage = whoToDamage;
         dodgeHitbox.gameObject.SetActive(false);
+        lastDirection = new Vector3(0f, 0f, 1f).normalized;
     }
     private void Update()
     {
         DodgeCooldown();
         DodgeInterruptedFeedback();
+        DodgeSpam();
         if (receivedDamage > 0) receivedDamage--;
     }
 
@@ -68,6 +72,10 @@ public class PCController : MonoBehaviour
         tempDodgeInterrupted.SetActive(true);
         tempDodgeInterruptedTimer = tempDodgeInterruptedDuration;
         tempDodgeInterruptedActive = true;
+    }
+    private void DodgeSpam()
+    {
+        if (lockDodgeSpam && !pcReferences.inputs.DodgeInput) lockDodgeSpam = false;
     }
 
     private void DodgeInterruptedFeedback()

@@ -23,6 +23,6 @@ MonoBehaviour:
   dodgeInvulnerabilityStart: 0.12
   dodgeInvulnerabilityEnd: 0.2
   dodgeDuration: 0.3
-  dodgeDistance: 4
+  dodgeDistance: 6
   dodgeEndCooldown: 0.3
   dodgeApplicationNectarCost: 30

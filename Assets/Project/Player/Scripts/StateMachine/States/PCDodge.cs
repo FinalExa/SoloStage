@@ -9,13 +9,17 @@ public class PCDodge : PCState
     private float dodgeTimer;
     private float dodgeSpeed;
     private float timeCount;
-    public PCDodge(PCStateMachine pcStateMachine, Vector3 receivedDirection) : base(pcStateMachine)
+    private bool activateHitbox;
+    private Inputs inputs;
+
+    public PCDodge(PCStateMachine pcStateMachine) : base(pcStateMachine)
     {
-        direction = receivedDirection;
     }
 
     public override void Start()
     {
+        inputs = _pcStateMachine.pcController.pcReferences.inputs;
+        DodgeDirection();
         if (!_pcStateMachine.pcController.dodgeInCooldown) DodgeSetup();
         else Transitions();
     }
@@ -24,14 +28,23 @@ public class PCDodge : PCState
     {
         Dodge();
     }
-
+    private void DodgeDirection()
+    {
+        if (inputs.MovementInput == Vector3.zero) direction = _pcStateMachine.pcController.lastDirection;
+        else direction = new Vector3(inputs.MovementInput.z, 0f, inputs.MovementInput.x);
+    }
     private void DodgeSetup()
     {
         PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
         playerTag = _pcStateMachine.gameObject.tag;
         dodgeTimer = pcData.dodgeDuration;
         dodgeSpeed = pcData.dodgeDistance / pcData.dodgeDuration;
+        activateHitbox = false;
         timeCount = 0f;
+    }
+    private void SetHitbox()
+    {
+        if (inputs.DodgeInput && !activateHitbox) activateHitbox = true;
     }
 
     private void Dodge()
@@ -56,13 +69,14 @@ public class PCDodge : PCState
         PCData pcData = _pcStateMachine.pcController.pcReferences.pcData;
         if (timeCount >= pcData.dodgeInvulnerabilityStart && timeCount < pcData.dodgeInvulnerabilityEnd)
         {
+            SetHitbox();
             _pcStateMachine.gameObject.tag = pcData.invulnerabilityTag;
-            ActivateElementalHitbox(pcData);
+            if (activateHitbox) ActivateElementalHitbox(pcData);
         }
         else if (timeCount >= pcData.dodgeInvulnerabilityEnd)
         {
             _pcStateMachine.gameObject.tag = playerTag;
-            if (_pcStateMachine.pcController.dodgeHitbox.gameObject.activeSelf) _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(false);
+            _pcStateMachine.pcController.dodgeHitbox.gameObject.SetActive(false);
         }
     }
     private void ActivateElementalHitbox(PCData pcData)
@@ -75,12 +89,13 @@ public class PCDodge : PCState
     {
         _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
         _pcStateMachine.pcController.SetDodgeEndCooldown(_pcStateMachine.pcController.pcReferences.pcData.dodgeEndCooldown);
+        _pcStateMachine.pcController.lockDodgeSpam = true;
         Transitions();
     }
+
     #region Transitions
     private void Transitions()
     {
-        Inputs inputs = _pcStateMachine.pcController.pcReferences.inputs;
         GoToIdleState(inputs);
         GoToMovementState(inputs);
         GoToAttackState(inputs);
