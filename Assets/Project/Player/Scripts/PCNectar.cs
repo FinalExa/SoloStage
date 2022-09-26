@@ -42,7 +42,7 @@ public class PCNectar : MonoBehaviour
     }
     private void Infusion()
     {
-        if (pcReferences.inputs.InfuseInput)
+        if (pcReferences.inputs.InfuseInput && currentNectar > 0f)
         {
             isInfused = !isInfused;
             if (isInfused && (nectarRegen || nectarRegenCooldown))
@@ -58,10 +58,7 @@ public class PCNectar : MonoBehaviour
         {
             float drainValue = pcReferences.pcData.nectarDrainPerSecond * Time.deltaTime;
             currentNectar = Mathf.Clamp(currentNectar - drainValue, 0f, maxNectar);
-            if (currentNectar <= 0f)
-            {
-                isInfused = false;
-            }
+            if (currentNectar <= 0f && isInfused) isInfused = false;
         }
     }
     private void NectarRegenCooldown()
