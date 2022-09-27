@@ -5,12 +5,12 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public string weaponName;
-    public float currentDamage;
     public float comboCancelTime;
     public float comboEndDelay;
     public WeaponAttack[] weaponAttacks;
     public List<Health> hitTargets;
-    public string damageTag;
+    [HideInInspector] public string damageTag;
+    [HideInInspector] public float currentDamage;
 
     private void Start()
     {
