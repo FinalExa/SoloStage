@@ -7,7 +7,6 @@ public class Health : MonoBehaviour
     public float currentHP;
     public float maxHP;
 
-
     public virtual void SetHPStartup(float givenMaxHP)
     {
         maxHP = givenMaxHP;
