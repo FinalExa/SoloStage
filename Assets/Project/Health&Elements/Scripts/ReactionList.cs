@@ -8,8 +8,8 @@ public class ReactionList : ScriptableObject
     [System.Serializable]
     public struct ReactionCombination
     {
-        public Element placedElement;
-        public Element triggerElement;
+        public Reaction.Element placedElement;
+        public Reaction.Element triggerElement;
     }
     [System.Serializable]
     public struct ReactionDamage
@@ -24,6 +24,8 @@ public class ReactionList : ScriptableObject
         public string reactionName;
         public ReactionCombination[] reactionCombination;
         public ReactionDamage reactionDamage;
+        public Reaction.Element reactionDamageType;
+        public Reaction.Element reactionLeftElement;
         public float reactionICD;
     }
     public PossibleReaction[] list;

@@ -15,7 +15,7 @@ public class PCController : MonoBehaviour
     [HideInInspector] public bool dodgeInCooldown;
     private float dodgeCooldownTimer;
     public Attack dodgeHitbox;
-    [SerializeField] private Element dodgeElement;
+    [SerializeField] private Reaction.Element dodgeElement;
     [HideInInspector] public float receivedDamage;
     [SerializeField] private GameObject tempDodgeInterrupted;
     [SerializeField] private float tempDodgeInterruptedDuration;
@@ -39,7 +39,7 @@ public class PCController : MonoBehaviour
         skill.SkillSetup(whoToDamage);
         skill.gameObject.SetActive(false);
         dodgeHitbox.canApplyElement = true;
-        dodgeHitbox.infusedElement.element = dodgeElement.element;
+        dodgeHitbox.infusedElement = dodgeElement;
         dodgeHitbox.whoToDamage = whoToDamage;
         dodgeHitbox.gameObject.SetActive(false);
         lastDirection = new Vector3(0f, 0f, 1f).normalized;

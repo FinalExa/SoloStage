@@ -77,11 +77,7 @@ public class PCMoving : PCState
     #region ToAttackState
     private void GoToAttackState(Inputs inputs)
     {
-        if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.comboDelay)
-        {
-            _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
-            _pcStateMachine.pcController.pcReferences.rb.velocity = Vector3.zero;
-        }
+        if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.comboDelay) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
     }
     #endregion
     #region ToDodgeState

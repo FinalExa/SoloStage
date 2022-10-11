@@ -75,14 +75,15 @@ MonoBehaviour:
   whoToDamage: Enemy
   rotation: {fileID: 11400000, guid: 15548c58be5d52345b7c7ab7258da80f, type: 2}
   rotator: {fileID: 3739289720929784608}
+  lastDirection: {x: 0, y: 0, z: 0}
   equippedWeapon: {fileID: 6666081877978285661}
   dodgeInCooldown: 0
   dodgeHitbox: {fileID: 8420428946006030512}
-  dodgeElement:
-    element: 3
+  dodgeElement: 4
   receivedDamage: 0
   tempDodgeInterrupted: {fileID: 7529439107801202960}
   tempDodgeInterruptedDuration: 0.5
+  lockDodgeSpam: 0
   skill: {fileID: 663789112313720151}
   skillActive: 0
 --- !u!114 &5359775987464863424
@@ -97,11 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418ca4fda6d9b914ba42b3c71c6b774f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableElements:
-  - element: 1
-  - element: 2
-  equippedElement:
-    element: 0
+  availableElements: 01000000
+  equippedElement: 0
 --- !u!114 &8699711744460045676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,8 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc5e2a3cfa2a274488908c2458db3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appliedElement:
-    element: 0
+  appliedElement: 0
 --- !u!54 &335035898832884709
 Rigidbody:
   m_ObjectHideFlags: 0

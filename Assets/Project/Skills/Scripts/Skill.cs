@@ -5,7 +5,7 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     public float skillDamage;
-    [SerializeField] private Element skillAppliedElement;
+    [SerializeField] private Reaction.Element skillAppliedElement;
     [SerializeField] private float skillTravelTime;
     [SerializeField] private float skillTravelDistance;
     public float skillNectarCost;
@@ -35,7 +35,7 @@ public class Skill : MonoBehaviour
         whoToDamage = _whoToDamage;
         thisSkillAttack.whoToDamage = whoToDamage;
         thisSkillAttack.originSkill = this;
-        thisSkillAttack.infusedElement.element = skillAppliedElement.element;
+        thisSkillAttack.infusedElement = skillAppliedElement;
         startPosition = this.transform.localPosition;
         originParent = this.gameObject.transform.parent;
         skillSpeed = (skillTravelDistance / skillTravelTime);

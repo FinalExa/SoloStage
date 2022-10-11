@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PCElementEquip : MonoBehaviour
 {
-    [SerializeField] private Element[] availableElements;
+    [SerializeField] private Reaction.Element[] availableElements;
     private int elementIndex;
     private PCReferences pcReferences;
-    [HideInInspector] public Element equippedElement;
+    [HideInInspector] public Reaction.Element equippedElement;
     private void Awake()
     {
         pcReferences = this.gameObject.GetComponent<PCReferences>();
@@ -29,7 +29,7 @@ public class PCElementEquip : MonoBehaviour
     }
     private void SetElement()
     {
-        equippedElement.element = availableElements[elementIndex].element;
+        equippedElement = availableElements[elementIndex];
     }
     private void SwitchElement()
     {

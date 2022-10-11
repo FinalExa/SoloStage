@@ -91,12 +91,12 @@ public abstract class Combo : MonoBehaviour
         {
             if (attackCount >= hitboxToCheck.activationDelayAfterStart)
             {
-                hitboxToCheck.hitbox.SetActive(true);
+                hitboxToCheck.attackRef.gameObject.SetActive(true);
                 Infusion(hitboxToCheck);
             }
             if (attackCount >= hitboxToCheck.deactivationDelayAfterStart)
             {
-                hitboxToCheck.hitbox.SetActive(false);
+                hitboxToCheck.attackRef.gameObject.SetActive(false);
                 hitboxToCheck.attackRef.canApplyElement = false;
             }
         }

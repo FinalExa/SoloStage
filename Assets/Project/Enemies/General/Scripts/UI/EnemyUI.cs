@@ -47,10 +47,10 @@ public class EnemyUI : MonoBehaviour
         if (canUpdate)
         {
             if (enemyHealthRef.currentHP != enemyHealth.value) enemyHealth.value = enemyHealthRef.currentHP;
-            if (enemyReactionAgentRef.appliedElement.element != Element.Elements.NONE)
+            if (enemyReactionAgentRef.appliedElement != Reaction.Element.NONE)
             {
                 if (!appliedElement.gameObject.activeSelf) appliedElement.gameObject.SetActive(true);
-                if (appliedElement.text != enemyReactionAgentRef.appliedElement.element.ToString()) appliedElement.text = enemyReactionAgentRef.appliedElement.element.ToString();
+                if (appliedElement.text != enemyReactionAgentRef.appliedElement.ToString()) appliedElement.text = enemyReactionAgentRef.appliedElement.ToString();
             }
             else if (appliedElement.gameObject.activeSelf) appliedElement.gameObject.SetActive(false);
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Reaction : MonoBehaviour
 {
+    public enum Element { NONE, FIRE, WATER, EARTH, GRASS, WIND, COLD, GRAVITY, THUNDER, SHADOW, LIGHT }
     [SerializeField] private ReactionList reactionList;
     [SerializeField] private ReactionText reactionText;
     private ReactionList.PossibleReaction currentReaction;
@@ -17,7 +18,7 @@ public class Reaction : MonoBehaviour
             float damage = currentReaction.reactionDamage.baseValue + (currentReaction.reactionDamage.multiplier * 0f);
             targetHealth.HealthAddValue(-damage);
         }
-        targetReactionAgent.appliedElement.element = Element.Elements.NONE;
+        targetReactionAgent.appliedElement = currentReaction.reactionLeftElement;
         targetReactionAgent.StartReactionICD(currentReaction.reactionICD);
         ReactionText rt = Instantiate(reactionText, targetHealth.gameObject.transform.position, Quaternion.identity);
         rt.SetReactionText(currentReaction.reactionName);
@@ -32,7 +33,7 @@ public class Reaction : MonoBehaviour
             {
                 foreach (ReactionList.ReactionCombination reactionCombination in reaction.reactionCombination)
                 {
-                    if (reactionCombination.placedElement.element == _placedElement.element && reactionCombination.triggerElement.element == _triggerElement.element)
+                    if (reactionCombination.placedElement == _placedElement && reactionCombination.triggerElement == _triggerElement)
                     {
                         currentReaction = reaction;
                         found = true;

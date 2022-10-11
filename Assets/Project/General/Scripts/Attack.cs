@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     [HideInInspector] public string whoToDamage;
-    [HideInInspector] public Element infusedElement;
+    [HideInInspector] public Reaction.Element infusedElement;
     [HideInInspector] public bool canApplyElement;
 
     protected Reaction reaction;
@@ -32,13 +32,10 @@ public class Attack : MonoBehaviour
     }
     protected virtual void ElementAndReaction()
     {
-        if (otherHealth != null && otherReactionAgent != null && canApplyElement && infusedElement.element != Element.Elements.NONE && otherCollider.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
+        if (otherHealth != null && otherReactionAgent != null && canApplyElement && infusedElement != Reaction.Element.NONE && otherCollider.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
         {
-            if (otherReactionAgent.appliedElement.element == Element.Elements.NONE) otherReactionAgent.appliedElement.element = infusedElement.element;
-            else if (otherReactionAgent.appliedElement.element != infusedElement.element)
-            {
-                reaction.ActivateReaction(otherHealth, otherReactionAgent, infusedElement);
-            }
+            if (otherReactionAgent.appliedElement == Reaction.Element.NONE) otherReactionAgent.appliedElement = infusedElement;
+            else if (otherReactionAgent.appliedElement != infusedElement) reaction.ActivateReaction(otherHealth, otherReactionAgent, infusedElement);
         }
     }
     protected virtual void Damage()

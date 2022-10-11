@@ -15,67 +15,67 @@ MonoBehaviour:
   list:
   - reactionName: Vaporize
     reactionCombination:
-    - placedElement:
-        element: 1
-      triggerElement:
-        element: 2
+    - placedElement: 1
+      triggerElement: 2
     reactionDamage:
       enabled: 1
       baseValue: 50
       multiplier: 2
+    reactionDamageType: 0
+    reactionLeftElement: 0
     reactionICD: 3
   - reactionName: Boil
     reactionCombination:
-    - placedElement:
-        element: 2
-      triggerElement:
-        element: 1
+    - placedElement: 2
+      triggerElement: 1
     reactionDamage:
       enabled: 1
       baseValue: 50
       multiplier: 1
+    reactionDamageType: 1
+    reactionLeftElement: 1
     reactionICD: 2
   - reactionName: Scorch
     reactionCombination:
-    - placedElement:
-        element: 1
-      triggerElement:
-        element: 3
+    - placedElement: 1
+      triggerElement: 4
     reactionDamage:
       enabled: 1
       baseValue: 50
       multiplier: 1
+    reactionDamageType: 0
+    reactionLeftElement: 0
     reactionICD: 2
   - reactionName: Burn
     reactionCombination:
-    - placedElement:
-        element: 3
-      triggerElement:
-        element: 1
+    - placedElement: 4
+      triggerElement: 1
     reactionDamage:
       enabled: 1
       baseValue: 50
       multiplier: 1
+    reactionDamageType: 0
+    reactionLeftElement: 0
     reactionICD: 2
   - reactionName: Duplicate
     reactionCombination:
-    - placedElement:
-        element: 2
-      triggerElement:
-        element: 3
+    - placedElement: 2
+      triggerElement: 4
     reactionDamage:
       enabled: 1
       baseValue: 50
       multiplier: 1
+    reactionDamageType: 0
+    reactionLeftElement: 0
     reactionICD: 2
   - reactionName: Grow
     reactionCombination:
-    - placedElement:
-        element: 3
-      triggerElement:
-        element: 2
+    - placedElement: 4
+      triggerElement: 2
     reactionDamage:
       enabled: 1
       baseValue: 50
       multiplier: 1
+    reactionDamageType: 0
+    reactionLeftElement: 0
     reactionICD: 2

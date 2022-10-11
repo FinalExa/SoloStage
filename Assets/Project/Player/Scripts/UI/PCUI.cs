@@ -57,7 +57,7 @@ public class PCUI : MonoBehaviour
     {
         if (canUpdate)
         {
-            equippedElementText.text = playerElementEquip.equippedElement.element.ToString();
+            equippedElementText.text = playerElementEquip.equippedElement.ToString();
             infusedText.gameObject.SetActive(playerNectarRef.isInfused);
             if (playerHealthRef.currentHP != playerHealth.value) playerHealth.value = playerHealthRef.currentHP;
             if (playerNectarRef.currentNectar != playerNectar.value) playerNectar.value = playerNectarRef.currentNectar;
