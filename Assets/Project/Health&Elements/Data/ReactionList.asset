@@ -21,6 +21,9 @@ MonoBehaviour:
       enabled: 1
       baseValue: 50
       multiplier: 2
+      damageType: 0
+      hasAoE: 0
+      AoERange: 0
     reactionDamageType: 0
     reactionLeftElement: 0
     reactionICD: 3
@@ -32,6 +35,9 @@ MonoBehaviour:
       enabled: 1
       baseValue: 50
       multiplier: 1
+      damageType: 0
+      hasAoE: 0
+      AoERange: 0
     reactionDamageType: 1
     reactionLeftElement: 1
     reactionICD: 2
@@ -43,6 +49,9 @@ MonoBehaviour:
       enabled: 1
       baseValue: 50
       multiplier: 1
+      damageType: 0
+      hasAoE: 0
+      AoERange: 0
     reactionDamageType: 0
     reactionLeftElement: 0
     reactionICD: 2
@@ -54,6 +63,9 @@ MonoBehaviour:
       enabled: 1
       baseValue: 50
       multiplier: 1
+      damageType: 0
+      hasAoE: 0
+      AoERange: 0
     reactionDamageType: 0
     reactionLeftElement: 0
     reactionICD: 2
@@ -65,6 +77,9 @@ MonoBehaviour:
       enabled: 1
       baseValue: 50
       multiplier: 1
+      damageType: 0
+      hasAoE: 0
+      AoERange: 0
     reactionDamageType: 0
     reactionLeftElement: 0
     reactionICD: 2
@@ -76,6 +91,9 @@ MonoBehaviour:
       enabled: 1
       baseValue: 50
       multiplier: 1
+      damageType: 0
+      hasAoE: 0
+      AoERange: 0
     reactionDamageType: 0
     reactionLeftElement: 0
     reactionICD: 2

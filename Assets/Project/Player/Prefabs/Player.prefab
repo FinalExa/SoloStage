@@ -79,7 +79,7 @@ MonoBehaviour:
   equippedWeapon: {fileID: 6666081877978285661}
   dodgeInCooldown: 0
   dodgeHitbox: {fileID: 8420428946006030512}
-  dodgeElement: 4
+  dodgeElement: 8
   receivedDamage: 0
   tempDodgeInterrupted: {fileID: 7529439107801202960}
   tempDodgeInterruptedDuration: 0.5
