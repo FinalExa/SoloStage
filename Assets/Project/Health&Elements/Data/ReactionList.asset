@@ -13,87 +13,24 @@ MonoBehaviour:
   m_Name: ReactionList
   m_EditorClassIdentifier: 
   list:
-  - reactionName: Vaporize
+  - reactionName: Explode
     reactionCombination:
-    - placedElement: 1
-      triggerElement: 2
-    reactionDamage:
-      enabled: 1
-      baseValue: 50
-      multiplier: 2
-      damageType: 0
-      hasAoE: 0
-      AoERange: 0
-    reactionDamageType: 0
-    reactionLeftElement: 0
+    - placedElement: 8
+      triggerElement: 1
+    isInstantaneous: 1
+    reactionDuration: 0
     reactionICD: 3
-  - reactionName: Boil
-    reactionCombination:
-    - placedElement: 2
-      triggerElement: 1
-    reactionDamage:
-      enabled: 1
-      baseValue: 50
-      multiplier: 1
-      damageType: 0
-      hasAoE: 0
-      AoERange: 0
-    reactionDamageType: 1
     reactionLeftElement: 1
-    reactionICD: 2
-  - reactionName: Scorch
-    reactionCombination:
-    - placedElement: 1
-      triggerElement: 4
     reactionDamage:
       enabled: 1
-      baseValue: 50
+      baseValue: 100
       multiplier: 1
-      damageType: 0
-      hasAoE: 0
-      AoERange: 0
-    reactionDamageType: 0
-    reactionLeftElement: 0
-    reactionICD: 2
-  - reactionName: Burn
-    reactionCombination:
-    - placedElement: 4
-      triggerElement: 1
-    reactionDamage:
-      enabled: 1
-      baseValue: 50
-      multiplier: 1
-      damageType: 0
-      hasAoE: 0
-      AoERange: 0
-    reactionDamageType: 0
-    reactionLeftElement: 0
-    reactionICD: 2
-  - reactionName: Duplicate
-    reactionCombination:
-    - placedElement: 2
-      triggerElement: 4
-    reactionDamage:
-      enabled: 1
-      baseValue: 50
-      multiplier: 1
-      damageType: 0
-      hasAoE: 0
-      AoERange: 0
-    reactionDamageType: 0
-    reactionLeftElement: 0
-    reactionICD: 2
-  - reactionName: Grow
-    reactionCombination:
-    - placedElement: 4
-      triggerElement: 2
-    reactionDamage:
-      enabled: 1
-      baseValue: 50
-      multiplier: 1
-      damageType: 0
-      hasAoE: 0
-      AoERange: 0
-    reactionDamageType: 0
-    reactionLeftElement: 0
-    reactionICD: 2
+      damageType: 1
+      hasAoe: 1
+      aoeRange: 10
+    reactionOvertimeDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      firstHitOn: 0
+      timeBetweenHits: 0

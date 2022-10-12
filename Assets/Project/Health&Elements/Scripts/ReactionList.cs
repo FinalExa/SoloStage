@@ -12,34 +12,16 @@ public class ReactionList : ScriptableObject
         public Reaction.Element triggerElement;
     }
     [System.Serializable]
-    public struct ReactionInstantDamage
-    {
-        public bool enabled;
-        public float baseValue;
-        public float multiplier;
-        public Reaction.Element damageType;
-        public bool hasAoE;
-        public float AoERange;
-    }
-    [System.Serializable]
-    public struct ReactionOvertimeDamage
-    {
-        public bool enabled;
-        public float baseValue;
-        public float multiplier;
-        public bool firstHitOn;
-        public bool timeBetweenHits;
-    }
-    [System.Serializable]
     public struct PossibleReaction
     {
         public string reactionName;
         public ReactionCombination[] reactionCombination;
-        public ReactionInstantDamage reactionDamage;
-        public Reaction.Element reactionDamageType;
-        public Reaction.Element reactionLeftElement;
+        public bool isInstantaneous;
         public float reactionDuration;
         public float reactionICD;
+        public Reaction.Element reactionLeftElement;
+        public ReactionInstantDamage reactionDamage;
+        public ReactionOvertimeDamage reactionOvertimeDamage;
     }
     public PossibleReaction[] list;
 }

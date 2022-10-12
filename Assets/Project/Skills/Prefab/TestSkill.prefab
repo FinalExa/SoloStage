@@ -47,9 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillDamage: 20
-  skillAppliedElement: 2
+  skillAppliedElement: 1
   skillTravelTime: 0.4
   skillTravelDistance: 7
+  skillElementDuration: 3
   skillNectarCost: 60
   thisSkillAttack: {fileID: 1170543350008821251}
   whoToDamage: 

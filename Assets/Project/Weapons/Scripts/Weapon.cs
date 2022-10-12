@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public List<Health> hitTargets;
     [HideInInspector] public string damageTag;
     [HideInInspector] public float currentDamage;
+    [HideInInspector] public float elementDuration;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class Weapon : MonoBehaviour
                 {
                     attackToSet.thisWeapon = this;
                     attackToSet.whoToDamage = damageTag;
+                    attackToSet.elementDuration = elementDuration;
                 }
             }
         }

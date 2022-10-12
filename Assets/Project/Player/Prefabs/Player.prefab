@@ -77,8 +77,10 @@ MonoBehaviour:
   rotator: {fileID: 3739289720929784608}
   lastDirection: {x: 0, y: 0, z: 0}
   equippedWeapon: {fileID: 6666081877978285661}
+  weaponElementDuration: 3
   dodgeInCooldown: 0
   dodgeHitbox: {fileID: 8420428946006030512}
+  dodgeHitboxElementDuration: 3
   dodgeElement: 8
   receivedDamage: 0
   tempDodgeInterrupted: {fileID: 7529439107801202960}
@@ -197,7 +199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc5e2a3cfa2a274488908c2458db3b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appliedElement: 0
 --- !u!54 &335035898832884709
 Rigidbody:
   m_ObjectHideFlags: 0

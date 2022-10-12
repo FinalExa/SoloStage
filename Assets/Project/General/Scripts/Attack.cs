@@ -6,6 +6,7 @@ public class Attack : MonoBehaviour
 {
     [HideInInspector] public string whoToDamage;
     [HideInInspector] public Reaction.Element infusedElement;
+    [HideInInspector] public float elementDuration;
     [HideInInspector] public bool canApplyElement;
 
     protected Reaction reaction;
@@ -32,10 +33,10 @@ public class Attack : MonoBehaviour
     }
     protected virtual void ElementAndReaction()
     {
-        if (otherHealth != null && otherReactionAgent != null && canApplyElement && infusedElement != Reaction.Element.NONE && otherCollider.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
+        if (otherHealth != null && otherReactionAgent != null && canApplyElement && infusedElement != Reaction.Element.NONE && otherCollider.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown && !otherReactionAgent.ReactionActive)
         {
-            if (otherReactionAgent.appliedElement == Reaction.Element.NONE) otherReactionAgent.appliedElement = infusedElement;
-            else if (otherReactionAgent.appliedElement != infusedElement) reaction.ActivateReaction(otherHealth, otherReactionAgent, infusedElement);
+            if (otherReactionAgent.appliedElement == Reaction.Element.NONE || otherReactionAgent.appliedElement == infusedElement) otherReactionAgent.SetElement(infusedElement, elementDuration);
+            else if (otherReactionAgent.appliedElement != infusedElement) reaction.ActivateReaction(otherHealth, otherReactionAgent, infusedElement, whoToDamage);
         }
     }
     protected virtual void Damage()

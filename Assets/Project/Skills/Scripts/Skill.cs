@@ -8,6 +8,7 @@ public class Skill : MonoBehaviour
     [SerializeField] private Reaction.Element skillAppliedElement;
     [SerializeField] private float skillTravelTime;
     [SerializeField] private float skillTravelDistance;
+    [SerializeField] private float skillElementDuration;
     public float skillNectarCost;
     [SerializeField] private SkillAttackHitbox thisSkillAttack;
     [HideInInspector] public string whoToDamage;
@@ -36,6 +37,7 @@ public class Skill : MonoBehaviour
         thisSkillAttack.whoToDamage = whoToDamage;
         thisSkillAttack.originSkill = this;
         thisSkillAttack.infusedElement = skillAppliedElement;
+        thisSkillAttack.elementDuration = skillElementDuration;
         startPosition = this.transform.localPosition;
         originParent = this.gameObject.transform.parent;
         skillSpeed = (skillTravelDistance / skillTravelTime);
