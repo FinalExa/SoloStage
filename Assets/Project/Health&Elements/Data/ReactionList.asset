@@ -34,3 +34,24 @@ MonoBehaviour:
       multiplier: 0
       firstHitOn: 0
       timeBetweenHits: 0
+  - reactionName: Boil
+    reactionCombination:
+    - placedElement: 2
+      triggerElement: 1
+    isInstantaneous: 0
+    reactionDuration: 5
+    reactionICD: 3
+    reactionLeftElement: 1
+    reactionDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      hasAoe: 0
+      aoeRange: 0
+    reactionOvertimeDamage:
+      enabled: 1
+      baseValue: 10
+      multiplier: 1
+      firstHitOn: 1
+      timeBetweenHits: 0.3

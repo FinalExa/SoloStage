@@ -27,7 +27,6 @@ public class ReactionInstantDamage
                 {
                     targetsInRange.Add(target);
                     target.HealthAddValue(-damage);
-                    Debug.Log("yahoo");
                 }
             }
         }

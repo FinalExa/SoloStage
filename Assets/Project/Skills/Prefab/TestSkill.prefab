@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillDamage: 20
-  skillAppliedElement: 1
+  skillAppliedElement: 2
   skillTravelTime: 0.4
   skillTravelDistance: 7
   skillElementDuration: 3

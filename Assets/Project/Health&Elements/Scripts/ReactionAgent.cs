@@ -19,6 +19,7 @@ public class ReactionAgent : MonoBehaviour
     }
     private void Update()
     {
+        ReactionActiveDuration();
         ReactionICD();
         ElementDuration();
     }
@@ -27,9 +28,19 @@ public class ReactionAgent : MonoBehaviour
         currentReaction = reaction;
         if (currentReaction.isInstantaneous)
         {
-            currentReaction.reactionDamage.DealInstantDamage(health, this.gameObject.tag);
+            InstantaneousReactionFunctions();
             OnReactionEnd();
         }
+        else
+        {
+            ReactionActiveSetup();
+            reactionDuration = currentReaction.reactionDuration;
+            ReactionActive = true;
+        }
+    }
+    private void InstantaneousReactionFunctions()
+    {
+        if (currentReaction.reactionDamage.enabled) currentReaction.reactionDamage.DealInstantDamage(health, this.gameObject.tag);
     }
     private void StartReactionICD(float ICD)
     {
@@ -68,5 +79,27 @@ public class ReactionAgent : MonoBehaviour
                 appliedElement = Reaction.Element.NONE;
             }
         }
+    }
+
+    private void ReactionActiveDuration()
+    {
+        if (ReactionActive)
+        {
+            if (reactionDuration > 0)
+            {
+                reactionDuration -= Time.deltaTime;
+                ReactionActiveFunctions();
+            }
+            else ReactionActive = false;
+        }
+    }
+    private void ReactionActiveSetup()
+    {
+        if (currentReaction.reactionOvertimeDamage.enabled) currentReaction.reactionOvertimeDamage.SetStartupValues(health, this.gameObject.tag);
+    }
+    private void ReactionActiveFunctions()
+    {
+        print("active");
+        if (currentReaction.reactionOvertimeDamage.enabled) currentReaction.reactionOvertimeDamage.OvertimeDamage();
     }
 }
