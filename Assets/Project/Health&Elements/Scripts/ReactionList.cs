@@ -12,6 +12,13 @@ public class ReactionList : ScriptableObject
         public Reaction.Element triggerElement;
     }
     [System.Serializable]
+    public struct ReactionObjectCreation
+    {
+        public bool enables;
+        public ReactionObject reactionObject;
+        public int quantity;
+    }
+    [System.Serializable]
     public struct PossibleReaction
     {
         public string reactionName;
@@ -21,6 +28,7 @@ public class ReactionList : ScriptableObject
         public float reactionICD;
         public ReactionInstantDamage reactionDamage;
         public ReactionOvertimeDamage reactionOvertimeDamage;
+        public ReactionObjectCreation reactionObject;
     }
     public PossibleReaction[] list;
 }
