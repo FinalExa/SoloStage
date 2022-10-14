@@ -8,25 +8,27 @@ public class ReactionInstantDamage
     public float baseValue;
     public float multiplier;
     public Reaction.Element damageType;
+    public float elementDuration;
+    public bool appliesElement;
     public bool hasAoe;
     public float aoeRange;
 
-    public void DealInstantDamage(Health targetHealth, string whoToDamage)
+    public void DealInstantDamage(AttackCheck attackCheck, string whoToDamage)
     {
         float damage = baseValue + (multiplier * 0f);
-        if (!hasAoe) targetHealth.HealthAddValue(-damage);
+        if (!hasAoe) attackCheck.CheckReceivedAttackData(whoToDamage, appliesElement, damageType, true, elementDuration, true, damage);
         else
         {
-            Collider[] collidersInRange = Physics.OverlapSphere(targetHealth.gameObject.transform.position, aoeRange);
-            List<Health> targetsInRange = new List<Health>();
+            Collider[] collidersInRange = Physics.OverlapSphere(attackCheck.gameObject.transform.position, aoeRange);
+            List<AttackCheck> targetsInRange = new List<AttackCheck>();
             targetsInRange.Clear();
             foreach (Collider collider in collidersInRange)
             {
-                Health target = collider.gameObject.GetComponent<Health>();
+                AttackCheck target = collider.gameObject.GetComponent<AttackCheck>();
                 if (target != null && collider.CompareTag(whoToDamage) && !targetsInRange.Contains(target))
                 {
                     targetsInRange.Add(target);
-                    target.HealthAddValue(-damage);
+                    attackCheck.CheckReceivedAttackData(whoToDamage, appliesElement, damageType, true, elementDuration, true, damage);
                 }
             }
         }

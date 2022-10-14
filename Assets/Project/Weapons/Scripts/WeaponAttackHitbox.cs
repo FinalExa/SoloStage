@@ -16,7 +16,7 @@ public class WeaponAttackHitbox : Attack
         {
             if (otherCollider.CompareTag(whoToDamage))
             {
-                otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, elementDuration, true, thisWeapon.currentDamage);
+                otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, false, elementDuration, true, thisWeapon.currentDamage);
                 thisWeapon.hitTargets.Add(otherAttackCheck);
             }
             else if (otherCollider.CompareTag("Invulnerable")) thisWeapon.hitTargets.Add(otherAttackCheck);

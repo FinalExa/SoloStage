@@ -19,7 +19,7 @@ public class SkillAttackHitbox : Attack
         {
             if (otherCollider.CompareTag(whoToDamage))
             {
-                otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, elementDuration, true, originSkill.skillDamage);
+                otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, false, elementDuration, true, originSkill.skillDamage);
                 originSkill.SkillEnd();
             }
             else if (otherCollider.CompareTag("Invulnerable")) originSkill.SkillEnd();

@@ -20,18 +20,22 @@ MonoBehaviour:
     isInstantaneous: 1
     reactionDuration: 0
     reactionICD: 3
-    reactionLeftElement: 1
     reactionDamage:
       enabled: 1
       baseValue: 100
       multiplier: 1
       damageType: 1
+      elementDuration: 5
+      appliesElement: 1
       hasAoe: 1
       aoeRange: 10
     reactionOvertimeDamage:
       enabled: 0
       baseValue: 0
       multiplier: 0
+      damageType: 0
+      appliesElement: 0
+      elementDuration: 0
       firstHitOn: 0
       timeBetweenHits: 0
   - reactionName: Boil
@@ -41,17 +45,21 @@ MonoBehaviour:
     isInstantaneous: 0
     reactionDuration: 5
     reactionICD: 3
-    reactionLeftElement: 1
     reactionDamage:
       enabled: 0
       baseValue: 0
       multiplier: 0
       damageType: 0
+      elementDuration: 0
+      appliesElement: 0
       hasAoe: 0
       aoeRange: 0
     reactionOvertimeDamage:
       enabled: 1
       baseValue: 10
       multiplier: 1
+      damageType: 1
+      appliesElement: 1
+      elementDuration: 1
       firstHitOn: 1
       timeBetweenHits: 0.3

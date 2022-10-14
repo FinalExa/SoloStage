@@ -8,16 +8,19 @@ public class ReactionOvertimeDamage
     public bool enabled;
     public float baseValue;
     public float multiplier;
+    public Reaction.Element damageType;
+    public bool appliesElement;
+    public float elementDuration;
     public bool firstHitOn;
     public float timeBetweenHits;
     private bool firstHitDone;
     private float timer;
     private float damage;
-    private Health targetHealth;
+    private AttackCheck targetAttackCheck;
     private string whoToDamage;
-    public void SetStartupValues(Health health, string damageTag)
+    public void SetStartupValues(AttackCheck attackCheck, string damageTag)
     {
-        targetHealth = health;
+        targetAttackCheck = attackCheck;
         whoToDamage = damageTag;
         timer = timeBetweenHits;
         damage = baseValue + (multiplier * 0f);
@@ -41,6 +44,6 @@ public class ReactionOvertimeDamage
 
     private void DealDamage()
     {
-        targetHealth.HealthAddValue(-damage);
+        targetAttackCheck.CheckReceivedAttackData(whoToDamage, appliesElement, damageType, true, elementDuration, true, damage);
     }
 }

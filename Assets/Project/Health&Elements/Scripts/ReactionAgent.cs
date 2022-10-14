@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReactionAgent : MonoBehaviour
 {
     public Reaction.Element appliedElement { get; private set; }
-    private Health health;
+    private AttackCheck attackCheck;
     private ReactionList.PossibleReaction currentReaction;
     private float reactionDuration;
     private float elementDuration;
@@ -15,7 +15,7 @@ public class ReactionAgent : MonoBehaviour
     public bool InCooldown { get; private set; }
     private void Awake()
     {
-        health = this.gameObject.GetComponent<Health>();
+        attackCheck = this.gameObject.GetComponent<AttackCheck>();
     }
     private void Update()
     {
@@ -40,7 +40,7 @@ public class ReactionAgent : MonoBehaviour
     }
     private void InstantaneousReactionFunctions()
     {
-        if (currentReaction.reactionDamage.enabled) currentReaction.reactionDamage.DealInstantDamage(health, this.gameObject.tag);
+        if (currentReaction.reactionDamage.enabled) currentReaction.reactionDamage.DealInstantDamage(attackCheck, this.gameObject.tag);
     }
     private void StartReactionICD(float ICD)
     {
@@ -49,7 +49,6 @@ public class ReactionAgent : MonoBehaviour
     }
     public void OnReactionEnd()
     {
-        appliedElement = currentReaction.reactionLeftElement;
         StartReactionICD(currentReaction.reactionICD);
         ReactionActive = false;
     }
@@ -95,7 +94,7 @@ public class ReactionAgent : MonoBehaviour
     }
     private void ReactionActiveSetup()
     {
-        if (currentReaction.reactionOvertimeDamage.enabled) currentReaction.reactionOvertimeDamage.SetStartupValues(health, this.gameObject.tag);
+        if (currentReaction.reactionOvertimeDamage.enabled) currentReaction.reactionOvertimeDamage.SetStartupValues(attackCheck, this.gameObject.tag);
     }
     private void ReactionActiveFunctions()
     {

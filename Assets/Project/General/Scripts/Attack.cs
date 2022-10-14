@@ -38,8 +38,8 @@ public class Attack : MonoBehaviour
     {
         if (otherAttackCheck != null)
         {
-            if (otherCollider.CompareTag(whoToDamage)) otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, elementDuration, false, 0f);
-            else if (otherCollider.CompareTag("Invulnerable")) otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, elementDuration, false, 0f);
+            if (otherCollider.CompareTag(whoToDamage)) otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, false, elementDuration, false, 0f);
+            else if (otherCollider.CompareTag("Invulnerable")) otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, false, elementDuration, false, 0f);
         }
     }
 }

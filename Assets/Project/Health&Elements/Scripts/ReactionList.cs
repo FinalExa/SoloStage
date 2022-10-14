@@ -19,7 +19,6 @@ public class ReactionList : ScriptableObject
         public bool isInstantaneous;
         public float reactionDuration;
         public float reactionICD;
-        public Reaction.Element reactionLeftElement;
         public ReactionInstantDamage reactionDamage;
         public ReactionOvertimeDamage reactionOvertimeDamage;
     }
