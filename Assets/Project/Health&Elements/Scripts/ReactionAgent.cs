@@ -99,7 +99,6 @@ public class ReactionAgent : MonoBehaviour
     }
     private void ReactionActiveFunctions()
     {
-        print("active");
         if (currentReaction.reactionOvertimeDamage.enabled) currentReaction.reactionOvertimeDamage.OvertimeDamage();
     }
 }

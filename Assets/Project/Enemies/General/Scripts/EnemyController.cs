@@ -26,5 +26,6 @@ public class EnemyController : MonoBehaviour
         isAlerted = true;
         enemyWeapon.damageTag = whoToDamage;
         enemyCombo.SetWeapon(enemyWeapon);
+        enemyWeapon.ReferencesSetup(whoToDamage, 0f);
     }
 }

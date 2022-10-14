@@ -34,13 +34,11 @@ public class Skill : MonoBehaviour
     public void SkillSetup(string _whoToDamage)
     {
         whoToDamage = _whoToDamage;
-        thisSkillAttack.whoToDamage = whoToDamage;
-        thisSkillAttack.originSkill = this;
-        thisSkillAttack.infusedElement = skillAppliedElement;
-        thisSkillAttack.elementDuration = skillElementDuration;
+        thisSkillAttack.InitializeAttack(whoToDamage, skillElementDuration, this, skillAppliedElement);
         startPosition = this.transform.localPosition;
         originParent = this.gameObject.transform.parent;
         skillSpeed = (skillTravelDistance / skillTravelTime);
+        this.gameObject.SetActive(false);
     }
 
     public void SkillLaunch()

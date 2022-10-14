@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 757650267075575231}
   - component: {fileID: -3198380423708133177}
   - component: {fileID: 8379730949344810456}
+  - component: {fileID: 6990499175310022936}
   - component: {fileID: 5359775987464863424}
   - component: {fileID: 8699711744460045676}
   - component: {fileID: 8879392324441081948}
@@ -88,6 +89,18 @@ MonoBehaviour:
   lockDodgeSpam: 0
   skill: {fileID: 663789112313720151}
   skillActive: 0
+--- !u!114 &6990499175310022936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420312121698097994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e8799cb3bbb7244b827c7ea48aaadee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5359775987464863424
 MonoBehaviour:
   m_ObjectHideFlags: 0

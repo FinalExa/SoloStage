@@ -11,36 +11,35 @@ public class Attack : MonoBehaviour
 
     protected Reaction reaction;
     protected Collider otherCollider;
-    protected Health otherHealth;
-    protected ReactionAgent otherReactionAgent;
+    protected AttackCheck otherAttackCheck;
 
     protected virtual void Awake()
     {
         reaction = FindObjectOfType<Reaction>();
     }
+
     private void OnTriggerEnter(Collider other)
     {
         GetOtherReferences(other);
-        ElementAndReaction();
-        Damage();
+        SendAttackData();
+    }
+    public virtual void InitializeAttack(string damageTag, float sourceElementDuration)
+    {
+        whoToDamage = damageTag;
+        elementDuration = sourceElementDuration;
     }
 
     protected virtual void GetOtherReferences(Collider other)
     {
         otherCollider = other;
-        otherHealth = other.gameObject.GetComponent<Health>();
-        otherReactionAgent = other.gameObject.GetComponent<ReactionAgent>();
+        otherAttackCheck = other.gameObject.GetComponent<AttackCheck>();
     }
-    protected virtual void ElementAndReaction()
+    protected virtual void SendAttackData()
     {
-        if (otherHealth != null && otherReactionAgent != null && canApplyElement && infusedElement != Reaction.Element.NONE && otherCollider.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown && !otherReactionAgent.ReactionActive)
+        if (otherAttackCheck != null)
         {
-            if (otherReactionAgent.appliedElement == Reaction.Element.NONE || otherReactionAgent.appliedElement == infusedElement) otherReactionAgent.SetElement(infusedElement, elementDuration);
-            else if (otherReactionAgent.appliedElement != infusedElement) reaction.ActivateReaction(otherHealth, otherReactionAgent, infusedElement, whoToDamage);
+            if (otherCollider.CompareTag(whoToDamage)) otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, elementDuration, false, 0f);
+            else if (otherCollider.CompareTag("Invulnerable")) otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, elementDuration, false, 0f);
         }
-    }
-    protected virtual void Damage()
-    {
-        return;
     }
 }
