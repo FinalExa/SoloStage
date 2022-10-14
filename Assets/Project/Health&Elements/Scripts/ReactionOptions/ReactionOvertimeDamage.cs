@@ -44,6 +44,7 @@ public class ReactionOvertimeDamage
 
     private void DealDamage()
     {
-        targetAttackCheck.CheckReceivedAttackData(whoToDamage, appliesElement, damageType, true, elementDuration, true, damage);
+        if (appliesElement) targetAttackCheck.ElementApplication(damageType, elementDuration, true);
+        targetAttackCheck.DealDamage(damage);
     }
 }

@@ -16,7 +16,10 @@ public class ReactionInstantDamage
     public void DealInstantDamage(AttackCheck attackCheck, string whoToDamage)
     {
         float damage = baseValue + (multiplier * 0f);
-        if (!hasAoe) attackCheck.CheckReceivedAttackData(whoToDamage, appliesElement, damageType, true, elementDuration, true, damage);
+        if (!hasAoe)
+        {
+            DealReactionDamage(attackCheck, damage);
+        }
         else
         {
             Collider[] collidersInRange = Physics.OverlapSphere(attackCheck.gameObject.transform.position, aoeRange);
@@ -28,9 +31,14 @@ public class ReactionInstantDamage
                 if (target != null && collider.CompareTag(whoToDamage) && !targetsInRange.Contains(target))
                 {
                     targetsInRange.Add(target);
-                    attackCheck.CheckReceivedAttackData(whoToDamage, appliesElement, damageType, true, elementDuration, true, damage);
+                    DealReactionDamage(target, damage);
                 }
             }
         }
+    }
+    private void DealReactionDamage(AttackCheck attackCheck, float damage)
+    {
+        if (appliesElement) attackCheck.ElementApplication(damageType, elementDuration, true);
+        attackCheck.DealDamage(damage);
     }
 }

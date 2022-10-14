@@ -9,7 +9,7 @@ public class Reaction : MonoBehaviour
     [SerializeField] private ReactionText reactionText;
     private ReactionList.PossibleReaction currentReaction;
 
-    public void ActivateReaction(Health targetHealth, ReactionAgent targetReactionAgent, Element _triggerElement, string whoToDamage)
+    public void ActivateReaction(Health targetHealth, ReactionAgent targetReactionAgent, Element _triggerElement)
     {
         Element _placedElement = targetReactionAgent.appliedElement;
         if (FindReaction(_placedElement, _triggerElement))

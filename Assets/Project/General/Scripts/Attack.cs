@@ -36,10 +36,10 @@ public class Attack : MonoBehaviour
     }
     protected virtual void SendAttackData()
     {
-        if (otherAttackCheck != null)
+        if (otherAttackCheck != null && canApplyElement)
         {
-            if (otherCollider.CompareTag(whoToDamage)) otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, false, elementDuration, false, 0f);
-            else if (otherCollider.CompareTag("Invulnerable")) otherAttackCheck.CheckReceivedAttackData(whoToDamage, canApplyElement, infusedElement, false, elementDuration, false, 0f);
+            if (otherCollider.CompareTag(whoToDamage)) otherAttackCheck.ElementApplication(infusedElement, elementDuration, false);
+            else if (otherCollider.CompareTag("Invulnerable")) otherAttackCheck.ElementApplication(infusedElement, elementDuration, false);
         }
     }
 }
