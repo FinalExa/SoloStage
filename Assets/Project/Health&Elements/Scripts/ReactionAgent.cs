@@ -41,6 +41,13 @@ public class ReactionAgent : MonoBehaviour
     private void InstantaneousReactionFunctions()
     {
         if (currentReaction.reactionDamage.enabled) currentReaction.reactionDamage.DealInstantDamage(attackCheck, this.gameObject.tag);
+        if (currentReaction.reactionObject.enabled)
+        {
+            ReactionObject ro;
+            if (currentReaction.reactionObject.keepsParent) ro = Instantiate(currentReaction.reactionObject.reactionObjectRef, this.gameObject.transform);
+            else ro = Instantiate(currentReaction.reactionObject.reactionObjectRef, this.gameObject.transform.position, Quaternion.identity);
+            ro.SetReactionObjectParameters(this.tag);
+        }
     }
     private void StartReactionICD(float ICD)
     {

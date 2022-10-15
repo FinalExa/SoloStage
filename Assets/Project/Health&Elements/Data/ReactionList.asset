@@ -34,10 +34,18 @@ MonoBehaviour:
       baseValue: 0
       multiplier: 0
       damageType: 0
+      timeBetweenHits: 0
       appliesElement: 0
       elementDuration: 0
       firstHitOn: 0
-      timeBetweenHits: 0
+      hasAoe: 0
+      aoeHitsSingleTarget: 0
+      aoeRange: 0
+    reactionObject:
+      enabled: 0
+      reactionObjectRef: {fileID: 0}
+      keepsParent: 0
+      quantity: 0
   - reactionName: Boil
     reactionCombination:
     - placedElement: 2
@@ -59,7 +67,48 @@ MonoBehaviour:
       baseValue: 10
       multiplier: 1
       damageType: 1
+      timeBetweenHits: 0.3
       appliesElement: 1
       elementDuration: 1
       firstHitOn: 1
-      timeBetweenHits: 0.3
+      hasAoe: 0
+      aoeHitsSingleTarget: 0
+      aoeRange: 0
+    reactionObject:
+      enabled: 0
+      reactionObjectRef: {fileID: 0}
+      keepsParent: 0
+      quantity: 0
+  - reactionName: Energize
+    reactionCombination:
+    - placedElement: 1
+      triggerElement: 8
+    isInstantaneous: 1
+    reactionDuration: 0
+    reactionICD: 0
+    reactionDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      elementDuration: 0
+      appliesElement: 0
+      hasAoe: 0
+      aoeRange: 0
+    reactionOvertimeDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      timeBetweenHits: 0
+      appliesElement: 0
+      elementDuration: 0
+      firstHitOn: 0
+      hasAoe: 0
+      aoeHitsSingleTarget: 0
+      aoeRange: 0
+    reactionObject:
+      enabled: 1
+      reactionObjectRef: {fileID: 1831357755837808426, guid: 30eebae173fbe89408fc562c68f169e5, type: 3}
+      keepsParent: 0
+      quantity: 1

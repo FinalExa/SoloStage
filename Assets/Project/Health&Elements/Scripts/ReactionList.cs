@@ -14,8 +14,9 @@ public class ReactionList : ScriptableObject
     [System.Serializable]
     public struct ReactionObjectCreation
     {
-        public bool enables;
-        public ReactionObject reactionObject;
+        public bool enabled;
+        public ReactionObject reactionObjectRef;
+        public bool keepsParent;
         public int quantity;
     }
     [System.Serializable]
