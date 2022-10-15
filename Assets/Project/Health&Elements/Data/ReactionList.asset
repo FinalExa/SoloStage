@@ -133,3 +133,35 @@ MonoBehaviour:
       reactionObjectRef: {fileID: 1831357755837808426, guid: 8fbd28aec06c3bd41ae4ff7eab217ffd, type: 3}
       keepsParent: 1
       quantity: 1
+  - reactionName: Unstable Sphere
+    reactionCombination:
+    - placedElement: 2
+      triggerElement: 8
+    - placedElement: 8
+      triggerElement: 2
+    isInstantaneous: 1
+    reactionDuration: 0
+    reactionICD: 0
+    reactionDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 1
+      damageType: 0
+      elementDuration: 0
+      appliesElement: 0
+      hasAoe: 0
+      aoeRange: 0
+    reactionOvertimeDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      timeBetweenHits: 0
+      appliesElement: 0
+      elementDuration: 0
+      firstHitOn: 0
+    reactionObject:
+      enabled: 1
+      reactionObjectRef: {fileID: 1831357755837808426, guid: 7488a6007ca68d84d8f3503814a01294, type: 3}
+      keepsParent: 0
+      quantity: 1

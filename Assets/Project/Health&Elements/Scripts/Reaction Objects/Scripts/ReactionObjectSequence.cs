@@ -10,8 +10,8 @@ public class ReactionObjectSequence
     [SerializeField] private float duration;
     [SerializeField] private bool isObstacle;
     [SerializeField] private ReactionOvertimeDamageObject reactionOvertimeDamageObject;
-
-    private string damageTag;
+    [SerializeField] private ReactionObjectNavmeshAgent reactionObjectNavmeshAgent;
+    [SerializeField] private ReactionInstantDamageObject reactionInstantDamageObject;
     private float durationTimer;
     private ReactionObject reactionObject;
 
@@ -19,7 +19,6 @@ public class ReactionObjectSequence
     public void SetDataFromParent(ReactionObject reactionObj, string _damageTag)
     {
         reactionObject = reactionObj;
-        damageTag = _damageTag;
     }
 
     public void StartupReactionObjectOptions()
@@ -28,20 +27,39 @@ public class ReactionObjectSequence
         else reactionObject.obstacle.enabled = false;
         durationTimer = duration;
         reactionObject.aoeObject.SetActive(false);
+        reactionObject.navMeshAgent.enabled = false;
+        StartOvertime();
+        StartNavmesh();
+    }
+
+    public void StartOvertime()
+    {
         if (reactionOvertimeDamageObject.enabled)
         {
-            reactionOvertimeDamageObject.SetStartupValues(reactionObject, damageTag);
+            reactionOvertimeDamageObject.SetStartupValues(reactionObject, reactionObject.damageTag);
             if (reactionOvertimeDamageObject.hasAoe)
             {
                 reactionObject.aoeObject.SetActive(true);
                 reactionObject.aoeObject.transform.localScale *= reactionOvertimeDamageObject.aoeRange;
             }
         }
+
+    }
+
+    public void StartNavmesh()
+    {
+        if (reactionObjectNavmeshAgent.enabled)
+        {
+            reactionObject.navMeshAgent.enabled = true;
+            reactionObjectNavmeshAgent.StartUp(reactionObject, reactionObject.damageTag);
+        }
     }
 
     public void ExecuteReactionObjectOptions()
     {
         if (reactionOvertimeDamageObject.enabled) reactionOvertimeDamageObject.OvertimeDamage();
+        if (reactionObjectNavmeshAgent.enabled) reactionObjectNavmeshAgent.TrackAndFollow();
+        if (reactionInstantDamageObject.enabled) reactionInstantDamageObject.DealInstantDamageAoeExplosion(reactionObject, reactionObject.damageTag);
     }
     public void ReactionObjectDuration()
     {

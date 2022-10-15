@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ReactionOvertimeDamageObject : ReactionOvertimeDamage
 {
+    private ReactionObject originReactionObject;
     public bool hasAoe;
     public bool aoeHitsSingleTarget;
     public float aoeRange;

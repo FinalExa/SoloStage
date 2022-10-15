@@ -31,6 +31,6 @@ public class EnemyController : MonoBehaviour
     private void OnDisable()
     {
         ReactionObject[] reactionObjects = this.gameObject.GetComponentsInChildren<ReactionObject>();
-        foreach (ReactionObject reactionObject in reactionObjects) GameObject.Destroy(reactionObject.gameObject);
+        foreach (ReactionObject reactionObject in reactionObjects) reactionObject.ReactionObjectEnd();
     }
 }

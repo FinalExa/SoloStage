@@ -17,7 +17,6 @@ public class ReactionOvertimeDamage
     protected float timer;
     protected float damage;
     protected AttackCheck targetAttackCheck;
-    protected ReactionObject originReactionObject;
     protected string whoToDamage;
     public void SetStartupValues(AttackCheck attackCheck, string damageTag)
     {

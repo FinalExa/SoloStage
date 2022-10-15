@@ -5,16 +5,18 @@ using UnityEngine.AI;
 
 public class ReactionObject : MonoBehaviour
 {
-    private string damageTag;
     private int sequenceIndex;
     [SerializeField] private string reactionObjectName;
     public GameObject aoeObject;
     [SerializeField] private ReactionObjectSequence[] reactionObjectSequence;
     [HideInInspector] public NavMeshObstacle obstacle;
+    [HideInInspector] public NavMeshAgent navMeshAgent;
+    [HideInInspector] public string damageTag;
 
     private void Awake()
     {
         obstacle = this.gameObject.GetComponent<NavMeshObstacle>();
+        navMeshAgent = this.gameObject.GetComponent<NavMeshAgent>();
     }
     public void SetReactionObjectParameters(string _damageTag)
     {
@@ -45,7 +47,12 @@ public class ReactionObject : MonoBehaviour
         }
         else
         {
-            GameObject.Destroy(this.gameObject);
+            ReactionObjectEnd();
         }
+    }
+
+    public void ReactionObjectEnd()
+    {
+        GameObject.Destroy(this.gameObject);
     }
 }
