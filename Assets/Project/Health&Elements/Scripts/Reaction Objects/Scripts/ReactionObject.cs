@@ -6,53 +6,45 @@ using UnityEngine.AI;
 public class ReactionObject : MonoBehaviour
 {
     private string damageTag;
+    private int sequenceIndex;
     [SerializeField] private string reactionObjectName;
-    [SerializeField] private float duration;
-    [SerializeField] private bool isObstacle;
-    [SerializeField] private ReactionOvertimeDamageObject reactionOvertimeDamageObject;
-    private float durationTimer;
-    private NavMeshObstacle obstacle;
+    [SerializeField] private ReactionObjectSequence[] reactionObjectSequence;
+    [HideInInspector] public NavMeshObstacle obstacle;
 
     private void Awake()
     {
         obstacle = this.gameObject.GetComponent<NavMeshObstacle>();
     }
-
-    private void Start()
-    {
-        StartupReactionObjectOptions();
-    }
-
-    private void Update()
-    {
-        ExecuteReactionObjectOptions();
-        ReactionObjectDuration();
-    }
-
     public void SetReactionObjectParameters(string _damageTag)
     {
         damageTag = _damageTag;
+        foreach (ReactionObjectSequence phase in reactionObjectSequence)
+        {
+            phase.SetDataFromParent(this, damageTag);
+        }
     }
 
-    private void StartupReactionObjectOptions()
+    private void Start()
     {
-        if (isObstacle) obstacle.enabled = true;
-        durationTimer = duration;
-        if (reactionOvertimeDamageObject.enabled) reactionOvertimeDamageObject.SetStartupValues(this, damageTag);
+        sequenceIndex = -1;
+        AdvanceSequence();
+    }
+    private void Update()
+    {
+        reactionObjectSequence[sequenceIndex].ExecuteReactionObjectOptions();
+        reactionObjectSequence[sequenceIndex].ReactionObjectDuration();
     }
 
-    private void ExecuteReactionObjectOptions()
+    public void AdvanceSequence()
     {
-        if (reactionOvertimeDamageObject.enabled) reactionOvertimeDamageObject.OvertimeDamage();
-    }
-    private void ReactionObjectDuration()
-    {
-        if (durationTimer > 0) durationTimer -= Time.deltaTime;
-        else OnObjectDurationEnd();
-    }
-
-    private void OnObjectDurationEnd()
-    {
-        GameObject.Destroy(this.gameObject);
+        if (sequenceIndex + 1 < reactionObjectSequence.Length)
+        {
+            sequenceIndex++;
+            reactionObjectSequence[sequenceIndex].StartupReactionObjectOptions();
+        }
+        else
+        {
+            GameObject.Destroy(this.gameObject);
+        }
     }
 }

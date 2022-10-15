@@ -8,7 +8,14 @@ public class ReactionOvertimeDamageObject : ReactionOvertimeDamage
     public bool hasAoe;
     public bool aoeHitsSingleTarget;
     public float aoeRange;
-
+    public void SetStartupValues(ReactionObject reactionObject, string damageTag)
+    {
+        originReactionObject = reactionObject;
+        whoToDamage = damageTag;
+        timer = timeBetweenHits;
+        damage = baseValue + (multiplier * 0f);
+        firstHitDone = false;
+    }
     public override void OvertimeDamage()
     {
         if (firstHitOn && !firstHitDone)

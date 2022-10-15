@@ -27,14 +27,6 @@ public class ReactionOvertimeDamage
         damage = baseValue + (multiplier * 0f);
         firstHitDone = false;
     }
-    public void SetStartupValues(ReactionObject reactionObject, string damageTag)
-    {
-        originReactionObject = reactionObject;
-        whoToDamage = damageTag;
-        timer = timeBetweenHits;
-        damage = baseValue + (multiplier * 0f);
-        firstHitDone = false;
-    }
 
     public virtual void OvertimeDamage()
     {

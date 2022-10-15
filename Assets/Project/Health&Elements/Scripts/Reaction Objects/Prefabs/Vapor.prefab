@@ -177,20 +177,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reactionObjectName: Vapor
-  duration: 6
-  isObstacle: 0
-  reactionOvertimeDamageObject:
-    enabled: 1
-    baseValue: 20
-    multiplier: 1
-    damageType: 2
-    timeBetweenHits: 1
-    appliesElement: 1
-    elementDuration: 5
-    firstHitOn: 0
-    hasAoe: 1
-    aoeHitsSingleTarget: 0
-    aoeRange: 2
+  reactionObjectSequence:
+  - sequenceName: Main Phase
+    duration: 6
+    isObstacle: 0
+    reactionOvertimeDamageObject:
+      enabled: 1
+      baseValue: 20
+      multiplier: 1
+      damageType: 2
+      timeBetweenHits: 1
+      appliesElement: 1
+      elementDuration: 5
+      firstHitOn: 0
+      hasAoe: 1
+      aoeHitsSingleTarget: 0
+      aoeRange: 2
+  obstacle: {fileID: 0}
 --- !u!208 &8457922209590302613
 NavMeshObstacle:
   m_ObjectHideFlags: 0

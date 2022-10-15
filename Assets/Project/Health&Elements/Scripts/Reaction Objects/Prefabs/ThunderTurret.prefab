@@ -177,20 +177,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reactionObjectName: Thunder Turret
-  duration: 10
-  isObstacle: 1
-  reactionOvertimeDamageObject:
-    enabled: 1
-    baseValue: 10
-    multiplier: 1
-    damageType: 8
-    timeBetweenHits: 0.5
-    appliesElement: 1
-    elementDuration: 3
-    firstHitOn: 1
-    hasAoe: 1
-    aoeHitsSingleTarget: 1
-    aoeRange: 3
+  reactionObjectSequence:
+  - sequenceName: Main Phase
+    duration: 10
+    isObstacle: 1
+    reactionOvertimeDamageObject:
+      enabled: 1
+      baseValue: 10
+      multiplier: 1
+      damageType: 8
+      timeBetweenHits: 0.3
+      appliesElement: 1
+      elementDuration: 3
+      firstHitOn: 1
+      hasAoe: 1
+      aoeHitsSingleTarget: 1
+      aoeRange: 3
+  obstacle: {fileID: 0}
 --- !u!208 &8457922209590302613
 NavMeshObstacle:
   m_ObjectHideFlags: 0
