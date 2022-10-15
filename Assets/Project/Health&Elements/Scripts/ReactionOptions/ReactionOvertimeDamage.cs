@@ -13,15 +13,12 @@ public class ReactionOvertimeDamage
     public bool appliesElement;
     public float elementDuration;
     public bool firstHitOn;
-    public bool hasAoe;
-    public bool aoeHitsSingleTarget;
-    public float aoeRange;
-    private bool firstHitDone;
-    private float timer;
-    private float damage;
-    private AttackCheck targetAttackCheck;
-    private ReactionObject originReactionObject;
-    private string whoToDamage;
+    protected bool firstHitDone;
+    protected float timer;
+    protected float damage;
+    protected AttackCheck targetAttackCheck;
+    protected ReactionObject originReactionObject;
+    protected string whoToDamage;
     public void SetStartupValues(AttackCheck attackCheck, string damageTag)
     {
         targetAttackCheck = attackCheck;
@@ -39,48 +36,21 @@ public class ReactionOvertimeDamage
         firstHitDone = false;
     }
 
-    public void OvertimeDamage()
+    public virtual void OvertimeDamage()
     {
         if (firstHitOn && !firstHitDone)
         {
-            DamageTypeCheck();
+            DealReactionDamage(targetAttackCheck);
             firstHitDone = true;
         }
         if (timer > 0) timer -= Time.deltaTime;
         else
         {
-            DamageTypeCheck();
+            DealReactionDamage(targetAttackCheck);
             timer = timeBetweenHits;
         }
     }
-    private void DamageTypeCheck()
-    {
-        if (!hasAoe) DealReactionDamage(targetAttackCheck);
-        else
-        {
-            Transform origin;
-            if (targetAttackCheck != null) origin = targetAttackCheck.transform;
-            else origin = originReactionObject.transform;
-            AoeDamage(origin);
-        }
-    }
-    private void AoeDamage(Transform origin)
-    {
-        Collider[] collidersInRange = Physics.OverlapSphere(origin.position, aoeRange);
-        List<AttackCheck> targetsInRange = new List<AttackCheck>();
-        targetsInRange.Clear();
-        foreach (Collider collider in collidersInRange)
-        {
-            AttackCheck target = collider.gameObject.GetComponent<AttackCheck>();
-            if (target != null && collider.CompareTag(whoToDamage) && !targetsInRange.Contains(target))
-            {
-                targetsInRange.Add(target);
-                DealReactionDamage(target);
-                if (aoeHitsSingleTarget) break;
-            }
-        }
-    }
-    private void DealReactionDamage(AttackCheck target)
+    protected void DealReactionDamage(AttackCheck target)
     {
         if (appliesElement) target.ElementApplication(damageType, elementDuration, true);
         target.DealDamage(damage);

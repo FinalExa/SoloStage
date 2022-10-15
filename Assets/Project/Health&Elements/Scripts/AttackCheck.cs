@@ -28,6 +28,9 @@ public class AttackCheck : MonoBehaviour
 
     public void DealDamage(float damage)
     {
-        health.HealthAddValue(-damage);
+        if (health != null)
+        {
+            health.HealthAddValue(-damage);
+        }
     }
 }

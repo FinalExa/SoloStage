@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ReactionObject : MonoBehaviour
 {
     private string damageTag;
     [SerializeField] private string reactionObjectName;
     [SerializeField] private float duration;
-    [SerializeField] private ReactionOvertimeDamage reactionOvertimeDamage;
+    [SerializeField] private bool isObstacle;
+    [SerializeField] private ReactionOvertimeDamageObject reactionOvertimeDamageObject;
     private float durationTimer;
+    private NavMeshObstacle obstacle;
+
+    private void Awake()
+    {
+        obstacle = this.gameObject.GetComponent<NavMeshObstacle>();
+    }
 
     private void Start()
     {
@@ -28,17 +36,23 @@ public class ReactionObject : MonoBehaviour
 
     private void StartupReactionObjectOptions()
     {
+        if (isObstacle) obstacle.enabled = true;
         durationTimer = duration;
-        if (reactionOvertimeDamage.enabled) reactionOvertimeDamage.SetStartupValues(this, damageTag);
+        if (reactionOvertimeDamageObject.enabled) reactionOvertimeDamageObject.SetStartupValues(this, damageTag);
     }
 
     private void ExecuteReactionObjectOptions()
     {
-        if (reactionOvertimeDamage.enabled) reactionOvertimeDamage.OvertimeDamage();
+        if (reactionOvertimeDamageObject.enabled) reactionOvertimeDamageObject.OvertimeDamage();
     }
     private void ReactionObjectDuration()
     {
         if (durationTimer > 0) durationTimer -= Time.deltaTime;
-        else GameObject.Destroy(this.gameObject);
+        else OnObjectDurationEnd();
+    }
+
+    private void OnObjectDurationEnd()
+    {
+        GameObject.Destroy(this.gameObject);
     }
 }

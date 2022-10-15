@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.868332, b: 0, a: 1}
+  m_Color: {r: 0.52429694, g: 0.7886503, b: 0.8113208, a: 0.39607844}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1831357755837808426}
   - component: {fileID: 8457922209590302613}
   m_Layer: 0
-  m_Name: ThunderTurret
+  m_Name: Vapor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,21 +176,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abfea3981a60ae34e858769aaed42312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reactionObjectName: Thunder Turret
-  duration: 10
-  isObstacle: 1
+  reactionObjectName: Vapor
+  duration: 6
+  isObstacle: 0
   reactionOvertimeDamageObject:
     enabled: 1
-    baseValue: 10
+    baseValue: 20
     multiplier: 1
-    damageType: 8
-    timeBetweenHits: 0.5
+    damageType: 2
+    timeBetweenHits: 1
     appliesElement: 1
-    elementDuration: 3
-    firstHitOn: 1
+    elementDuration: 5
+    firstHitOn: 0
     hasAoe: 1
-    aoeHitsSingleTarget: 1
-    aoeRange: 3
+    aoeHitsSingleTarget: 0
+    aoeRange: 2
 --- !u!208 &8457922209590302613
 NavMeshObstacle:
   m_ObjectHideFlags: 0

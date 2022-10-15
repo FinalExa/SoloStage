@@ -38,9 +38,6 @@ MonoBehaviour:
       appliesElement: 0
       elementDuration: 0
       firstHitOn: 0
-      hasAoe: 0
-      aoeHitsSingleTarget: 0
-      aoeRange: 0
     reactionObject:
       enabled: 0
       reactionObjectRef: {fileID: 0}
@@ -71,9 +68,6 @@ MonoBehaviour:
       appliesElement: 1
       elementDuration: 1
       firstHitOn: 1
-      hasAoe: 0
-      aoeHitsSingleTarget: 0
-      aoeRange: 0
     reactionObject:
       enabled: 0
       reactionObjectRef: {fileID: 0}
@@ -104,11 +98,38 @@ MonoBehaviour:
       appliesElement: 0
       elementDuration: 0
       firstHitOn: 0
-      hasAoe: 0
-      aoeHitsSingleTarget: 0
-      aoeRange: 0
     reactionObject:
       enabled: 1
       reactionObjectRef: {fileID: 1831357755837808426, guid: 30eebae173fbe89408fc562c68f169e5, type: 3}
       keepsParent: 0
+      quantity: 1
+  - reactionName: Vaporization
+    reactionCombination:
+    - placedElement: 1
+      triggerElement: 2
+    isInstantaneous: 1
+    reactionDuration: 0
+    reactionICD: 0
+    reactionDamage:
+      enabled: 1
+      baseValue: 30
+      multiplier: 1
+      damageType: 2
+      elementDuration: 3
+      appliesElement: 1
+      hasAoe: 1
+      aoeRange: 2
+    reactionOvertimeDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      timeBetweenHits: 0
+      appliesElement: 0
+      elementDuration: 0
+      firstHitOn: 0
+    reactionObject:
+      enabled: 1
+      reactionObjectRef: {fileID: 1831357755837808426, guid: 8fbd28aec06c3bd41ae4ff7eab217ffd, type: 3}
+      keepsParent: 1
       quantity: 1
