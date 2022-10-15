@@ -8,6 +8,7 @@ public class ReactionObject : MonoBehaviour
     private string damageTag;
     private int sequenceIndex;
     [SerializeField] private string reactionObjectName;
+    public GameObject aoeObject;
     [SerializeField] private ReactionObjectSequence[] reactionObjectSequence;
     [HideInInspector] public NavMeshObstacle obstacle;
 

@@ -28,4 +28,9 @@ public class EnemyController : MonoBehaviour
         enemyCombo.SetWeapon(enemyWeapon);
         enemyWeapon.ReferencesSetup(whoToDamage, 0f);
     }
+    private void OnDisable()
+    {
+        ReactionObject[] reactionObjects = this.gameObject.GetComponentsInChildren<ReactionObject>();
+        foreach (ReactionObject reactionObject in reactionObjects) GameObject.Destroy(reactionObject.gameObject);
+    }
 }

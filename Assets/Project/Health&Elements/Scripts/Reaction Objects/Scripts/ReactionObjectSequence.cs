@@ -10,6 +10,7 @@ public class ReactionObjectSequence
     [SerializeField] private float duration;
     [SerializeField] private bool isObstacle;
     [SerializeField] private ReactionOvertimeDamageObject reactionOvertimeDamageObject;
+
     private string damageTag;
     private float durationTimer;
     private ReactionObject reactionObject;
@@ -26,7 +27,16 @@ public class ReactionObjectSequence
         if (isObstacle) reactionObject.obstacle.enabled = true;
         else reactionObject.obstacle.enabled = false;
         durationTimer = duration;
-        if (reactionOvertimeDamageObject.enabled) reactionOvertimeDamageObject.SetStartupValues(reactionObject, damageTag);
+        reactionObject.aoeObject.SetActive(false);
+        if (reactionOvertimeDamageObject.enabled)
+        {
+            reactionOvertimeDamageObject.SetStartupValues(reactionObject, damageTag);
+            if (reactionOvertimeDamageObject.hasAoe)
+            {
+                reactionObject.aoeObject.SetActive(true);
+                reactionObject.aoeObject.transform.localScale *= reactionOvertimeDamageObject.aoeRange;
+            }
+        }
     }
 
     public void ExecuteReactionObjectOptions()
