@@ -26,5 +26,11 @@ public class EnemyController : MonoBehaviour
         isAlerted = true;
         enemyWeapon.damageTag = whoToDamage;
         enemyCombo.SetWeapon(enemyWeapon);
+        enemyWeapon.ReferencesSetup(whoToDamage, 0f);
+    }
+    private void OnDisable()
+    {
+        ReactionObject[] reactionObjects = this.gameObject.GetComponentsInChildren<ReactionObject>();
+        foreach (ReactionObject reactionObject in reactionObjects) reactionObject.ReactionObjectEnd();
     }
 }

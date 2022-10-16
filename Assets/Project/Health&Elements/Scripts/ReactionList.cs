@@ -12,21 +12,24 @@ public class ReactionList : ScriptableObject
         public Reaction.Element triggerElement;
     }
     [System.Serializable]
-    public struct ReactionDamage
+    public struct ReactionObjectCreation
     {
         public bool enabled;
-        public float baseValue;
-        public float multiplier;
+        public ReactionObject reactionObjectRef;
+        public bool keepsParent;
+        public int quantity;
     }
     [System.Serializable]
     public struct PossibleReaction
     {
         public string reactionName;
         public ReactionCombination[] reactionCombination;
-        public ReactionDamage reactionDamage;
-        public Reaction.Element reactionDamageType;
-        public Reaction.Element reactionLeftElement;
+        public bool isInstantaneous;
+        public float reactionDuration;
         public float reactionICD;
+        public ReactionInstantDamage reactionDamage;
+        public ReactionOvertimeDamage reactionOvertimeDamage;
+        public ReactionObjectCreation reactionObject;
     }
     public PossibleReaction[] list;
 }

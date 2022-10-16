@@ -13,69 +13,155 @@ MonoBehaviour:
   m_Name: ReactionList
   m_EditorClassIdentifier: 
   list:
-  - reactionName: Vaporize
+  - reactionName: Explode
     reactionCombination:
-    - placedElement: 1
-      triggerElement: 2
+    - placedElement: 8
+      triggerElement: 1
+    isInstantaneous: 1
+    reactionDuration: 0
+    reactionICD: 3
     reactionDamage:
       enabled: 1
-      baseValue: 50
-      multiplier: 2
-    reactionDamageType: 0
-    reactionLeftElement: 0
-    reactionICD: 3
+      baseValue: 100
+      multiplier: 1
+      damageType: 1
+      elementDuration: 5
+      appliesElement: 1
+      hasAoe: 1
+      aoeRange: 10
+    reactionOvertimeDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      timeBetweenHits: 0
+      appliesElement: 0
+      elementDuration: 0
+      firstHitOn: 0
+    reactionObject:
+      enabled: 0
+      reactionObjectRef: {fileID: 0}
+      keepsParent: 0
+      quantity: 0
   - reactionName: Boil
     reactionCombination:
     - placedElement: 2
       triggerElement: 1
+    isInstantaneous: 0
+    reactionDuration: 5
+    reactionICD: 3
     reactionDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      elementDuration: 0
+      appliesElement: 0
+      hasAoe: 0
+      aoeRange: 0
+    reactionOvertimeDamage:
       enabled: 1
-      baseValue: 50
+      baseValue: 10
       multiplier: 1
-    reactionDamageType: 1
-    reactionLeftElement: 1
-    reactionICD: 2
-  - reactionName: Scorch
+      damageType: 1
+      timeBetweenHits: 0.3
+      appliesElement: 1
+      elementDuration: 1
+      firstHitOn: 1
+    reactionObject:
+      enabled: 0
+      reactionObjectRef: {fileID: 0}
+      keepsParent: 0
+      quantity: 0
+  - reactionName: Energize
     reactionCombination:
     - placedElement: 1
-      triggerElement: 4
+      triggerElement: 8
+    isInstantaneous: 1
+    reactionDuration: 0
+    reactionICD: 0
     reactionDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      elementDuration: 0
+      appliesElement: 0
+      hasAoe: 0
+      aoeRange: 0
+    reactionOvertimeDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      timeBetweenHits: 0
+      appliesElement: 0
+      elementDuration: 0
+      firstHitOn: 0
+    reactionObject:
       enabled: 1
-      baseValue: 50
-      multiplier: 1
-    reactionDamageType: 0
-    reactionLeftElement: 0
-    reactionICD: 2
-  - reactionName: Burn
+      reactionObjectRef: {fileID: 1831357755837808426, guid: 30eebae173fbe89408fc562c68f169e5, type: 3}
+      keepsParent: 0
+      quantity: 1
+  - reactionName: Vaporization
     reactionCombination:
-    - placedElement: 4
-      triggerElement: 1
+    - placedElement: 1
+      triggerElement: 2
+    isInstantaneous: 1
+    reactionDuration: 0
+    reactionICD: 0
     reactionDamage:
       enabled: 1
-      baseValue: 50
+      baseValue: 30
       multiplier: 1
-    reactionDamageType: 0
-    reactionLeftElement: 0
-    reactionICD: 2
-  - reactionName: Duplicate
+      damageType: 2
+      elementDuration: 3
+      appliesElement: 1
+      hasAoe: 1
+      aoeRange: 2
+    reactionOvertimeDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      timeBetweenHits: 0
+      appliesElement: 0
+      elementDuration: 0
+      firstHitOn: 0
+    reactionObject:
+      enabled: 1
+      reactionObjectRef: {fileID: 1831357755837808426, guid: 8fbd28aec06c3bd41ae4ff7eab217ffd, type: 3}
+      keepsParent: 1
+      quantity: 1
+  - reactionName: Unstable Sphere
     reactionCombination:
     - placedElement: 2
-      triggerElement: 4
-    reactionDamage:
-      enabled: 1
-      baseValue: 50
-      multiplier: 1
-    reactionDamageType: 0
-    reactionLeftElement: 0
-    reactionICD: 2
-  - reactionName: Grow
-    reactionCombination:
-    - placedElement: 4
+      triggerElement: 8
+    - placedElement: 8
       triggerElement: 2
+    isInstantaneous: 1
+    reactionDuration: 0
+    reactionICD: 0
     reactionDamage:
-      enabled: 1
-      baseValue: 50
+      enabled: 0
+      baseValue: 0
       multiplier: 1
-    reactionDamageType: 0
-    reactionLeftElement: 0
-    reactionICD: 2
+      damageType: 0
+      elementDuration: 0
+      appliesElement: 0
+      hasAoe: 0
+      aoeRange: 0
+    reactionOvertimeDamage:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      timeBetweenHits: 0
+      appliesElement: 0
+      elementDuration: 0
+      firstHitOn: 0
+    reactionObject:
+      enabled: 1
+      reactionObjectRef: {fileID: 1831357755837808426, guid: 7488a6007ca68d84d8f3503814a01294, type: 3}
+      keepsParent: 0
+      quantity: 1

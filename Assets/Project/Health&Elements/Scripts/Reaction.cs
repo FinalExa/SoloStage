@@ -9,26 +9,23 @@ public class Reaction : MonoBehaviour
     [SerializeField] private ReactionText reactionText;
     private ReactionList.PossibleReaction currentReaction;
 
-    public void ActivateReaction(Health targetHealth, ReactionAgent targetReactionAgent, Element _triggerElement)
+    public void ActivateReaction(ReactionAgent targetReactionAgent, Element _triggerElement)
     {
         Element _placedElement = targetReactionAgent.appliedElement;
-        FindReaction(_placedElement, _triggerElement);
-        if (currentReaction.reactionDamage.enabled)
+        targetReactionAgent.RemoveElement();
+        if (FindReaction(_placedElement, _triggerElement))
         {
-            float damage = currentReaction.reactionDamage.baseValue + (currentReaction.reactionDamage.multiplier * 0f);
-            targetHealth.HealthAddValue(-damage);
+            targetReactionAgent.StartReaction(currentReaction);
+            ReactionText rt = Instantiate(reactionText, targetReactionAgent.gameObject.transform.position, Quaternion.identity);
+            rt.SetReactionText(currentReaction.reactionName);
         }
-        targetReactionAgent.appliedElement = currentReaction.reactionLeftElement;
-        targetReactionAgent.StartReactionICD(currentReaction.reactionICD);
-        ReactionText rt = Instantiate(reactionText, targetHealth.gameObject.transform.position, Quaternion.identity);
-        rt.SetReactionText(currentReaction.reactionName);
     }
 
-    private void FindReaction(Element _placedElement, Element _triggerElement)
+    private bool FindReaction(Element _placedElement, Element _triggerElement)
     {
+        bool found = false;
         foreach (ReactionList.PossibleReaction reaction in reactionList.list)
         {
-            bool found = false;
             if (reaction.reactionCombination.Length > 0)
             {
                 foreach (ReactionList.ReactionCombination reactionCombination in reaction.reactionCombination)
@@ -43,5 +40,6 @@ public class Reaction : MonoBehaviour
             }
             if (found) break;
         }
+        return found;
     }
 }

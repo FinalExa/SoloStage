@@ -6,40 +6,40 @@ public class Attack : MonoBehaviour
 {
     [HideInInspector] public string whoToDamage;
     [HideInInspector] public Reaction.Element infusedElement;
+    [HideInInspector] public float elementDuration;
     [HideInInspector] public bool canApplyElement;
 
     protected Reaction reaction;
     protected Collider otherCollider;
-    protected Health otherHealth;
-    protected ReactionAgent otherReactionAgent;
+    protected AttackCheck otherAttackCheck;
 
     protected virtual void Awake()
     {
         reaction = FindObjectOfType<Reaction>();
     }
+
     private void OnTriggerEnter(Collider other)
     {
         GetOtherReferences(other);
-        ElementAndReaction();
-        Damage();
+        SendAttackData();
+    }
+    public virtual void InitializeAttack(string damageTag, float sourceElementDuration)
+    {
+        whoToDamage = damageTag;
+        elementDuration = sourceElementDuration;
     }
 
     protected virtual void GetOtherReferences(Collider other)
     {
         otherCollider = other;
-        otherHealth = other.gameObject.GetComponent<Health>();
-        otherReactionAgent = other.gameObject.GetComponent<ReactionAgent>();
+        otherAttackCheck = other.gameObject.GetComponent<AttackCheck>();
     }
-    protected virtual void ElementAndReaction()
+    protected virtual void SendAttackData()
     {
-        if (otherHealth != null && otherReactionAgent != null && canApplyElement && infusedElement != Reaction.Element.NONE && otherCollider.CompareTag(whoToDamage) && !otherReactionAgent.InCooldown)
+        if (otherAttackCheck != null && canApplyElement)
         {
-            if (otherReactionAgent.appliedElement == Reaction.Element.NONE) otherReactionAgent.appliedElement = infusedElement;
-            else if (otherReactionAgent.appliedElement != infusedElement) reaction.ActivateReaction(otherHealth, otherReactionAgent, infusedElement);
+            if (otherCollider.CompareTag(whoToDamage)) otherAttackCheck.ElementApplication(infusedElement, elementDuration, false);
+            else if (otherCollider.CompareTag("Invulnerable")) otherAttackCheck.ElementApplication(infusedElement, elementDuration, false);
         }
-    }
-    protected virtual void Damage()
-    {
-        return;
     }
 }

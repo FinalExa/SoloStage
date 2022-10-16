@@ -6,18 +6,24 @@ public class SkillAttackHitbox : Attack
 {
     [HideInInspector] public Skill originSkill;
 
-    private void Start()
+    public void InitializeAttack(string damageTag, float elementDuration, Skill skill, Reaction.Element element)
     {
+        originSkill = skill;
+        InitializeAttack(damageTag, elementDuration);
+        infusedElement = element;
         canApplyElement = true;
-        whoToDamage = originSkill.whoToDamage;
     }
-
-    protected override void Damage()
+    protected override void SendAttackData()
     {
-        if (otherHealth != null && (otherCollider.CompareTag(whoToDamage) || otherCollider.CompareTag("Invulnerable")))
+        if (otherAttackCheck != null)
         {
-            if (otherCollider.CompareTag(whoToDamage)) otherHealth.HealthAddValue(-originSkill.skillDamage);
-            originSkill.SkillEnd();
+            if (otherCollider.CompareTag(whoToDamage))
+            {
+                if (canApplyElement) otherAttackCheck.ElementApplication(infusedElement, elementDuration, false);
+                otherAttackCheck.DealDamage(originSkill.skillDamage);
+                originSkill.SkillEnd();
+            }
+            else if (otherCollider.CompareTag("Invulnerable")) originSkill.SkillEnd();
         }
     }
 }

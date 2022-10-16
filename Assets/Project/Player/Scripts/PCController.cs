@@ -12,9 +12,11 @@ public class PCController : MonoBehaviour
     public GameObject rotator;
     [HideInInspector] public Vector3 lastDirection;
     public Weapon equippedWeapon;
+    public float weaponElementDuration;
     [HideInInspector] public bool dodgeInCooldown;
     private float dodgeCooldownTimer;
     public Attack dodgeHitbox;
+    public float dodgeHitboxElementDuration;
     [SerializeField] private Reaction.Element dodgeElement;
     [HideInInspector] public float receivedDamage;
     [SerializeField] private GameObject tempDodgeInterrupted;
@@ -35,13 +37,13 @@ public class PCController : MonoBehaviour
     {
         tempDodgeInterrupted.SetActive(false);
         pcReferences.health.SetHPStartup(pcReferences.pcData.maxHP);
-        equippedWeapon.damageTag = whoToDamage;
+        equippedWeapon.ReferencesSetup(whoToDamage, weaponElementDuration);
         skill.SkillSetup(whoToDamage);
-        skill.gameObject.SetActive(false);
         dodgeHitbox.canApplyElement = true;
         dodgeHitbox.infusedElement = dodgeElement;
         dodgeHitbox.whoToDamage = whoToDamage;
         dodgeHitbox.gameObject.SetActive(false);
+        dodgeHitbox.elementDuration = dodgeHitboxElementDuration;
         lastDirection = new Vector3(0f, 0f, 1f).normalized;
     }
     private void Update()
