@@ -9,13 +9,14 @@ public class Reaction : MonoBehaviour
     [SerializeField] private ReactionText reactionText;
     private ReactionList.PossibleReaction currentReaction;
 
-    public void ActivateReaction(Health targetHealth, ReactionAgent targetReactionAgent, Element _triggerElement)
+    public void ActivateReaction(ReactionAgent targetReactionAgent, Element _triggerElement)
     {
         Element _placedElement = targetReactionAgent.appliedElement;
+        targetReactionAgent.RemoveElement();
         if (FindReaction(_placedElement, _triggerElement))
         {
             targetReactionAgent.StartReaction(currentReaction);
-            ReactionText rt = Instantiate(reactionText, targetHealth.gameObject.transform.position, Quaternion.identity);
+            ReactionText rt = Instantiate(reactionText, targetReactionAgent.gameObject.transform.position, Quaternion.identity);
             rt.SetReactionText(currentReaction.reactionName);
         }
     }

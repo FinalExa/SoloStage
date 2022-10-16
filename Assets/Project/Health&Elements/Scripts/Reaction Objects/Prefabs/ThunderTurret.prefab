@@ -279,8 +279,25 @@ MonoBehaviour:
       hasAoe: 1
       aoeHitsSingleTarget: 1
       aoeRange: 3
+    reactionObjectNavmeshAgent:
+      enabled: 0
+      movementSpeed: 0
+      trackingRange: 0
+      followsClosestTarget: 0
+    reactionInstantDamageObject:
+      enabled: 0
+      baseValue: 0
+      multiplier: 0
+      damageType: 0
+      elementDuration: 0
+      appliesElement: 0
+      hasAoe: 0
+      aoeRange: 0
+      dealDamageOnlySomethingIsInsideAoe: 0
+      endAfterDealingDamage: 0
   obstacle: {fileID: 0}
   navMeshAgent: {fileID: 0}
+  damageTag: 
 --- !u!208 &8457922209590302613
 NavMeshObstacle:
   m_ObjectHideFlags: 0

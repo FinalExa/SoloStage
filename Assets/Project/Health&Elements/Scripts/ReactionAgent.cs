@@ -65,6 +65,11 @@ public class ReactionAgent : MonoBehaviour
         ElementApplied = true;
         appliedElement = element;
     }
+    public void RemoveElement()
+    {
+        ElementApplied = false;
+        appliedElement = Reaction.Element.NONE;
+    }
 
     private void ReactionICD()
     {
@@ -79,11 +84,7 @@ public class ReactionAgent : MonoBehaviour
         if (ElementApplied)
         {
             if (elementDuration > 0) elementDuration -= Time.deltaTime;
-            else
-            {
-                ElementApplied = false;
-                appliedElement = Reaction.Element.NONE;
-            }
+            else RemoveElement();
         }
     }
 

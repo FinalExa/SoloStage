@@ -19,10 +19,18 @@ public class AttackCheck : MonoBehaviour
     {
         if (reactionAgent != null)
         {
-            if (reactionDamage ||
-                reactionAgent.appliedElement == Reaction.Element.NONE ||
+            if (reactionDamage)
+            {
+                if (reactionAgent.appliedElement != infusedElement &&
+                    reactionAgent.appliedElement != Reaction.Element.NONE) reaction.ActivateReaction(reactionAgent, infusedElement);
+                else reactionAgent.SetElement(infusedElement, elementDuration);
+            }
+            else
+            {
+                if (reactionAgent.appliedElement == Reaction.Element.NONE ||
                 reactionAgent.appliedElement == infusedElement) reactionAgent.SetElement(infusedElement, elementDuration);
-            else if (reactionAgent.appliedElement != infusedElement && !reactionDamage) reaction.ActivateReaction(health, reactionAgent, infusedElement);
+                else if (reactionAgent.appliedElement != infusedElement) reaction.ActivateReaction(reactionAgent, infusedElement);
+            }
         }
     }
 

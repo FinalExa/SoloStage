@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PersistentObject : MonoBehaviour
 {
+    [SerializeField] private int fps;
     private void Awake()
     {
         PersistentObject[] persistentObjects = FindObjectsOfType<PersistentObject>();
@@ -12,5 +13,10 @@ public class PersistentObject : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
+    }
+    private void Start()
+    {
+        Application.targetFrameRate = fps;
+        QualitySettings.vSyncCount = 1;
     }
 }
