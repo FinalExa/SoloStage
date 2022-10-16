@@ -28,6 +28,7 @@ public class ReactionInstantDamageObject : ReactionInstantDamage
         {
             if (target.gameObject.CompareTag(whoToDamage)) DealReactionDamage(target, damage);
         }
+        if (endAfterDealingDamage) reactionObject.ReactionObjectEnd();
     }
 
     public void CheckForAoeExplosion(ReactionObject reactionObject, string damageTag)
@@ -35,7 +36,6 @@ public class ReactionInstantDamageObject : ReactionInstantDamage
         if (hasAoe && dealDamageOnlySomethingIsInsideAoe && GetTargetsInRange(reactionObject, damageTag).Count > 0)
         {
             DealInstantDamageAoeExplosion(reactionObject, damageTag);
-            if (endAfterDealingDamage) reactionObject.ReactionObjectEnd();
         }
     }
 }
