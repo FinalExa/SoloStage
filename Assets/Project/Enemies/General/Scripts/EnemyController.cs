@@ -6,10 +6,9 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private string whoToDamage;
-    [SerializeField] private Weapon enemyWeapon;
+    public EnemyWeapon enemyWeapon;
     public Rotation rotation;
     public bool isAlerted;
-    public float attackDistance;
     [HideInInspector] public GameObject playerTarget;
     [HideInInspector] public EnemyRotator enemyRotator;
     [HideInInspector] public EnemyCombo enemyCombo;

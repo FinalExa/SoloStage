@@ -24,7 +24,7 @@ public class BTDummy : BT_Tree
             ),
             new Selector(new List<Node>
             {
-                new TaskIsCloseToPlayer(enemyController.thisNavMeshAgent, enemyController.playerTarget, enemyController.attackDistance),
+                new TaskIsCloseToPlayer(enemyController),
                 new TaskMoveToPlayer(enemyController.thisNavMeshAgent, enemyController.playerTarget),
             }),
             new Selector(new List<Node>

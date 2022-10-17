@@ -56,8 +56,7 @@ public class Skill : MonoBehaviour
             if (skillTravelTimer > 0)
             {
                 skillTravelTimer -= Time.deltaTime;
-                Vector3 velocity = directionToLaunch * skillSpeed;
-                skillRb.velocity = velocity;
+                skillRb.velocity = directionToLaunch * skillSpeed;
             }
             else SkillEnd();
         }

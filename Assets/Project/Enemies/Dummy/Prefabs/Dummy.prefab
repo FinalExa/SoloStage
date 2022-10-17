@@ -198,10 +198,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whoToDamage: Player
-  enemyWeapon: {fileID: 4001368254852080169}
+  enemyWeapon: {fileID: 4117697692322863261}
   rotation: {fileID: 11400000, guid: 15548c58be5d52345b7c7ab7258da80f, type: 2}
   isAlerted: 0
-  attackDistance: 3
   playerTarget: {fileID: 0}
   enemyRotator: {fileID: 0}
   enemyCombo: {fileID: 0}
@@ -491,15 +490,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b823ae3e19900d49adde82559789c14, type: 3}
---- !u!114 &4001368254852080169 stripped
+--- !u!114 &4117697692322863261 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 75663912857513920, guid: 9b823ae3e19900d49adde82559789c14, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1129973510963336564, guid: 9b823ae3e19900d49adde82559789c14, type: 3}
   m_PrefabInstance: {fileID: 3930367968076860905}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6a7375764f6f2747bb1ab63d6f15a8e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dc9ffd30f60d1642be884829081a367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &5438090544234113073 stripped
