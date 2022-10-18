@@ -26,7 +26,7 @@ public class ReactionObjectSequence
         if (isObstacle) reactionObject.obstacle.enabled = true;
         else reactionObject.obstacle.enabled = false;
         durationTimer = duration;
-        reactionObject.aoeObject.SetActive(false);
+        //reactionObject.aoeObject.SetActive(false);
         reactionObject.navMeshAgent.enabled = false;
         StartOvertime();
         StartNavmesh();
@@ -59,7 +59,7 @@ public class ReactionObjectSequence
     {
         if (reactionOvertimeDamageObject.enabled) reactionOvertimeDamageObject.OvertimeDamage();
         if (reactionObjectNavmeshAgent.enabled) reactionObjectNavmeshAgent.TrackAndFollow();
-        if (reactionInstantDamageObject.enabled) reactionInstantDamageObject.DealInstantDamageAoeExplosion(reactionObject, reactionObject.damageTag);
+        if (reactionInstantDamageObject.enabled && reactionInstantDamageObject.GetTargetsInRange(reactionObject.transform.position, reactionObject.damageTag).Count > 0) reactionInstantDamageObject.DealInstantDamageAoeExplosion(reactionObject, reactionObject.damageTag);
     }
     public void ReactionObjectDuration()
     {

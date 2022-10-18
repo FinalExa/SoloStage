@@ -45,10 +45,7 @@ public class ReactionObject : MonoBehaviour
             sequenceIndex++;
             reactionObjectSequence[sequenceIndex].StartupReactionObjectOptions();
         }
-        else
-        {
-            ReactionObjectEnd();
-        }
+        else ReactionObjectEnd();
     }
 
     public void ReactionObjectEnd()
