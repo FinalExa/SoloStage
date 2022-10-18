@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private string whoToDamage;
+    public string damageTag;
     public EnemyWeapon enemyWeapon;
     public Rotation rotation;
     public bool isAlerted;
@@ -23,9 +23,9 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         isAlerted = true;
-        enemyWeapon.damageTag = whoToDamage;
+        enemyWeapon.damageTag = damageTag;
         enemyCombo.SetWeapon(enemyWeapon);
-        enemyWeapon.ReferencesSetup(whoToDamage, 0f);
+        enemyWeapon.ReferencesSetup(damageTag, 0f);
     }
     private void OnDisable()
     {
