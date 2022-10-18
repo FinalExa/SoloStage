@@ -14,7 +14,6 @@ public class TaskAttackPlayer : Node
 
     public override NodeState Evaluate()
     {
-        Debug.Log(enemyCombo.currentWeapon.gameObject.activeSelf);
         enemyCombo.ActivateEnemyCombo();
         return NodeState.RUNNING;
     }

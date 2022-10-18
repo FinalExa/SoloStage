@@ -9,6 +9,8 @@ public class EnemyAttacksManagement : MonoBehaviour
     [SerializeField] private GameObject attackSlot;
     [SerializeField] private EnemyWeapon[] enemyAttacks;
     private List<EnemyWeapon> orderedEnemyAttacks;
+    private int attacksCount;
+    private int lockedIndex;
 
     private void Awake()
     {
@@ -19,7 +21,10 @@ public class EnemyAttacksManagement : MonoBehaviour
     {
         SetupAttacksList();
     }
-
+    private void Update()
+    {
+        SearchForNextAttack();
+    }
     private void SetupAttacksList()
     {
         orderedEnemyAttacks = new List<EnemyWeapon>();
@@ -30,6 +35,7 @@ public class EnemyAttacksManagement : MonoBehaviour
             weapon.gameObject.SetActive(false);
         }
         orderedEnemyAttacks = enemyAttacks.OrderBy(x => x.GetComponent<EnemyWeapon>().performableRange).ToList();
+        attacksCount = orderedEnemyAttacks.Count();
         SetEnemyWeapon(orderedEnemyAttacks.Count - 1);
     }
 
@@ -38,5 +44,29 @@ public class EnemyAttacksManagement : MonoBehaviour
         enemyController.enemyWeapon = orderedEnemyAttacks[index];
         enemyController.enemyWeapon.gameObject.SetActive(true);
         enemyController.enemyCombo.SetWeapon(enemyController.enemyWeapon);
+        lockedIndex = index;
+    }
+
+    private void SearchForNextAttack()
+    {
+        if (!enemyController.enemyCombo.isInCombo && attacksCount > 1 && orderedEnemyAttacks.IndexOf(enemyController.enemyWeapon) == lockedIndex)
+        {
+            float distance = Vector3.Distance(this.transform.position, enemyController.playerTarget.transform.position);
+            bool found = false;
+            for (int i = 0; i < attacksCount; i++)
+            {
+                if (i != lockedIndex && distance <= orderedEnemyAttacks[i].performableRange)
+                {
+                    SetEnemyWeapon(i);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found)
+            {
+                if (lockedIndex == attacksCount - 1) SetEnemyWeapon(attacksCount - 2);
+                else SetEnemyWeapon(attacksCount - 1);
+            }
+        }
     }
 }
