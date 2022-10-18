@@ -25,14 +25,15 @@ public class ReactionObjectSequence
     {
         if (isObstacle) reactionObject.obstacle.enabled = true;
         else reactionObject.obstacle.enabled = false;
-        durationTimer = duration;
-        //reactionObject.aoeObject.SetActive(false);
         reactionObject.navMeshAgent.enabled = false;
+        durationTimer = duration;
+        reactionObject.aoeObject.SetActive(false);
+        StartInstantDamage();
         StartOvertime();
         StartNavmesh();
     }
 
-    public void StartOvertime()
+    private void StartOvertime()
     {
         if (reactionOvertimeDamageObject.enabled)
         {
@@ -40,13 +41,20 @@ public class ReactionObjectSequence
             if (reactionOvertimeDamageObject.hasAoe)
             {
                 reactionObject.aoeObject.SetActive(true);
-                reactionObject.aoeObject.transform.localScale *= reactionOvertimeDamageObject.aoeRange;
+                reactionObject.aoeObject.transform.localScale *= reactionOvertimeDamageObject.aoeRange * 2;
             }
         }
 
     }
-
-    public void StartNavmesh()
+    private void StartInstantDamage()
+    {
+        if (reactionInstantDamageObject.enabled && reactionInstantDamageObject.hasAoe)
+        {
+            reactionObject.aoeObject.SetActive(true);
+            reactionObject.aoeObject.transform.localScale *= reactionInstantDamageObject.aoeRange * 2;
+        }
+    }
+    private void StartNavmesh()
     {
         if (reactionObjectNavmeshAgent.enabled)
         {
