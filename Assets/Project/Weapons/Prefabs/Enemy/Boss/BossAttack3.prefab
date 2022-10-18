@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5092751385408253199
 Transform:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8819688691330008127
 Transform:
   m_ObjectHideFlags: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
     hasAnimation: 0
   hitTargets: []
   damageTag: 
-  currentDamage: 0
+  currentDamage: 30
   elementDuration: 0
   performableRange: 10
   weaponElement: 6
@@ -263,6 +263,18 @@ PrefabInstance:
     - target: {fileID: 6929876058972484288, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
@@ -345,6 +357,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
 --- !u!4 &4736861987880224149 stripped
@@ -425,6 +449,18 @@ PrefabInstance:
     - target: {fileID: 6929876058972484288, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
@@ -511,6 +547,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
 --- !u!4 &6905719829059584423 stripped
@@ -591,6 +639,18 @@ PrefabInstance:
     - target: {fileID: 6929876058972484288, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
@@ -673,6 +733,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
 --- !u!114 &5209673555338974739 stripped
@@ -698,6 +770,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5092751385408253199}
     m_Modifications:
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6279308884521185523, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
       propertyPath: m_Name
       value: NoDamage1
@@ -775,6 +859,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8819688691330008127}
     m_Modifications:
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6279308884521185523, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
       propertyPath: m_Name
       value: NoDamage1
@@ -908,6 +1004,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
 --- !u!4 &361696915817235182 stripped
@@ -989,6 +1097,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
 --- !u!4 &1562123968915668775 stripped
@@ -1069,6 +1189,18 @@ PrefabInstance:
     - target: {fileID: 6929876058972484288, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
@@ -1155,6 +1287,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
 --- !u!114 &2134066561698612826 stripped
@@ -1180,6 +1324,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5092751385408253199}
     m_Modifications:
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6279308884521185523, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
       propertyPath: m_Name
       value: NoDamage2
@@ -1257,6 +1413,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8819688691330008127}
     m_Modifications:
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: thisWeapon
+      value: 
+      objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: infusedElement
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: elementDuration
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6279308884521185523, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
       propertyPath: m_Name
       value: NoDamage2
