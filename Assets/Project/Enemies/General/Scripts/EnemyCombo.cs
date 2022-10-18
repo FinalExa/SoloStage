@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyCombo : Combo
 {
     private EnemyController enemyController;
-    [HideInInspector] public bool isInCombo;
+    public bool isInCombo;
     private void Awake()
     {
         enemyController = this.gameObject.GetComponent<EnemyController>();

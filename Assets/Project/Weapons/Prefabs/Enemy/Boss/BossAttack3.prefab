@@ -195,8 +195,8 @@ MonoBehaviour:
       appliesElement: 0
     hasAnimation: 0
   hitTargets: []
-  damageTag: 
-  currentDamage: 30
+  damageTag: Player
+  currentDamage: 10
   elementDuration: 0
   performableRange: 10
   weaponElement: 6
@@ -268,6 +268,10 @@ PrefabInstance:
       propertyPath: thisWeapon
       value: 
       objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
@@ -362,6 +366,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1129973510963336564}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
       objectReference: {fileID: 0}
@@ -454,6 +462,10 @@ PrefabInstance:
       propertyPath: thisWeapon
       value: 
       objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
@@ -552,6 +564,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1129973510963336564}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
       objectReference: {fileID: 0}
@@ -644,6 +660,10 @@ PrefabInstance:
       propertyPath: thisWeapon
       value: 
       objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
@@ -738,6 +758,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1129973510963336564}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
       objectReference: {fileID: 0}
@@ -774,6 +798,10 @@ PrefabInstance:
       propertyPath: thisWeapon
       value: 
       objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
       propertyPath: infusedElement
       value: 6
@@ -863,6 +891,10 @@ PrefabInstance:
       propertyPath: thisWeapon
       value: 
       objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
       propertyPath: infusedElement
       value: 6
@@ -1009,6 +1041,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1129973510963336564}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
       objectReference: {fileID: 0}
@@ -1102,6 +1138,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1129973510963336564}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
       objectReference: {fileID: 0}
@@ -1194,6 +1234,10 @@ PrefabInstance:
       propertyPath: thisWeapon
       value: 
       objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
@@ -1292,6 +1336,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1129973510963336564}
     - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159927134225282830, guid: 7120a393df5fdeb49975b668a43b590e, type: 3}
       propertyPath: infusedElement
       value: 6
       objectReference: {fileID: 0}
@@ -1328,6 +1376,10 @@ PrefabInstance:
       propertyPath: thisWeapon
       value: 
       objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
       propertyPath: infusedElement
       value: 6
@@ -1417,6 +1469,10 @@ PrefabInstance:
       propertyPath: thisWeapon
       value: 
       objectReference: {fileID: 1129973510963336564}
+    - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
+      propertyPath: whoToDamage
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3894337870939847225, guid: b36df0528d56f1648bfd9cb0f47a44da, type: 3}
       propertyPath: infusedElement
       value: 6

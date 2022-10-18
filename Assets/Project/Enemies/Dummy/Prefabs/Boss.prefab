@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560799b19776141429a8e66a2534b184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whoToDamage: Player
-  enemyWeapon: {fileID: 1129973510963336564, guid: 3a5b1d1e67c057f4e972aaaaf950f96f, type: 3}
+  damageTag: Player
+  enemyWeapon: {fileID: 0}
   rotation: {fileID: 11400000, guid: 15548c58be5d52345b7c7ab7258da80f, type: 2}
   isAlerted: 0
   playerTarget: {fileID: 0}
