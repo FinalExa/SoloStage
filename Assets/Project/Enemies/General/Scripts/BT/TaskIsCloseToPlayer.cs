@@ -14,7 +14,7 @@ public class TaskIsCloseToPlayer : Node
     {
         nav = enemyController.thisNavMeshAgent;
         target = enemyController.playerTarget;
-        distanceFromPlayer = enemyController.enemyWeapon.performableRange;
+        //distanceFromPlayer = enemyController.enemyWeapon.performableRange;
     }
 
     public override NodeState Evaluate()

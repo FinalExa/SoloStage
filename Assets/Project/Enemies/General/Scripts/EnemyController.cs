@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public string damageTag;
-    public EnemyWeapon enemyWeapon;
     public Rotation rotation;
     public bool isAlerted;
     [HideInInspector] public GameObject playerTarget;
@@ -23,12 +22,10 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         isAlerted = true;
-        enemyWeapon.damageTag = damageTag;
-        enemyWeapon.ReferencesSetup(damageTag, 0f);
     }
-    private void OnDisable()
+    /*private void OnDisable()
     {
         ReactionObject[] reactionObjects = this.gameObject.GetComponentsInChildren<ReactionObject>();
         foreach (ReactionObject reactionObject in reactionObjects) reactionObject.ReactionObjectEnd();
-    }
+    }*/
 }

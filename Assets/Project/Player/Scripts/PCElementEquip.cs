@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PCElementEquip : MonoBehaviour
 {
-    [SerializeField] private Reaction.Element[] availableElements;
+    /*[SerializeField] private Reaction.Element[] availableElements;
     private int elementIndex;
     private PCReferences pcReferences;
     [HideInInspector] public Reaction.Element equippedElement;
@@ -39,5 +39,5 @@ public class PCElementEquip : MonoBehaviour
             if (elementIndex >= availableElements.Length) elementIndex = 0;
             SetElement();
         }
-    }
+    }*/
 }

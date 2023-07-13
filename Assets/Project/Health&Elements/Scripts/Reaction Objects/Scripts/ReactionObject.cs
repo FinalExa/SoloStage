@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ReactionObject : MonoBehaviour
 {
-    private int sequenceIndex;
+    /*private int sequenceIndex;
     [SerializeField] private string reactionObjectName;
     public GameObject aoeObject;
     [SerializeField] private ReactionObjectSequence[] reactionObjectSequence;
@@ -51,5 +51,5 @@ public class ReactionObject : MonoBehaviour
     public void ReactionObjectEnd()
     {
         GameObject.Destroy(this.gameObject);
-    }
+    }*/
 }

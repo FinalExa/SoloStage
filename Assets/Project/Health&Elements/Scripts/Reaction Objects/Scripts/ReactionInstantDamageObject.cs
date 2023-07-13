@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class ReactionInstantDamageObject : ReactionInstantDamage
 {
-    public bool dealDamageOnlySomethingIsInsideAoe;
+    /*public bool dealDamageOnlySomethingIsInsideAoe;
     public bool endAfterDealingDamage;
 
     public List<AttackCheck> GetTargetsInRange(Vector3 originPosition, string whoToDamage)
@@ -37,5 +37,5 @@ public class ReactionInstantDamageObject : ReactionInstantDamage
         {
             DealInstantDamageAoeExplosion(reactionObject, damageTag);
         }
-    }
+    }*/
 }

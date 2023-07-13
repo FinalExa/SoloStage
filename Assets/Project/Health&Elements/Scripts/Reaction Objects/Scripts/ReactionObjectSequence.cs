@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [System.Serializable]
 public class ReactionObjectSequence
 {
-    [SerializeField] private string sequenceName;
+    /*[SerializeField] private string sequenceName;
     [SerializeField] private float duration;
     [SerializeField] private bool isObstacle;
     [SerializeField] private ReactionOvertimeDamageObject reactionOvertimeDamageObject;
@@ -73,5 +73,5 @@ public class ReactionObjectSequence
     {
         if (durationTimer > 0) durationTimer -= Time.deltaTime;
         else reactionObject.AdvanceSequence();
-    }
+    }*/
 }

@@ -26,13 +26,13 @@ public class PCIdle : PCState
     #region ToAttackState
     private void GoToAttackState(Inputs inputs)
     {
-        if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.comboDelay) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+        if (inputs.LeftClickInput) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
     }
     #endregion
     #region ToDodgeState
     private void GoToDodgeState(Inputs inputs)
     {
-        if (inputs.DodgeInput && !_pcStateMachine.pcController.lockDodgeSpam) _pcStateMachine.SetState(new PCDodge(_pcStateMachine));
+        if (inputs.DodgeInput) _pcStateMachine.SetState(new PCDodge(_pcStateMachine));
     }
     #endregion
     #region ToSkillState

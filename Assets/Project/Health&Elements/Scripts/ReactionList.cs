@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ReactionList", menuName = "ScriptableObjects/ReactionList", order = 2)]
 public class ReactionList : ScriptableObject
 {
-    [System.Serializable]
+    /*[System.Serializable]
     public struct ReactionCombination
     {
         public Reaction.Element placedElement;
@@ -31,5 +31,5 @@ public class ReactionList : ScriptableObject
         public ReactionOvertimeDamage reactionOvertimeDamage;
         public ReactionObjectCreation reactionObject;
     }
-    public PossibleReaction[] list;
+    public PossibleReaction[] list;*/
 }

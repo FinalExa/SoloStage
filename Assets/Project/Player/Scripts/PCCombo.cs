@@ -6,16 +6,17 @@ using UnityEngine.Playables;
 public class PCCombo : Combo
 {
     private PCController pcController;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         pcController = this.gameObject.GetComponent<PCController>();
     }
 
-    public override void Infusion(WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck)
+    public void Infusion(WeaponAttack.WeaponAttackHitboxSequence hitboxToCheck)
     {
         if (pcController.pcReferences.pcNectar.isInfused)
         {
-            hitboxToCheck.attackRef.infusedElement = pcController.pcReferences.pcElementEquip.equippedElement;
+            //hitboxToCheck.attackRef.infusedElement = pcController.pcReferences.pcElementEquip.equippedElement;
             hitboxToCheck.attackRef.canApplyElement = true;
         }
     }

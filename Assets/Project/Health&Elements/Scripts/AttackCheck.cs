@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackCheck : MonoBehaviour
 {
-    private Reaction reaction;
+    /*private Reaction reaction;
     private Health health;
     private ReactionAgent reactionAgent;
 
@@ -40,5 +40,5 @@ public class AttackCheck : MonoBehaviour
         {
             health.HealthAddValue(-damage);
         }
-    }
+    }*/
 }

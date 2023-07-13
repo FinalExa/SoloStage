@@ -7,7 +7,6 @@ public class PCController : MonoBehaviour
     [HideInInspector] public string curState;
     [HideInInspector] public PCReferences pcReferences;
     [HideInInspector] public float actualSpeed;
-    [SerializeField] private string whoToDamage;
     public Rotation rotation;
     public GameObject rotator;
     [HideInInspector] public Vector3 lastDirection;
@@ -17,7 +16,7 @@ public class PCController : MonoBehaviour
     private float dodgeCooldownTimer;
     public Attack dodgeHitbox;
     public float dodgeHitboxElementDuration;
-    [SerializeField] private Reaction.Element dodgeElement;
+    //[SerializeField] private Reaction.Element dodgeElement;
     [HideInInspector] public float receivedDamage;
     [SerializeField] private GameObject tempDodgeInterrupted;
     [SerializeField] private float tempDodgeInterruptedDuration;
@@ -37,11 +36,8 @@ public class PCController : MonoBehaviour
     {
         tempDodgeInterrupted.SetActive(false);
         pcReferences.health.SetHPStartup(pcReferences.pcData.maxHP);
-        equippedWeapon.ReferencesSetup(whoToDamage, weaponElementDuration);
-        skill.SkillSetup(whoToDamage);
         dodgeHitbox.canApplyElement = true;
-        dodgeHitbox.infusedElement = dodgeElement;
-        dodgeHitbox.whoToDamage = whoToDamage;
+        //dodgeHitbox.infusedElement = dodgeElement;
         dodgeHitbox.gameObject.SetActive(false);
         dodgeHitbox.elementDuration = dodgeHitboxElementDuration;
         lastDirection = new Vector3(0f, 0f, 1f).normalized;
@@ -93,9 +89,9 @@ public class PCController : MonoBehaviour
         }
     }
 
-    public void LaunchSkill()
+    /*public void LaunchSkill()
     {
         skill.gameObject.SetActive(true);
         skill.SkillLaunch();
-    }
+    }*/
 }

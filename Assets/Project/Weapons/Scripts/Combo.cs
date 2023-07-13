@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Combo : MonoBehaviour
+public abstract class Combo : MonoBehaviour
 {
     [HideInInspector] public Weapon currentWeapon;
     [HideInInspector] public WeaponAttack currentAttack;
@@ -10,6 +10,7 @@ public class Combo : MonoBehaviour
     [HideInInspector] public ComboObjectSpawner comboObjectSpawner;
     [HideInInspector] public ComboDelays comboDelays;
     [HideInInspector] public ComboAttack comboAttack;
+    [HideInInspector] public bool comboActive;
 
     protected virtual void Awake()
     {
@@ -51,6 +52,7 @@ public class Combo : MonoBehaviour
 
     protected void StartComboHit()
     {
+        comboActive = true;
         comboDelays.SetVariablesDuringAttack();
         currentWeapon.currentDamage = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].damage;
         currentAttack = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex];
@@ -58,6 +60,7 @@ public class Combo : MonoBehaviour
     }
     public virtual void OnComboEnd()
     {
+        comboActive = false;
         return;
     }
 
@@ -75,8 +78,9 @@ public class Combo : MonoBehaviour
         return comboDelays.CheckIfHitIsOver();
     }
 
-    public void EndCombo()
+    public virtual void EndCombo()
     {
         comboAttack.EndCombo();
+        comboActive = false;
     }
 }
