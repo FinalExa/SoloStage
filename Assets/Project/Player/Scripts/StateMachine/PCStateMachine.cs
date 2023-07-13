@@ -17,7 +17,7 @@ public class PCStateMachine : StateMachine
     private void Awake()
     {
         pcController = this.gameObject.GetComponent<PCController>();
-        SetState(new PCIdle(this));
+        //SetState(new PCIdle(this));
     }
 
     private void OnCollisionStay(Collision collision)
