@@ -5,22 +5,40 @@ using UnityEngine;
 public class WeaponAttackHitbox : Attack
 {
     [HideInInspector] public Weapon thisWeapon;
-    public void InitializeAttack(string damageTag, float sourceElementDuration, Weapon weapon)
+    [HideInInspector] public List<WeaponAttack.WeaponAttackType> weaponAttackTypes;
+    [SerializeField] private LayerMask hitLayer;
+    protected override void Damage(string receivedTag)
     {
-        InitializeAttack(damageTag, sourceElementDuration);
-        thisWeapon = weapon;
+        bool invulnerable = false;
+        if (receivedTag == "Invulnerable") invulnerable = true;
+        if (thisWeapon != null) DamagePossible(invulnerable);
     }
-    protected override void SendAttackData()
+
+    private void DamagePossible(bool invulnerable)
     {
-        if (otherAttackCheck != null && !thisWeapon.hitTargets.Contains(otherAttackCheck))
+        if (thisWeapon.weaponAttacks[thisWeapon.currentWeaponAttackIndex].ignoresWalls) AttackIsReceived(invulnerable);
+        else WallCheck(invulnerable);
+    }
+
+    private void AttackIsReceived(bool invulnerable)
+    {
+        if (!thisWeapon.hitTargets.Contains(attackReceived)) SetHit(invulnerable);
+    }
+
+    private void WallCheck(bool invulnerable)
+    {
+        Vector3 origin = thisWeapon.gameObject.transform.position;
+        Vector3 direction = attackReceived.gameObject.transform.position - origin;
+        RaycastHit hit;
+        if (Physics.Raycast(origin, direction, out hit, Mathf.Infinity, hitLayer))
         {
-            if (otherCollider.CompareTag(whoToDamage))
-            {
-                if (canApplyElement) otherAttackCheck.ElementApplication(infusedElement, elementDuration, false);
-                otherAttackCheck.DealDamage(thisWeapon.currentDamage);
-                thisWeapon.hitTargets.Add(otherAttackCheck);
-            }
-            else if (otherCollider.CompareTag("Invulnerable")) thisWeapon.hitTargets.Add(otherAttackCheck);
+            if (hit.collider.gameObject == attackReceived.gameObject) AttackIsReceived(invulnerable);
         }
+    }
+
+    private void SetHit(bool invulnerable)
+    {
+        attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage, weaponAttackTypes, invulnerable, thisWeapon.gameObject);
+        thisWeapon.hitTargets.Add(attackReceived);
     }
 }

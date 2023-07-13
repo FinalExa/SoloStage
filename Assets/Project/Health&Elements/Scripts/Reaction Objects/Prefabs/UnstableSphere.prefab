@@ -309,7 +309,7 @@ MonoBehaviour:
       elementDuration: 3
       appliesElement: 1
       hasAoe: 1
-      aoeRange: 3
+      aoeRange: 2
       dealDamageOnlySomethingIsInsideAoe: 1
       endAfterDealingDamage: 1
   obstacle: {fileID: 0}

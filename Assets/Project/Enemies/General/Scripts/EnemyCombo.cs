@@ -4,32 +4,53 @@ using UnityEngine;
 
 public class EnemyCombo : Combo
 {
+    private EnemyRotator enemyRotator;
     private EnemyController enemyController;
     [HideInInspector] public bool isInCombo;
-    private void Awake()
+    [HideInInspector] public Transform target;
+    protected override void Awake()
     {
+        base.Awake();
+        enemyRotator = this.gameObject.GetComponent<EnemyRotator>();
         enemyController = this.gameObject.GetComponent<EnemyController>();
     }
-
-    public override void FixedUpdate()
+    protected override void Start()
     {
-        base.FixedUpdate();
+        base.Start();
+        target = this.gameObject.GetComponent<EnemyController>().playerTarget.transform;
+    }
+
+    private void Update()
+    {
         if (isInCombo) EnemyAutoCombo();
+        else if (!GetIfIsAttacking()) Direction(target.position);
+    }
+
+    public void ActivateEnemyCombo(Vector3 target)
+    {
+        isInCombo = true;
+        //enemyRotator.Rotate(target);
+        Direction(target);
     }
 
     public void ActivateEnemyCombo()
     {
         isInCombo = true;
-        enemyController.enemyRotator.Rotate();
     }
 
     private void EnemyAutoCombo()
     {
-        if (comboHitOver && !comboDelay) StartComboHit();
+        StartComboHitCheck();
     }
 
-    protected override void OnComboEnd()
+    public override void OnComboEnd()
     {
         isInCombo = false;
+        //enemyController.AttackDone = true;
+    }
+
+    public void Direction(Vector3 target)
+    {
+        LastDirection = (target - this.transform.position).normalized;
     }
 }

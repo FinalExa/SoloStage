@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillAttackHitbox : Attack
 {
-    [HideInInspector] public Skill originSkill;
+    /*[HideInInspector] public Skill originSkill;
 
     public void InitializeAttack(string damageTag, float elementDuration, Skill skill, Reaction.Element element)
     {
@@ -25,5 +25,5 @@ public class SkillAttackHitbox : Attack
             }
             else if (otherCollider.CompareTag("Invulnerable")) originSkill.SkillEnd();
         }
-    }
+    }*/
 }

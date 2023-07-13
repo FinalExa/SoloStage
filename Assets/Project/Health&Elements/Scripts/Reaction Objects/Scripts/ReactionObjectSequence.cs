@@ -6,7 +6,7 @@ using UnityEngine.AI;
 [System.Serializable]
 public class ReactionObjectSequence
 {
-    [SerializeField] private string sequenceName;
+    /*[SerializeField] private string sequenceName;
     [SerializeField] private float duration;
     [SerializeField] private bool isObstacle;
     [SerializeField] private ReactionOvertimeDamageObject reactionOvertimeDamageObject;
@@ -25,14 +25,15 @@ public class ReactionObjectSequence
     {
         if (isObstacle) reactionObject.obstacle.enabled = true;
         else reactionObject.obstacle.enabled = false;
+        reactionObject.navMeshAgent.enabled = false;
         durationTimer = duration;
         reactionObject.aoeObject.SetActive(false);
-        reactionObject.navMeshAgent.enabled = false;
+        StartInstantDamage();
         StartOvertime();
         StartNavmesh();
     }
 
-    public void StartOvertime()
+    private void StartOvertime()
     {
         if (reactionOvertimeDamageObject.enabled)
         {
@@ -40,13 +41,20 @@ public class ReactionObjectSequence
             if (reactionOvertimeDamageObject.hasAoe)
             {
                 reactionObject.aoeObject.SetActive(true);
-                reactionObject.aoeObject.transform.localScale *= reactionOvertimeDamageObject.aoeRange;
+                reactionObject.aoeObject.transform.localScale *= reactionOvertimeDamageObject.aoeRange * 2;
             }
         }
 
     }
-
-    public void StartNavmesh()
+    private void StartInstantDamage()
+    {
+        if (reactionInstantDamageObject.enabled && reactionInstantDamageObject.hasAoe)
+        {
+            reactionObject.aoeObject.SetActive(true);
+            reactionObject.aoeObject.transform.localScale *= reactionInstantDamageObject.aoeRange * 2;
+        }
+    }
+    private void StartNavmesh()
     {
         if (reactionObjectNavmeshAgent.enabled)
         {
@@ -59,11 +67,11 @@ public class ReactionObjectSequence
     {
         if (reactionOvertimeDamageObject.enabled) reactionOvertimeDamageObject.OvertimeDamage();
         if (reactionObjectNavmeshAgent.enabled) reactionObjectNavmeshAgent.TrackAndFollow();
-        if (reactionInstantDamageObject.enabled) reactionInstantDamageObject.DealInstantDamageAoeExplosion(reactionObject, reactionObject.damageTag);
+        if (reactionInstantDamageObject.enabled && reactionInstantDamageObject.GetTargetsInRange(reactionObject.transform.position, reactionObject.damageTag).Count > 0) reactionInstantDamageObject.DealInstantDamageAoeExplosion(reactionObject, reactionObject.damageTag);
     }
     public void ReactionObjectDuration()
     {
         if (durationTimer > 0) durationTimer -= Time.deltaTime;
         else reactionObject.AdvanceSequence();
-    }
+    }*/
 }

@@ -5,17 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class PCHealth : Health
 {
-    private PCController pcController;
+    private PCReferences pcReferences;
     private void Awake()
     {
-        pcController = this.gameObject.GetComponent<PCController>();
+        pcReferences = this.gameObject.GetComponent<PCReferences>();
     }
-    public override void HealthAddValue(float healthToAdd)
+    protected override void Start()
     {
-        currentHP += healthToAdd;
-        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
-        //THIS IS SUPER TEMP
-        pcController.receivedDamage = 5;
-        if (currentHP <= 0) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        base.Start();
+        SetHPStartup(pcReferences.pcData.maxHP);
+    }
+    public override void HealthAddValue(float healthToAdd, bool feedbackActive)
+    {
+        base.HealthAddValue(healthToAdd, feedbackActive);
+    }
+    public override void OnDeath(bool skipOnDeathInteraction)
+    {
+        if (uxOnDeath.hasSound) uxOnDeath.sound.PlayAudio();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

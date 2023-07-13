@@ -5,11 +5,9 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private string whoToDamage;
-    [SerializeField] private Weapon enemyWeapon;
+    public string damageTag;
     public Rotation rotation;
     public bool isAlerted;
-    public float attackDistance;
     [HideInInspector] public GameObject playerTarget;
     [HideInInspector] public EnemyRotator enemyRotator;
     [HideInInspector] public EnemyCombo enemyCombo;
@@ -24,13 +22,10 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         isAlerted = true;
-        enemyWeapon.damageTag = whoToDamage;
-        enemyCombo.SetWeapon(enemyWeapon);
-        enemyWeapon.ReferencesSetup(whoToDamage, 0f);
     }
-    private void OnDisable()
+    /*private void OnDisable()
     {
         ReactionObject[] reactionObjects = this.gameObject.GetComponentsInChildren<ReactionObject>();
         foreach (ReactionObject reactionObject in reactionObjects) reactionObject.ReactionObjectEnd();
-    }
+    }*/
 }

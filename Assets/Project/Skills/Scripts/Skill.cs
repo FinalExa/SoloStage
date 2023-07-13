@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    public float skillDamage;
+    /*public float skillDamage;
     [SerializeField] private Reaction.Element skillAppliedElement;
     [SerializeField] private float skillTravelTime;
     [SerializeField] private float skillTravelDistance;
@@ -56,8 +56,7 @@ public class Skill : MonoBehaviour
             if (skillTravelTimer > 0)
             {
                 skillTravelTimer -= Time.deltaTime;
-                Vector3 velocity = directionToLaunch * skillSpeed;
-                skillRb.velocity = velocity;
+                skillRb.velocity = directionToLaunch * skillSpeed;
             }
             else SkillEnd();
         }
@@ -68,5 +67,5 @@ public class Skill : MonoBehaviour
         this.gameObject.transform.parent = originParent;
         this.gameObject.transform.localPosition = startPosition;
         this.gameObject.SetActive(false);
-    }
+    }*/
 }

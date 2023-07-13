@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class ReactionInstantDamage
 {
-    public bool enabled;
+    /*public bool enabled;
     public float baseValue;
     public float multiplier;
     public Reaction.Element damageType;
@@ -43,5 +43,5 @@ public class ReactionInstantDamage
     {
         if (appliesElement) attackCheck.ElementApplication(damageType, elementDuration, true);
         attackCheck.DealDamage(damage);
-    }
+    }*/
 }

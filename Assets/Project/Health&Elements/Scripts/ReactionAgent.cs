@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ReactionAgent : MonoBehaviour
 {
-    public Reaction.Element appliedElement { get; private set; }
+    /*public Reaction.Element appliedElement { get; private set; }
     private AttackCheck attackCheck;
     private ReactionList.PossibleReaction currentReaction;
     private float reactionDuration;
@@ -107,5 +107,5 @@ public class ReactionAgent : MonoBehaviour
     private void ReactionActiveFunctions()
     {
         if (currentReaction.reactionOvertimeDamage.enabled) currentReaction.reactionOvertimeDamage.OvertimeDamage();
-    }
+    }*/
 }

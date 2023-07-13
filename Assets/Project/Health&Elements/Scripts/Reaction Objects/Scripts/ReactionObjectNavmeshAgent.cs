@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ReactionObjectNavmeshAgent
 {
-    public bool enabled;
+    /*public bool enabled;
     public float movementSpeed;
     public float trackingRange;
     public bool followsClosestTarget;
@@ -38,5 +38,5 @@ public class ReactionObjectNavmeshAgent
             }
             if (!found) reactionObject.navMeshAgent.isStopped = true;
         }
-    }
+    }*/
 }

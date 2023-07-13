@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ReactionOvertimeDamage
 {
-    public bool enabled;
+    /*public bool enabled;
     public float baseValue;
     public float multiplier;
     public Reaction.Element damageType;
@@ -16,7 +16,7 @@ public class ReactionOvertimeDamage
     protected bool firstHitDone;
     protected float timer;
     protected float damage;
-    protected AttackCheck targetAttackCheck;
+    protected AttackReceived targetAttackReceived;
     protected string whoToDamage;
     public void SetStartupValues(AttackCheck attackCheck, string damageTag)
     {
@@ -31,19 +31,19 @@ public class ReactionOvertimeDamage
     {
         if (firstHitOn && !firstHitDone)
         {
-            DealReactionDamage(targetAttackCheck);
+            DealReactionDamage(targetAttackReceived);
             firstHitDone = true;
         }
         if (timer > 0) timer -= Time.deltaTime;
         else
         {
-            DealReactionDamage(targetAttackCheck);
+            DealReactionDamage(targetAttackReceived);
             timer = timeBetweenHits;
         }
     }
-    protected void DealReactionDamage(AttackCheck target)
+    protected void DealReactionDamage(AttackReceived target)
     {
         if (appliesElement) target.ElementApplication(damageType, elementDuration, true);
         target.DealDamage(damage);
-    }
+    }*/
 }

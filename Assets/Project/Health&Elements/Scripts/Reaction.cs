@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Reaction : MonoBehaviour
 {
-    public enum Element { NONE, FIRE, WATER, EARTH, GRASS, WIND, COLD, GRAVITY, THUNDER, SHADOW, LIGHT }
+    /*public enum Element { NONE, FIRE, WATER, EARTH, GRASS, WIND, COLD, GRAVITY, THUNDER, SHADOW, LIGHT }
     [SerializeField] private ReactionList reactionList;
     [SerializeField] private ReactionText reactionText;
     private ReactionList.PossibleReaction currentReaction;
@@ -41,5 +41,5 @@ public class Reaction : MonoBehaviour
             if (found) break;
         }
         return found;
-    }
+    }*/
 }

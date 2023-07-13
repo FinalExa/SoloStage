@@ -18,9 +18,13 @@ public class PCDodge : PCState
 
     public override void Start()
     {
-        inputs = _pcStateMachine.pcController.pcReferences.inputs;
-        DodgeDirection();
-        if (!_pcStateMachine.pcController.dodgeInCooldown) DodgeSetup();
+        if (!_pcStateMachine.pcController.lockDodgeSpam)
+        {
+            inputs = _pcStateMachine.pcController.pcReferences.inputs;
+            DodgeDirection();
+            if (!_pcStateMachine.pcController.dodgeInCooldown) DodgeSetup();
+            else Transitions();
+        }
         else Transitions();
     }
 
@@ -120,7 +124,7 @@ public class PCDodge : PCState
     #region ToAttackState
     private void GoToAttackState(Inputs inputs)
     {
-        if (inputs.LeftClickInput && !_pcStateMachine.pcController.pcReferences.pcCombo.comboDelay) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+        if (inputs.LeftClickInput) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
     }
     #endregion
     #region ToSkillState
