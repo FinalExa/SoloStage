@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PCReferences : MonoBehaviour
+{
+    public PCData pcData;
+    [HideInInspector] public Inputs pcInputs;
+    [HideInInspector] public Rigidbody pcRb;
+    [HideInInspector] public Combo pcCombo;
+    [HideInInspector] public Camera mainCameraRef;
+
+    private void Awake()
+    {
+        pcInputs = this.gameObject.GetComponent<Inputs>();
+        pcRb = this.gameObject.GetComponent<Rigidbody>();
+        pcCombo = this.gameObject.GetComponent<Combo>();
+        mainCameraRef = FindObjectOfType<Camera>();
+    }
+}

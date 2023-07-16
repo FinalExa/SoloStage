@@ -34,7 +34,7 @@ public class Weapon : MonoBehaviour
                 {
                     attackToSet.thisWeapon = this;
                     attackToSet.possibleTargets = possibleTargets;
-                    attackToSet.weaponAttackTypes = weaponAttack.weaponAttackTypes;
+                    attackToSet.weaponAttackType = weaponAttack.weaponAttackType;
                     if (attackToSet.gameObject.activeSelf) attackToSet.gameObject.SetActive(false);
                 }
             }
@@ -49,7 +49,7 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < this.transform.childCount; i++)
         {
             WeaponAttack attack = new WeaponAttack();
-            attack.weaponAttackTypes = new List<WeaponAttack.WeaponAttackType>();
+            attack.weaponAttackType = new WeaponAttack.WeaponAttackType();
             attack.attackObject = this.transform.GetChild(i).gameObject;
             AutoSetAttackHitboxes(attack, attack.attackObject);
             weaponAttacks.Add(attack);

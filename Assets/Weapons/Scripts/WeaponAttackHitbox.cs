@@ -5,13 +5,13 @@ using UnityEngine;
 public class WeaponAttackHitbox : Attack
 {
     [HideInInspector] public Weapon thisWeapon;
-    [HideInInspector] public List<WeaponAttack.WeaponAttackType> weaponAttackTypes;
+    [HideInInspector] public WeaponAttack.WeaponAttackType weaponAttackType;
     [SerializeField] private LayerMask hitLayer;
     protected override void Damage(string receivedTag)
     {
         bool invulnerable = false;
         if (receivedTag == "Invulnerable") invulnerable = true;
-        if (thisWeapon!=null) DamagePossible(invulnerable);
+        if (thisWeapon != null) DamagePossible(invulnerable);
     }
 
     private void DamagePossible(bool invulnerable)
@@ -38,7 +38,7 @@ public class WeaponAttackHitbox : Attack
 
     private void SetHit(bool invulnerable)
     {
-        attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage, weaponAttackTypes, invulnerable, thisWeapon.gameObject);
+        attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage, weaponAttackType, invulnerable, thisWeapon.gameObject);
         thisWeapon.hitTargets.Add(attackReceived);
     }
 }

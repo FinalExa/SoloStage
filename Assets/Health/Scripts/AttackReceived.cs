@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackReceived : MonoBehaviour
 {
     private Health health;
-    public enum GameTargets { PLAYER, ENEMY, PUZZLE_ELEMENT }
+    public enum GameTargets { PLAYER, ENEMY }
     [SerializeField] private GameTargets thisType;
     public bool ignoresDamage;
 
@@ -14,7 +14,7 @@ public class AttackReceived : MonoBehaviour
         health = this.gameObject.GetComponent<Health>();
     }
 
-    public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, List<WeaponAttack.WeaponAttackType> weaponAttackTypes, bool invulnerable, GameObject attacker)
+    public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, WeaponAttack.WeaponAttackType weaponAttackType, bool invulnerable, GameObject attacker)
     {
         if (receivedTargets.Contains(thisType))
         {
