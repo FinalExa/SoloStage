@@ -9,6 +9,7 @@ public class PCReferences : MonoBehaviour
     [HideInInspector] public Rigidbody pcRb;
     [HideInInspector] public Combo pcCombo;
     [HideInInspector] public Camera mainCameraRef;
+    public UXEffect uxOnDodge;
 
     private void Awake()
     {

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleTargets: 
   thisWeapon: {fileID: 0}
-  weaponAttackTypes: 
+  weaponAttackType: 0
   hitLayer:
     serializedVersion: 2
     m_Bits: 193

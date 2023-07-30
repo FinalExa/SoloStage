@@ -24,7 +24,7 @@ public class PCMoving : PCState
     {
         Inputs inputs = _pcStateMachine.pcController.pcReferences.pcInputs;
         GoToAttackState(inputs);
-        //GoToDodgeState(inputs);
+        GoToDodgeState(inputs);
         GoToIdleState(inputs);
     }
     #region ToMovementState
@@ -37,6 +37,13 @@ public class PCMoving : PCState
     private void GoToAttackState(Inputs inputs)
     {
         if (inputs.LeftClickInput) _pcStateMachine.SetState(new PCAttack(_pcStateMachine));
+    }
+    #endregion
+
+    #region ToDodgeState
+    private void GoToDodgeState(Inputs inputs)
+    {
+        if (inputs.DodgeInput) _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.lookDirection));
     }
     #endregion
     #endregion

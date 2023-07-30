@@ -21,7 +21,7 @@ public class PCIdle : PCState
         Inputs inputs = _pcStateMachine.pcController.pcReferences.pcInputs;
         GoToMovementState(inputs);
         GoToAttackState(inputs);
-        //GoToDodgeState(inputs);
+        GoToDodgeState(inputs);
     }
     #region ToMovementState
     private void GoToMovementState(Inputs inputs)
@@ -38,10 +38,7 @@ public class PCIdle : PCState
     #region ToDodgeState
     private void GoToDodgeState(Inputs inputs)
     {
-        if (inputs.DodgeInput)
-        {
-            //_pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.lookDirection));
-        }
+        if (inputs.DodgeInput) _pcStateMachine.SetState(new PCDodge(_pcStateMachine, _pcStateMachine.pcController.lookDirection));
     }
     #endregion
     #endregion
