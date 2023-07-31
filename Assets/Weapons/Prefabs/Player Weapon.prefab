@@ -118,7 +118,7 @@ MonoBehaviour:
   comboEndFramesDelay: 20
   comboCancelEnabled: 1
   comboCancelFrames: 30
-  possibleTargets: 0000000000000000
+  possibleTargets: 01000000
   weaponAttacks:
   - damage: 10
     frameDuration: 24

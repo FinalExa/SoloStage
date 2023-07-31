@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public IReturnTheCurrentElement returnTheCurrentElement;
     public string weaponName;
     public int comboEndFramesDelay;
     public bool comboCancelEnabled;
@@ -14,6 +15,10 @@ public class Weapon : MonoBehaviour
     [HideInInspector] public float currentDamage;
     [HideInInspector] public int currentWeaponAttackIndex;
 
+    private void Awake()
+    {
+        returnTheCurrentElement = this.gameObject.GetComponentInParent<IReturnTheCurrentElement>();
+    }
 
     private void Start()
     {
@@ -34,7 +39,6 @@ public class Weapon : MonoBehaviour
                 {
                     attackToSet.thisWeapon = this;
                     attackToSet.possibleTargets = possibleTargets;
-                    attackToSet.weaponAttackType = weaponAttack.weaponAttackType;
                     if (attackToSet.gameObject.activeSelf) attackToSet.gameObject.SetActive(false);
                 }
             }
@@ -49,7 +53,6 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < this.transform.childCount; i++)
         {
             WeaponAttack attack = new WeaponAttack();
-            attack.weaponAttackType = new WeaponAttack.WeaponAttackType();
             attack.attackObject = this.transform.GetChild(i).gameObject;
             AutoSetAttackHitboxes(attack, attack.attackObject);
             weaponAttacks.Add(attack);

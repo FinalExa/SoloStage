@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   defaultMovementSpeed: 15
-  maxNectar: 100
-  nectarStopRegenCooldown: 1
-  nectarRegenPerSecond: 25
-  nectarDrainPerSecond: 33
+  maxElementGauge: 100
+  elementGaugeRegenCooldown: 1.5
+  elementGaugeRegenPerSecond: 3
+  elementGaugeDrainPerSecond: 5
   defaultDirection: {x: 0, y: 0, z: 1}
   invulnerabilityTag: Invulnerable
   dodgeInvulnerabilityStart: 0.12

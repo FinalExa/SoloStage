@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 2623678466020605869}
   - component: {fileID: 1078184593144671109}
   m_Layer: 0
-  m_Name: NectarBar
+  m_Name: ElementalGaugeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

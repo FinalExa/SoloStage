@@ -14,7 +14,7 @@ public class AttackReceived : MonoBehaviour
         health = this.gameObject.GetComponent<Health>();
     }
 
-    public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, WeaponAttack.WeaponAttackType weaponAttackType, bool invulnerable, GameObject attacker)
+    public void AttackReceivedOperation(List<GameTargets> receivedTargets, float damage, ElementGauge.ElementTypes elementType, bool invulnerable, GameObject attacker)
     {
         if (receivedTargets.Contains(thisType))
         {

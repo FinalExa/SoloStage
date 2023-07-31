@@ -5,7 +5,6 @@ using UnityEngine;
 public class WeaponAttackHitbox : Attack
 {
     [HideInInspector] public Weapon thisWeapon;
-    [HideInInspector] public WeaponAttack.WeaponAttackType weaponAttackType;
     [SerializeField] private LayerMask hitLayer;
     protected override void Damage(string receivedTag)
     {
@@ -38,7 +37,7 @@ public class WeaponAttackHitbox : Attack
 
     private void SetHit(bool invulnerable)
     {
-        attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage, weaponAttackType, invulnerable, thisWeapon.gameObject);
+        attackReceived.AttackReceivedOperation(possibleTargets, thisWeapon.currentDamage, thisWeapon.returnTheCurrentElement.GetCurrentElement(), invulnerable, thisWeapon.gameObject);
         thisWeapon.hitTargets.Add(attackReceived);
     }
 }

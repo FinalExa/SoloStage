@@ -7,11 +7,11 @@ public class PCData : ScriptableObject
     public float maxHP;
     [Header("Movement Section")]
     public float defaultMovementSpeed;
-    [Header("Nectar Section")]
-    public float maxNectar;
-    public float nectarStopRegenCooldown;
-    public float nectarRegenPerSecond;
-    public float nectarDrainPerSecond;
+    [Header("Element Gauge Section")]
+    public float maxElementGauge;
+    public float elementGaugeRegenCooldown;
+    public float elementGaugeRegenPerSecond;
+    public float elementGaugeDrainPerSecond;
     [Header("Dodge Section")]
     public Vector3 defaultDirection;
     public string invulnerabilityTag;
