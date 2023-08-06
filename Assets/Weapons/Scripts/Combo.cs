@@ -52,6 +52,7 @@ public class Combo : MonoBehaviour
 
     protected void StartComboHit()
     {
+        if (currentWeapon.hasStaminaConsuption) currentWeapon.staminaGauge.UpdateStaminaGaugeValue(-currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].staminaConsuption);
         comboActive = true;
         comboDelays.SetVariablesDuringAttack();
         currentWeapon.currentDamage = currentWeapon.weaponAttacks[currentWeapon.currentWeaponAttackIndex].damage;
@@ -66,6 +67,7 @@ public class Combo : MonoBehaviour
 
     public bool GetIfHitIsPossible()
     {
+        if (currentWeapon.hasStaminaConsuption && currentWeapon.staminaGauge.GetCurrentStamina() <= 0) return false;
         return comboDelays.CheckIfHitIsPossible();
     }
     public bool GetIfIsAttacking()

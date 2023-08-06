@@ -19,7 +19,8 @@ public class PCDodge : PCState
 
     public override void Start()
     {
-        DodgeSetup();
+        if (_pcStateMachine.pcController.pcReferences.staminaGauge.GetCurrentStamina() > 0) DodgeSetup();
+        else Transitions();
     }
 
     public override void FixedUpdate()
@@ -36,6 +37,7 @@ public class PCDodge : PCState
         dodgeTimeCount = 0f;
         dodgeSpeed = pcData.dodgeDistance / pcData.dodgeDuration;
         //_pcStateMachine.pcController.pcReferences.pcRotation.rotationLocked = true;
+        _pcStateMachine.pcController.pcReferences.staminaGauge.UpdateStaminaGaugeValue(-pcData.dodgeStaminaCost);
         if (_pcStateMachine.pcController.pcReferences.uxOnDodge.hasSound) _pcStateMachine.pcController.pcReferences.uxOnDodge.sound.PlayAudio();
         startDodge = true;
     }

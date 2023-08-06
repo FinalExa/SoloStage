@@ -9,8 +9,10 @@ public class Weapon : MonoBehaviour
     public int comboEndFramesDelay;
     public bool comboCancelEnabled;
     public int comboCancelFrames;
+    public bool hasStaminaConsuption;
     public List<AttackReceived.GameTargets> possibleTargets;
     public List<WeaponAttack> weaponAttacks;
+    [HideInInspector] public StaminaGauge staminaGauge;
     [HideInInspector] public List<AttackReceived> hitTargets;
     [HideInInspector] public float currentDamage;
     [HideInInspector] public int currentWeaponAttackIndex;
@@ -18,6 +20,7 @@ public class Weapon : MonoBehaviour
     private void Awake()
     {
         returnTheCurrentElement = this.gameObject.GetComponentInParent<IReturnTheCurrentElement>();
+        if (hasStaminaConsuption) staminaGauge = this.gameObject.GetComponentInParent<StaminaGauge>();
     }
 
     private void Start()

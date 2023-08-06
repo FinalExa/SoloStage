@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8379730949344810456}
   - component: {fileID: -3198380423708133177}
   - component: {fileID: 6137355417975740237}
+  - component: {fileID: 5658844614150548674}
   - component: {fileID: 5673694498495230515}
   - component: {fileID: 8624998598024139239}
   - component: {fileID: 1888357176043464229}
@@ -89,6 +90,7 @@ MonoBehaviour:
   pcRb: {fileID: 0}
   pcCombo: {fileID: 0}
   infusion: {fileID: 0}
+  staminaGauge: {fileID: 0}
   mainCameraRef: {fileID: 0}
   uxOnDodge:
     hasSound: 0
@@ -115,6 +117,19 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
+--- !u!114 &5658844614150548674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420312121698097994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e098536f9c41c0a43913ee72cee842e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaGaugeSlider: {fileID: 5032136153508128358}
 --- !u!114 &5673694498495230515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +164,7 @@ MonoBehaviour:
     framesOfDelay: 0
     movementDistance: 0
     ignoresWalls: 0
+    staminaConsuption: 0
     attackObject: {fileID: 0}
     weaponAttackHitboxSequence: []
     weaponSpawnsObjectDuringThisAttack: []
@@ -695,9 +711,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6853267261356417373, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7297150911774021797, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7765492443795056408, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8546634997271196803, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -710,6 +734,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5885450336590936087, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
   m_PrefabInstance: {fileID: 5252947038491221851}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5032136153508128358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 951256416007829821, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
+  m_PrefabInstance: {fileID: 5252947038491221851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5048619487148537054 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1078184593144671109, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}

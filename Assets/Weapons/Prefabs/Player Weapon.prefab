@@ -118,6 +118,7 @@ MonoBehaviour:
   comboEndFramesDelay: 20
   comboCancelEnabled: 1
   comboCancelFrames: 30
+  hasStaminaConsuption: 1
   possibleTargets: 01000000
   weaponAttacks:
   - damage: 10
@@ -125,8 +126,8 @@ MonoBehaviour:
     framesOfDelay: 5
     movementDistance: 1
     ignoresWalls: 0
+    staminaConsuption: 30
     attackObject: {fileID: 3757614007847325028}
-    weaponAttackType: 0
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 2511438934693805908}
       activationFrame: 0
@@ -169,8 +170,8 @@ MonoBehaviour:
     framesOfDelay: 0
     movementDistance: 1
     ignoresWalls: 0
+    staminaConsuption: 30
     attackObject: {fileID: 5423653690357693420}
-    weaponAttackType: 0
     weaponAttackHitboxSequence:
     - attackRef: {fileID: 6952761627954525129}
       activationFrame: 0
@@ -208,6 +209,7 @@ MonoBehaviour:
         shakeDuration: 0
         cinemachineCameraShakerRef: {fileID: 0}
       soundParent: {fileID: 0}
+  staminaGauge: {fileID: 0}
   hitTargets: []
   currentDamage: 0
   currentWeaponAttackIndex: 0

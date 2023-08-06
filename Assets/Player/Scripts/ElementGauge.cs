@@ -6,16 +6,16 @@ using TMPro;
 
 public class ElementGauge : MonoBehaviour
 {
-    [SerializeField] private Slider elementGaugeSlider;
-    [SerializeField] private TMP_Text elementText;
-    [SerializeField] private TMP_Text infusedText;
     private PCReferences pcReferences;
     private float maxElementGauge;
     private float currentElementGauge;
-    private float depletedGaugeCooldown;
+    private float regenCooldownTimer;
     private bool drainActive;
     private bool regenCooldown;
     public enum ElementTypes { NONE, FIRE, WATER, PLANT, WIND, GROUND, THUNDER, GRAVITY, FROST, DARKNESS, LIGHT }
+    [SerializeField] private Slider elementGaugeSlider;
+    [SerializeField] private TMP_Text elementText;
+    [SerializeField] private TMP_Text infusedText;
 
     private void Awake()
     {
@@ -90,14 +90,14 @@ public class ElementGauge : MonoBehaviour
     private void SetupRegenCooldown()
     {
         regenCooldown = true;
-        depletedGaugeCooldown = pcReferences.pcData.elementGaugeRegenCooldown;
+        regenCooldownTimer = pcReferences.pcData.elementGaugeRegenCooldown;
     }
 
     private void RegenCooldown()
     {
         if (regenCooldown)
         {
-            if (depletedGaugeCooldown > 0) depletedGaugeCooldown -= Time.deltaTime;
+            if (regenCooldownTimer > 0) regenCooldownTimer -= Time.deltaTime;
             else regenCooldown = false;
         }
     }

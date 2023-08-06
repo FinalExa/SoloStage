@@ -9,6 +9,7 @@ public class WeaponAttack
     public int framesOfDelay;
     public float movementDistance;
     public bool ignoresWalls;
+    public float staminaConsuption;
     public GameObject attackObject;
 
     [System.Serializable]

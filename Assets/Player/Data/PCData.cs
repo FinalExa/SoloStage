@@ -7,6 +7,10 @@ public class PCData : ScriptableObject
     public float maxHP;
     [Header("Movement Section")]
     public float defaultMovementSpeed;
+    [Header("Stamina Section")]
+    public float maxStaminaGauge;
+    public float staminaRegenCooldown;
+    public float staminaRegenPerSecond;
     [Header("Element Gauge Section")]
     public float maxElementGauge;
     public float elementGaugeRegenCooldown;
@@ -20,5 +24,6 @@ public class PCData : ScriptableObject
     public float dodgeDuration;
     public float dodgeDistance;
     public float dodgeEndCooldown;
-    public float dodgeApplicationNectarCost;
+    public float dodgeStaminaCost;
+    public float dodgeApplicationCost;
 }

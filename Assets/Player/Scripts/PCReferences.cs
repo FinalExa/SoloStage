@@ -9,6 +9,7 @@ public class PCReferences : MonoBehaviour
     [HideInInspector] public Rigidbody pcRb;
     [HideInInspector] public Combo pcCombo;
     [HideInInspector] public Infusion infusion;
+    [HideInInspector] public StaminaGauge staminaGauge;
     [HideInInspector] public Camera mainCameraRef;
     public UXEffect uxOnDodge;
 
@@ -18,6 +19,7 @@ public class PCReferences : MonoBehaviour
         pcRb = this.gameObject.GetComponent<Rigidbody>();
         pcCombo = this.gameObject.GetComponent<Combo>();
         infusion = this.gameObject.GetComponent<Infusion>();
+        staminaGauge = this.gameObject.GetComponent<StaminaGauge>();
         mainCameraRef = FindObjectOfType<Camera>();
     }
 }
