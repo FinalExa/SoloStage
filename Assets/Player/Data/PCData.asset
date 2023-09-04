@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHP: 100
   defaultMovementSpeed: 15
   maxStaminaGauge: 100
-  staminaRegenCooldown: 1.5
+  staminaRegenCooldown: 1
   staminaRegenPerSecond: 37
   maxElementGauge: 100
   elementGaugeRegenCooldown: 1.5

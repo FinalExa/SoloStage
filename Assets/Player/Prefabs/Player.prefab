@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8379730949344810456}
   - component: {fileID: -3198380423708133177}
   - component: {fileID: 6137355417975740237}
+  - component: {fileID: 5307105850888740898}
+  - component: {fileID: 2856220570324367454}
   - component: {fileID: 5658844614150548674}
   - component: {fileID: 5673694498495230515}
   - component: {fileID: 8624998598024139239}
@@ -117,6 +119,85 @@ MonoBehaviour:
       shakeDuration: 0
       cinemachineCameraShakerRef: {fileID: 0}
     soundParent: {fileID: 0}
+--- !u!114 &5307105850888740898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420312121698097994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aedb3eb057b16d146897207048a286c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisType: 0
+  ignoresDamage: 0
+--- !u!114 &2856220570324367454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2420312121698097994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76a47d86d2cdd145819c0e95c354cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 0
+  maxHP: 0
+  uxOnDeath:
+    hasSound: 0
+    sound:
+      clip: {fileID: 0}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 0}
+    hasSpriteColorChange: 0
+    spriteColorChange:
+      changedSpriteColor: {r: 0, g: 0, b: 0, a: 0}
+      spriteRef: {fileID: 0}
+      spriteColorChangeDuration: 0
+    hasCameraShake: 0
+    cameraShake:
+      shakeAmplitude: 0
+      shakeFrequency: 0
+      shakeDuration: 0
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
+  uxOnHit:
+    hasSound: 0
+    sound:
+      clip: {fileID: 0}
+      priority: 128
+      volume: 1
+      pitch: 1
+      stereoPan: 0
+      spatialBlend: 0
+      reverbZoneMix: 1
+      loop: 0
+      playOnAwake: 0
+      mixer: {fileID: 0}
+    hasSpriteColorChange: 1
+    spriteColorChange:
+      changedSpriteColor: {r: 0, g: 0, b: 1, a: 1}
+      spriteRef: {fileID: 5165769039159228331}
+      spriteColorChangeDuration: 0.3
+    hasCameraShake: 1
+    cameraShake:
+      shakeAmplitude: 5
+      shakeFrequency: 10
+      shakeDuration: 0.1
+      cinemachineCameraShakerRef: {fileID: 0}
+    soundParent: {fileID: 0}
+  healthBarSlider: {fileID: 49002003088126332}
 --- !u!114 &5658844614150548674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,6 +810,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
+--- !u!114 &49002003088126332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5208448771472240167, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
+  m_PrefabInstance: {fileID: 5252947038491221851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1822663062516213580 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5885450336590936087, guid: fa4032f8c4f12884a887bcfc47c8feb4, type: 3}
